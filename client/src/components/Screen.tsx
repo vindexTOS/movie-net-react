@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import { movieData, movieDataType } from '../assets/dummydata/data'
+import { filmData, movieDataType } from '../assets/dummydata/data'
 import imbd from '../assets/icons/imdb.png'
 import tomato from '../assets/icons/tomato.png'
 import RatingComponent from './RatingComponent'
@@ -7,6 +7,7 @@ import { motion as m } from 'framer-motion'
 import Description from './Description'
 import Button from './Button'
 import Actors from './Actors'
+import Video from './Video'
 import { increment, decrement } from '../redux/features/slideMovieSlice'
 import { useDispatch, useSelector } from 'react-redux'
 export type Action = {
@@ -15,6 +16,7 @@ export type Action = {
 type State = {
   showDec: boolean
   showActors: boolean
+  showVideo: boolean
 }
 
 const Screen = () => {
@@ -27,7 +29,7 @@ const Screen = () => {
     ratingDiv: `flex gap-5 absolute top-20`,
   }
 
-  const [moviesDATA, setmoviesDATA] = React.useState<movieDataType[]>(movieData)
+  const [movieData, setmovieData] = React.useState<movieDataType[]>(filmData)
   const dispatchRedux = useDispatch()
   const index = useSelector((state: any) => state.slide.index)
   const reducer = (state: State, action: Action) => {
@@ -37,18 +39,21 @@ const Screen = () => {
           ...state,
           showDec: state.showDec = true,
           showActors: state.showActors = false,
+          showVideo: state.showVideo = false,
         }
       case 'actors':
         return {
           ...state,
           showDec: state.showDec = false,
           showActors: state.showActors = true,
+          showVideo: state.showVideo = false,
         }
-      case 'cancel':
+      case 'video':
         return {
           ...state,
           showDec: state.showDec = false,
           showActors: state.showActors = false,
+          showVideo: state.showVideo = true,
         }
       default:
         return state
@@ -58,6 +63,7 @@ const Screen = () => {
   const [state, dispatch] = useReducer(reducer, {
     showDec: false,
     showActors: false,
+    showVideo: false,
   })
 
   return (
@@ -102,7 +108,7 @@ const Screen = () => {
             spec={'border-t-[1px]'}
             title={'Video'}
             clickEvent={dispatch}
-            type={'cancel'}
+            type={'video'}
           />
           <Button
             color={movieData[index].color2}
@@ -126,11 +132,17 @@ const Screen = () => {
             color2={movieData[index].color2}
           />
         )}
+        {state.showVideo && (
+          <Video
+            video={movieData[index].video}
+            color={movieData[index].color2}
+          />
+        )}
       </div>
       <img className={style.img} src={movieData[index].img} />
       <button
         className="text-black text-[3rem]"
-        onClick={() => dispatchRedux(increment(moviesDATA.length))}
+        onClick={() => dispatchRedux(increment(movieData.length))}
       >
         +
       </button>

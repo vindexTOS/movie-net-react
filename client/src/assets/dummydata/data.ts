@@ -15,7 +15,7 @@ export type movieDataType = {
   }
 }
 
-export const movieData: movieDataType[] = [
+export const filmData: movieDataType[] = [
   {
     title: 'American Psycho',
     color: `#ffffff`,
@@ -70,6 +70,33 @@ export const movieData: movieDataType[] = [
     rating: {
       IMDb: 8.8,
       RottenTomatos: 79,
+    },
+  },
+  {
+    title: 'Nightcrawler',
+    color: `#232323`,
+    color2: `#ec2b58`,
+    img: `https://firebasestorage.googleapis.com/v0/b/pcmarket-8f5e8.appspot.com/o/sigmamovies%2Fmattryan_nightcrawler.jpg?alt=media&token=f7ffb52e-910e-4501-aa3f-3d3d24823c63`,
+    video: `https://www.youtube.com/embed/kKaR6AqoYqk`,
+    dec: `NIGHTCRAWLER is a thriller set in the nocturnal underbelly of contemporary Los Angeles. Jake Gyllenhaal stars as Lou Bloom, a driven young man desperate for work who discovers the high-speed world of L.A. crime journalism. Finding a group of freelance camera crews who film crashes, fires, murder and other mayhem, Lou muscles into the cut-throat, dangerous realm of nightcrawling - where each police siren wail equals a possible windfall and victims are converted into dollars and cents. Aided by Rene Russo as Nina, a veteran of the blood-sport that is local TV news, Lou blurs the line between observer and participant to become the star of his own story`,
+    actors: [
+      {
+        name: 'Jake Gyllenhaal',
+        img:
+          'https://images.mubicdn.net/images/cast_member/3071/cache-3195-1568084972/image-w856.jpg?size=800x',
+      },
+      {
+        name: `Rene Russo`,
+        img: `https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTGjrlRH7eSeBPR0WqpgATo78sGdALSayVHPr3q8UkuDe_IfNdtRUCEfBrOPYqvD9OUDtKehSV9Vkq6X9k`,
+      },
+      {
+        name: `Riz Ahmed`,
+        img: `https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQcO4ab1Tlo9ttiLGdhMNCrzaWtdGYJ2MM_7ERXIDimGKFBK6ZLQ1_cwjSZVucowMUl9aOWUjxHkKrstOQ`,
+      },
+    ],
+    rating: {
+      IMDb: 7.8,
+      RottenTomatos: 95,
     },
   },
 ]
