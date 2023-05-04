@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mainBG {
+  background: rgb(4, 12, 14);
+  background: linear-gradient(
+    313deg,
+    rgba(4, 12, 14, 1) 0%,
+    rgba(19, 34, 38, 1) 63%,
+    rgba(54, 58, 55, 1) 89%,
+    rgba(111, 99, 84, 1) 100%
+  );
+}
+
+.depthshaddow {
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(19, 24, 49, 0.5),
+    inset 5px 5px 8px rgba(0, 0, 0, 0.5);
+}
+
+.boxshaddow {
+  box-shadow: 6px 8px 5px 0px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 6px 8px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 6px 8px 5px 0px rgba(0, 0, 0, 0.75);
+}
