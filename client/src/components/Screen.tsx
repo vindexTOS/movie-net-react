@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react'
-import { movieData } from '../assets/dummydata/data'
+import { movieData, movieDataType } from '../assets/dummydata/data'
 import imbd from '../assets/icons/imdb.png'
 import tomato from '../assets/icons/tomato.png'
 import RatingComponent from './RatingComponent'
@@ -7,7 +7,8 @@ import { motion as m } from 'framer-motion'
 import Description from './Description'
 import Button from './Button'
 import Actors from './Actors'
-
+import { increment, decrement } from '../redux/features/slideMovieSlice'
+import { useDispatch, useSelector } from 'react-redux'
 export type Action = {
   type: string
 }
@@ -26,6 +27,9 @@ const Screen = () => {
     ratingDiv: `flex gap-5 absolute top-20`,
   }
 
+  const [moviesDATA, setmoviesDATA] = React.useState<movieDataType[]>(movieData)
+  const dispatchRedux = useDispatch()
+  const index = useSelector((state: any) => state.slide.index)
   const reducer = (state: State, action: Action) => {
     switch (action.type) {
       case 'dec':
@@ -60,48 +64,48 @@ const Screen = () => {
     <div
       className={style.screenDiv}
       style={{
-        background: ` ${movieData[0].color}   `,
+        background: ` ${movieData[index].color}   `,
       }}
     >
-      {/* <button onClick={() => console.log(showDec)}>ON CLICK</button> */}
+      {/* <button onClick={() => console.log(index)}>ON CLICK</button> */}
       <div className={style.ratingDiv}>
         <RatingComponent
           img={imbd}
-          num={movieData[0].rating.IMDb}
-          color={movieData[0].color2}
+          num={movieData[index].rating.IMDb}
+          color={movieData[index].color2}
           secVal={`/10`}
         />
         <RatingComponent
           img={tomato}
-          num={movieData[0].rating.RottenTomatos}
-          color={movieData[0].color2}
+          num={movieData[index].rating.RottenTomatos}
+          color={movieData[index].color2}
           secVal={`%`}
         />
       </div>
       <div className="flex flex-col justify-around h-[100%] ">
         <h1
-          style={{ color: `${movieData[0].color2}` }}
-          className="text-center text-[5rem] font-bold tracking-widest"
+          style={{ color: `${movieData[index].color2}` }}
+          className="text-center text-[5rem] font-bold tracking-widest  h-[200px]"
         >
-          {movieData[0].title}
+          {movieData[index].title}
         </h1>
         <div className={style.btnDiv}>
           <Button
-            color={movieData[0].color2}
+            color={movieData[index].color2}
             spec={'border-l-[1px]'}
             title={'Description'}
             clickEvent={dispatch}
             type={'dec'}
           />
           <Button
-            color={movieData[0].color2}
+            color={movieData[index].color2}
             spec={'border-t-[1px]'}
-            title={'Title'}
+            title={'Video'}
             clickEvent={dispatch}
             type={'cancel'}
           />
           <Button
-            color={movieData[0].color2}
+            color={movieData[index].color2}
             spec={'border-r-[1px]'}
             title={'Actors'}
             clickEvent={dispatch}
@@ -110,20 +114,32 @@ const Screen = () => {
         </div>
         {state.showDec && (
           <Description
-            dec={movieData[0].dec}
-            color1={movieData[0].color}
-            color2={movieData[0].color2}
+            dec={movieData[index].dec}
+            color1={movieData[index].color}
+            color2={movieData[index].color2}
           />
         )}
         {state.showActors && (
           <Actors
-            actors={movieData[0].actors}
-            color1={movieData[0].color}
-            color2={movieData[0].color2}
+            actors={movieData[index].actors}
+            color1={movieData[index].color}
+            color2={movieData[index].color2}
           />
         )}
       </div>
-      <img className={style.img} src={movieData[0].img} />
+      <img className={style.img} src={movieData[index].img} />
+      <button
+        className="text-black text-[3rem]"
+        onClick={() => dispatchRedux(increment(moviesDATA.length))}
+      >
+        +
+      </button>
+      <button
+        className="text-black text-[3rem]"
+        onClick={() => dispatchRedux(decrement())}
+      >
+        -
+      </button>
     </div>
   )
 }

@@ -1,4 +1,21 @@
-export const movieData = [
+export type movieDataType = {
+  title: string
+  color: string
+  color2: string
+  img: string
+  video: string
+  dec: string
+  actors: {
+    name: string
+    img: string
+  }[]
+  rating: {
+    IMDb: number
+    RottenTomatos: number
+  }
+}
+
+export const movieData: movieDataType[] = [
   {
     title: 'American Psycho',
     color: `#ffffff`,
@@ -26,6 +43,33 @@ export const movieData = [
     rating: {
       IMDb: 7.6,
       RottenTomatos: 68,
+    },
+  },
+  {
+    title: 'Fight Club',
+    color: `#228288`,
+    color2: `#ff39b7`,
+    img: `https://firebasestorage.googleapis.com/v0/b/pcmarket-8f5e8.appspot.com/o/sigmamovies%2FFIGHT-CLUB-HarryMovieArt_1024x1024.webp?alt=media&token=ae0f87cd-c639-4db4-b104-d4d1da948d39`,
+    video: `https://www.youtube.com/embed/jBT4_Cx5ihs`,
+    dec: ` An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.
+    A nameless first person narrator (Edward Norton) attends support groups in attempt to subdue his emotional state and relieve his insomniac state. When he meets Marla (Helena Bonham Carter), another fake attendee of support groups, his life seems to become a little more bearable. However when he associates himself with Tyler (Brad Pitt) he is dragged into an underground fight club and soap making scheme. Together the two men spiral out of control and engage in competitive rivalry for love and power.`,
+    actors: [
+      {
+        name: 'Edward Norton',
+        img: 'https://m.media-amazon.com/images/I/61CtO7YkiwL._AC_SX425_.jpg',
+      },
+      {
+        name: `Brad Pitt`,
+        img: `https://i.pinimg.com/originals/06/ce/ac/06ceacba8d75c9e37c15c9ab0cb766e7.jpg`,
+      },
+      {
+        name: `Helena Bonham `,
+        img: `https://cdn.britannica.com/10/237510-050-0D3B1ECE/British-actress-Helena-Bonham-Carter-2019.jpg`,
+      },
+    ],
+    rating: {
+      IMDb: 8.8,
+      RottenTomatos: 79,
     },
   },
 ]
