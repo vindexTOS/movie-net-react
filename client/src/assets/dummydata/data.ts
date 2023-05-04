@@ -1,8 +1,9 @@
 export const movieData = [
   {
     title: 'American Psycho',
-    color: `#8B0000`,
-    img: `https://m.media-amazon.com/images/M/MV5BZTM2ZGJmNjQtN2UyOS00NjcxLWFjMDktMDE2NzMyNTZlZTBiXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_FMjpg_UX1000_.jpg`,
+    color: `#ffffff`,
+    color2: `#710f10`,
+    img: ` https://e0.pxfuel.com/wallpapers/361/514/desktop-wallpaper-american-psycho-poster-horor-movie-wall-decor-wall-print-american-psycho-home-decor-gift-for-him-gift-for-her-handmade-products-patrick-bateman.jpg`,
     video: `https://www.youtube.com/embed/x19FimfBfOo`,
     dec: `A wealthy New York City investment banking executive, Patrick Bateman, hides his alternate psychopathic ego from his co-workers and friends as he delves deeper into his violent, hedonistic fantasies.
    
