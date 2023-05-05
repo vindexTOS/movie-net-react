@@ -1,0 +1,12 @@
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\bin\Debug\net7.0\SigmaMovies.Domain.deps.json
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\bin\Debug\net7.0\SigmaMovies.Domain.dll
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\bin\Debug\net7.0\SigmaMovies.Domain.pdb
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.csproj.AssemblyReference.cache
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.AssemblyInfoInputs.cache
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.AssemblyInfo.cs
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.csproj.CoreCompileInputs.cache
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.dll
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\refint\SigmaMovies.Domain.dll
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\SigmaMovies.Domain.pdb
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Domain\obj\Debug\net7.0\ref\SigmaMovies.Domain.dll

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SigmaMovies.API.props" />
+</Project>

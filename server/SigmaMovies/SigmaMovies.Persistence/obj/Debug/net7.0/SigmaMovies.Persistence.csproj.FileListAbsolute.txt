@@ -1,0 +1,17 @@
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\bin\Debug\net7.0\SigmaMovies.Persistence.deps.json
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\bin\Debug\net7.0\SigmaMovies.Persistence.runtimeconfig.json
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\bin\Debug\net7.0\SigmaMovies.Persistence.dll
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\bin\Debug\net7.0\SigmaMovies.Persistence.pdb
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\bin\Debug\net7.0\SigmaMovies.Domain.dll
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\bin\Debug\net7.0\SigmaMovies.Domain.pdb
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.csproj.AssemblyReference.cache
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.AssemblyInfoInputs.cache
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.AssemblyInfo.cs
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.csproj.CoreCompileInputs.cache
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.csproj.CopyComplete
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.dll
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\refint\SigmaMovies.Persistence.dll
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.pdb
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\SigmaMovies.Persistence.genruntimeconfig.cache
+D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.Persistence\obj\Debug\net7.0\ref\SigmaMovies.Persistence.dll

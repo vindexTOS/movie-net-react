@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Tsl3aAqJkWYrQqmdrOUZfSwM2Nkux6KFRCmhIQwFx8g=",
+  "Source": "SigmaMovies.API",
+  "BasePath": "_content/SigmaMovies.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
