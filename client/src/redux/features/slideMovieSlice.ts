@@ -23,9 +23,12 @@ const slideSlice = createSlice({
         state.index--
       }
     },
+    selectorHanddler: (state, { payload }: { payload: number }) => {
+      state.index = payload
+    },
   },
 })
 
 export default slideSlice.reducer
 
-export const { increment, decrement } = slideSlice.actions
+export const { increment, decrement, selectorHanddler } = slideSlice.actions

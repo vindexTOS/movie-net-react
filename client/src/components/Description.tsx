@@ -9,7 +9,7 @@ type DescriptionTypeProps = {
 const Description: FC<DescriptionTypeProps> = ({ dec, color2, color1 }) => {
   return (
     <m.div
-      className="absolute  top-40 p-4 ml-20 text-start font-medium w-[600px]"
+      className="absolute  top-40 p-4 ml-20 text-start font-medium w-[900px]"
       style={{ backgroundColor: `${color1}` }}
     >
       <p style={{ color: color2 }}>{dec}</p>

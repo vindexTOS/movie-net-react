@@ -1,11 +1,17 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import infoReducer from '../features/infoSlice'
 import slideReducer from '../features/slideMovieSlice'
-const store = configureStore({
-  reducer: {
-    info: infoReducer,
-    slide: slideReducer,
-  },
+import dataSlice from '../features/dataSlice'
+const rootReducer = combineReducers({
+  info: infoReducer,
+  slide: slideReducer,
+  data: dataSlice,
 })
+
+const store = configureStore({
+  reducer: rootReducer,
+})
+
+export type RootState = ReturnType<typeof rootReducer>
 
 export default store

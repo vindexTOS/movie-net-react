@@ -13,7 +13,7 @@ const Actors: FC<ActorPropType> = ({ actors, color1, color2 }) => {
   }
   return (
     <div
-      className="flex justify-between items-center w-[600px] h-[400px] absolute top-40 ml-20 "
+      className="flex justify-between items-center w-[900px] h-[400px] absolute top-40 ml-20 "
       style={{ backgroundColor: color1 }}
     >
       {actors.map((val: { name: string; img: string }) => {

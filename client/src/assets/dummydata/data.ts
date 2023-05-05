@@ -13,17 +13,20 @@ export type movieDataType = {
     IMDb: number
     RottenTomatos: number
   }
+  quote: string
 }
 
 export const filmData: movieDataType[] = [
   {
+    quote:
+      'Look at that subtle off-white coloring. The tasteful thickness of it. Oh, my God. It even has a watermark',
     title: 'American Psycho',
     color: `#ffffff`,
     color2: `#710f10`,
     img: ` https://e0.pxfuel.com/wallpapers/361/514/desktop-wallpaper-american-psycho-poster-horor-movie-wall-decor-wall-print-american-psycho-home-decor-gift-for-him-gift-for-her-handmade-products-patrick-bateman.jpg`,
     video: `https://www.youtube.com/embed/x19FimfBfOo`,
     dec: `A wealthy New York City investment banking executive, Patrick Bateman, hides his alternate psychopathic ego from his co-workers and friends as he delves deeper into his violent, hedonistic fantasies.
-   
+    
     It's the late 1980s. Twenty-seven year old Wall Streeter Patrick Bateman travels among a closed network of the proverbial beautiful people, that closed network in only they able to allow others like themselves in in a feeling of superiority. Patrick has a routinized morning regimen to maintain his appearance of attractiveness and fitness. He, like those in his network, are vain, narcissistic, egomaniacal and competitive, always having to one up everyone else in that presentation of oneself, but he, unlike the others, realizes that, for himself, all of these are masks to hide what is truly underneath, someone/something inhuman in nature. In other words, he is comprised of a shell resembling a human that contains only greed and disgust, greed in wanting what others may have, and disgust for those who do not meet his expectations and for himself in not being the first or the best. That disgust ends up manifesting itself in wanting to rid the world of those people, he not seeing them as people but only of those characteristics he wants to rid.`,
     actors: [
       {
@@ -46,9 +49,11 @@ export const filmData: movieDataType[] = [
     },
   },
   {
+    quote: `You Are the Same Decaying Organic Matter as Everything Else.`,
     title: 'Fight Club',
-    color: `#228288`,
+    color: `#0e2d30`,
     color2: `#ff39b7`,
+
     img: `https://firebasestorage.googleapis.com/v0/b/pcmarket-8f5e8.appspot.com/o/sigmamovies%2FFIGHT-CLUB-HarryMovieArt_1024x1024.webp?alt=media&token=ae0f87cd-c639-4db4-b104-d4d1da948d39`,
     video: `https://www.youtube.com/embed/jBT4_Cx5ihs`,
     dec: ` An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.
@@ -73,6 +78,7 @@ export const filmData: movieDataType[] = [
     },
   },
   {
+    quote: `if you want to win the lottery, you have to make the money to buy the ticket`,
     title: 'Nightcrawler',
     color: `#232323`,
     color2: `#ec2b58`,
