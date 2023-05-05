@@ -100,7 +100,7 @@ const Screen = () => {
           />
         </div>
         <div className="flex flex-col justify-around items-center h-[100%] ">
-          <div className="flex flex-col items-center justify-center mt-20 space-between gap-10">
+          <div className="flex flex-col items-center justify-center h-[500px] mt-20 space-between gap-10">
             <h1
               style={{
                 color: titleCheck
