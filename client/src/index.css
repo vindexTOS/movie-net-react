@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'FightThis';
+  src: url('./assets/fonts/FIGHTT__.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+p {
+  font-family: cursive;
+}
+h1 {
+  font-family: fantasy;
+  letter-spacing: 1px;
+}
+
 .mainBG {
   background: rgb(4, 12, 14);
   background: linear-gradient(
@@ -28,4 +42,21 @@
 .gridSystem {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(19rem, 20rem));
+}
+
+.cardBoxShaddow {
+  box-shadow: 2px 23px 28px 13px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 2px 23px 28px 13px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 2px 23px 28px 13px rgba(0, 0, 0, 0.7);
+}
+
+.blackbg {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.42720763723150357) 0%,
+    rgba(0, 0, 0, 1) 17%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  backdrop-filter: blur(1px);
 }
