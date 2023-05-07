@@ -1,14 +1,26 @@
-import React from 'react'
-
+import React, { FC, useEffect } from 'react'
+import { FaArrowCircleLeft, FaArrowCircleRight } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectorHanddler } from '../redux/features/slideMovieSlice'
+import {
+  selectorHanddler,
+  increment,
+  decrement,
+} from '../redux/features/slideMovieSlice'
 import { motion as m } from 'framer-motion'
-const Selector = () => {
+
+type SelectorProps = {
+  StopInterval: () => void
+  stopInreval: boolean
+}
+
+const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
   const movieData = useSelector((state: any) => state.data.movieData)
   const dispatch = useDispatch()
   const style = {
-    mainDiv: `flex absolut flex     w-[100%] justify-end pb-20 px-10 gap-2   `,
-    img: `w-[150px] h-[150px] rounded-[10px] cursor-pointer`,
+    mainDiv: `flex flex    w-[100%] justify-end pr-40   gap-2   `,
+    img: `w-[40px] h-[40px] rounded-[10px] cursor-pointer`,
+    btnWrapper: `flex justify-between gap-10 pl-40 pt-10`,
+    icon: `text-[#ec2b58] text-[2rem] cursor-pointer  hover:text-yellow-400`,
   }
   const i = useSelector((state: any) => state.slide.index)
   const [mouseOver, setMouseOver] = React.useState<boolean[]>(
@@ -24,40 +36,65 @@ const Selector = () => {
     newVal[index] = false
     setMouseOver(newVal)
   }
+
+  useEffect(() => {
+    if (!stopInreval) {
+      console.log('incremen')
+      let interval = setTimeout(() => {
+        dispatch(increment(movieData.length))
+      }, 3000)
+
+      return () => clearInterval(interval)
+    }
+  }, [i])
   return (
-    <m.div className={style.mainDiv}>
-      {movieData.map((val: any, index: number) => {
-        return (
-          <m.div
-            key={movieData.color1}
-            onClick={() => dispatch(selectorHanddler(index))}
-            style={{
-              zIndex: i === index ? 50 : 10,
-              //   position: i === index ? 'absolute' : '',
-            }}
-          >
-            <m.img
-              onMouseOver={() => mouseIn(index)}
-              onMouseLeave={() => mouseOut(index)}
-              animate={{
-                scale: i === index ? 1.1 : 1,
-                y: i === index ? 0 : 10,
-                boxShadow: mouseOver[index]
-                  ? `0px 0px 3rem ${val.color2}`
-                  : `0px 0px 0.8rem ${val.color2}`,
+    <section className="flex   items-center    w-[100%]    ">
+      <div className={style.btnWrapper}>
+        <FaArrowCircleLeft
+          onClick={() => dispatch(decrement(movieData.length))}
+          className={style.icon}
+        />{' '}
+        <FaArrowCircleRight
+          onClick={() => dispatch(increment(movieData.length))}
+          className={style.icon}
+        />
+      </div>
+      <m.div className={style.mainDiv}>
+        {movieData.map((val: any, index: number) => {
+          return (
+            <m.div
+              key={movieData.color1}
+              onClick={() => {
+                dispatch(selectorHanddler(index)), StopInterval()
               }}
               style={{
-                borderRadius: '2rem',
-                boxShadow: `0px 0px 0.8rem ${val.color2}`,
                 zIndex: i === index ? 50 : 10,
+                //   position: i === index ? 'absolute' : '',
               }}
-              className={style.img}
-              src={val.img}
-            />
-          </m.div>
-        )
-      })}
-    </m.div>
+            >
+              <m.img
+                onMouseOver={() => mouseIn(index)}
+                onMouseLeave={() => mouseOut(index)}
+                animate={{
+                  scale: i === index ? 1.1 : 1,
+                  y: i === index ? 0 : 10,
+                  boxShadow: mouseOver[index]
+                    ? `0px 0px 3rem ${val.color2}`
+                    : `0px 0px 0.8rem ${val.color2}`,
+                }}
+                style={{
+                  borderRadius: '2rem',
+                  boxShadow: `0px 0px 0.8rem ${val.color2}`,
+                  zIndex: i === index ? 50 : 10,
+                }}
+                className={style.img}
+                src={val.img}
+              />
+            </m.div>
+          )
+        })}
+      </m.div>{' '}
+    </section>
   )
 }
 

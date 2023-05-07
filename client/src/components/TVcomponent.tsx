@@ -4,8 +4,7 @@ import Screen from './Screen'
 import { motion as m } from 'framer-motion'
 const TVcomponent = () => {
   const style = {
-    mainDiv: `w-[100%] h-[100%] gap-20 flex items-start justify-start  rounded-[4px]`,
-    screenOutlineDiv: `w-[100%] h-[100%]    bg-[#172a36] rounded-[5px] depthshaddow flex items-center justify-center  p-1 `,
+    mainDiv: `w-[90%] h-[700px]  gap-20 flex items-start justify-start mt-40 rounded-[4px]`,
   }
 
   return (

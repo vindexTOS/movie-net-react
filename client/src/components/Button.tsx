@@ -17,7 +17,7 @@ const Button: FC<ButtonTypeProp> = ({
   type,
 }) => {
   const style = {
-    btn: `border-b-[1px]  text-[1.4rem]   w-[12rem] py-1 font-medium tracking-widest`,
+    btn: `border-b-[1px]  text-[1rem]   w-[9rem] py-1 font-medium tracking-widest`,
   }
   return (
     <m.button
@@ -35,7 +35,7 @@ const Button: FC<ButtonTypeProp> = ({
         padding: '1rem',
         border: 'none',
         outline: 'none',
-        borderRadius: '0.5rem',
+        borderRadius: '4rem',
         boxShadow: `0 0.25rem 0.5rem ${color}`,
         color: `${color}`,
         borderColor: `${color}`,
