@@ -17,12 +17,13 @@ namespace SigmaMovies.Domain.Movies
         public string Video { get; set; }
         public string Description { get; set; }
         public List<Actor> Actors { get; set; }
+        public Metadata Metadata { get; set; }
         public Rating Rating { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
     }
 
-    
+
 
     public class Rating
     {
@@ -30,4 +31,10 @@ namespace SigmaMovies.Domain.Movies
         public int RottenTomatoes { get; set; }
     }
 
+    public class Metadata
+    {
+        public string Hr { get; set; }
+        public int Year { get; set; }
+        public string Genre { get; set; }
+    }
 }

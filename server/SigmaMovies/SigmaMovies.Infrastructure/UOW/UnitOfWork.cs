@@ -1,25 +1,44 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Identity.Client;
 using SigmaMovies.Application;
 using SigmaMovies.Application.Actors.Repositories;
 using SigmaMovies.Application.Movies.Repositories;
+using SigmaMovies.Application.Users.Repositories;
 using SigmaMovies.Domain.Movies;
 using SigmaMovies.Infrastructure.Actors;
 using SigmaMovies.Infrastructure.Movies;
+using SigmaMovies.Infrastructure.Users;
 using SigmaMovies.Persistence.Context;
 
 namespace SigmaMovies.Infrastructure.UOW
 {
 
-    public class UnitOfWork : IUnitOfWork,IDisposable
+    public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private SigmaMoviesContext context;
+        private UserRepository userRepository;
         private MovieRepository movieRepository;
         private ActorRepository actorRepository;
         public UnitOfWork(DbContextOptions<SigmaMoviesContext> options)
         {
             context = new SigmaMoviesContext(options);
         }
-       
+
+
+        public IUserRepository User
+        {
+            get
+            {
+
+                if (this.userRepository == null)
+                {
+                    this.userRepository = new UserRepository(context);
+                }
+                return userRepository;
+            }
+        }
+
+
 
         public IMovieRepository Movie
         {
@@ -28,7 +47,8 @@ namespace SigmaMovies.Infrastructure.UOW
 
                 if (this.movieRepository == null)
                 {
-                    this.movieRepository = new MovieRepository(context);
+                    actorRepository = new ActorRepository(context);
+                    this.movieRepository = new MovieRepository(context, actorRepository);
                 }
                 return movieRepository;
             }
@@ -47,9 +67,9 @@ namespace SigmaMovies.Infrastructure.UOW
             }
         }
 
-        public void Save()
+        public async Task Save(CancellationToken cancellationToken)
         {
-            context.SaveChanges();
+            await context.SaveChangesAsync(cancellationToken);
         }
 
         public void Rollback()

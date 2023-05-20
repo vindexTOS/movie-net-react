@@ -1,0 +1,242 @@
+2023-05-18 00:13:02.152 +04:00  INF  Executed DbCommand (26ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-18 00:13:02.236 +04:00  INF  Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-18 00:13:02.239 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-18 00:13:02.241 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-18 00:13:02.270 +04:00  INF  Executed DbCommand (8ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-18 00:13:02.299 +04:00  INF  Applying migration '20230517201249_addingmetadata'.
+2023-05-18 00:13:02.444 +04:00  INF  Executed DbCommand (54ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Movies] ADD [Metadata_Genre] nvarchar(max) NOT NULL DEFAULT N'';
+2023-05-18 00:13:02.455 +04:00  INF  Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Movies] ADD [Metadata_Hr] nvarchar(max) NOT NULL DEFAULT N'';
+2023-05-18 00:13:02.464 +04:00  INF  Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+ALTER TABLE [Movies] ADD [Metadata_Year] int NOT NULL DEFAULT 0;
+2023-05-18 00:13:02.473 +04:00  INF  Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20230517201249_addingmetadata', N'7.0.5');
+2023-05-18 00:13:21.656 +04:00  INF  Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-18 00:13:21.773 +04:00  INF  Executed DbCommand (22ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-18 00:13:21.780 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-18 00:13:21.784 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-18 00:13:21.813 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-18 00:13:21.851 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-18 00:13:22.402 +04:00  INF  Executed DbCommand (106ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-18 00:13:22.417 +04:00  INF  Starting...
+2023-05-18 00:13:22.467 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-18 00:13:22.847 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-18 00:13:22.852 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-18 00:13:22.857 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-18 00:13:22.858 +04:00  INF  Hosting environment: Development
+2023-05-18 00:13:22.859 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-18 00:13:23.985 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-18 00:13:24.646 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 655.4080ms
+2023-05-18 00:13:24.748 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-18 00:13:24.823 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-18 00:13:24.862 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 11999 application/javascript;+charset=utf-8 39.1992ms
+2023-05-18 00:13:25.005 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 257.1554ms
+2023-05-18 00:13:25.908 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-18 00:13:26.697 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 789.2590ms
+2023-05-18 00:18:16.820 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 627
+2023-05-18 00:18:17.607 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:18:17.650 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:18:17.827 +04:00  INF  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-05-18 00:18:17.876 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 217.3159ms
+2023-05-18 00:18:17.879 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:18:17.888 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 627 - 400 432 application/json;+charset=utf-8 1072.5045ms
+2023-05-18 00:18:39.195 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 625
+2023-05-18 00:18:39.241 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:18:39.243 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:18:39.308 +04:00  INF  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-05-18 00:18:39.311 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 63.7879ms
+2023-05-18 00:18:39.312 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:18:39.316 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 625 - 400 393 application/json;+charset=utf-8 120.9856ms
+2023-05-18 00:19:58.591 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 625
+2023-05-18 00:19:58.644 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:19:58.645 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:19:58.661 +04:00  INF  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-05-18 00:19:58.664 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 15.1509ms
+2023-05-18 00:19:58.666 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:19:58.672 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 625 - 400 393 application/json;+charset=utf-8 81.0578ms
+2023-05-18 00:20:29.121 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 625
+2023-05-18 00:20:29.124 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:20:29.127 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:20:29.159 +04:00  INF  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-05-18 00:20:29.162 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 9.7068ms
+2023-05-18 00:20:29.164 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:20:29.170 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 625 - 400 393 application/json;+charset=utf-8 49.2925ms
+2023-05-18 00:21:27.068 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 629
+2023-05-18 00:21:27.097 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:21:27.098 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:21:27.110 +04:00  INF  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-05-18 00:21:27.117 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 9.9929ms
+2023-05-18 00:21:27.119 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:21:27.123 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 629 - 400 391 application/json;+charset=utf-8 54.9139ms
+2023-05-18 00:21:38.986 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 627
+2023-05-18 00:21:38.989 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:21:38.991 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:21:38.997 +04:00  INF  Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2023-05-18 00:21:39.000 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 4.658ms
+2023-05-18 00:21:39.001 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:21:39.008 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 627 - 400 391 application/json;+charset=utf-8 22.4071ms
+2023-05-18 00:24:18.948 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 633
+2023-05-18 00:24:18.962 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:24:18.977 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:24:19.805 +04:00  INF  Executed DbCommand (65ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Img], [a].[Name]
+FROM [Actors] AS [a]
+2023-05-18 00:24:20.267 +04:00  ERR  Failed executing DbCommand (27ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 7), @p2='?' (Size = 7), @p3='?' (DbType = DateTime), @p4='?' (Size = 1000), @p5='?' (Size = 500), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (Size = 100), @p9='?' (Size = 500), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (DbType = Double), @p14='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Movies] ([Id], [Color], [Color2], [CreatedAt], [Description], [Img], [IsDeleted], [ModifiedAt], [Title], [Video], [Metadata_Genre], [Metadata_Hr], [Metadata_Year], [Rating_IMDb], [Rating_RottenTomatoes])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-05-18 00:24:20.306 +04:00  ERR  An exception occurred in the database while saving changes for context type 'SigmaMovies.Persistence.Context.SigmaMoviesContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Movies' when IDENTITY_INSERT is set to OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__208_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:215908e2-b1d1-458b-8d77-33ddb14474c0
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Movies' when IDENTITY_INSERT is set to OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__208_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:215908e2-b1d1-458b-8d77-33ddb14474c0
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+2023-05-18 00:24:20.642 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 1661.5026ms
+2023-05-18 00:24:20.646 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:24:21.147 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 633 - 500 - application/json 2199.3016ms
+2023-05-18 00:25:09.663 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 633
+2023-05-18 00:25:09.678 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:25:09.680 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:25:41.270 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Img], [a].[Name]
+FROM [Actors] AS [a]
+2023-05-18 00:26:41.849 +04:00  ERR  Failed executing DbCommand (46ms) [Parameters=[@p0='?' (DbType = Int32), @p1='?' (Size = 7), @p2='?' (Size = 7), @p3='?' (DbType = DateTime), @p4='?' (Size = 1000), @p5='?' (Size = 500), @p6='?' (DbType = Boolean), @p7='?' (DbType = DateTime), @p8='?' (Size = 100), @p9='?' (Size = 500), @p10='?' (Size = 4000), @p11='?' (Size = 4000), @p12='?' (DbType = Int32), @p13='?' (DbType = Double), @p14='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Movies] ([Id], [Color], [Color2], [CreatedAt], [Description], [Img], [IsDeleted], [ModifiedAt], [Title], [Video], [Metadata_Genre], [Metadata_Hr], [Metadata_Year], [Rating_IMDb], [Rating_RottenTomatoes])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13, @p14);
+2023-05-18 00:26:41.860 +04:00  ERR  An exception occurred in the database while saving changes for context type 'SigmaMovies.Persistence.Context.SigmaMoviesContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Movies' when IDENTITY_INSERT is set to OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__208_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:215908e2-b1d1-458b-8d77-33ddb14474c0
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot insert explicit value for identity column in table 'Movies' when IDENTITY_INSERT is set to OFF.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__208_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:215908e2-b1d1-458b-8d77-33ddb14474c0
+Error Number:544,State:1,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+
+2023-05-18 00:26:43.164 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 93480.595ms
+2023-05-18 00:26:43.167 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:27:13.058 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 633 - 500 - application/json 123429.6004ms
+2023-05-18 00:27:15.430 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 633
+2023-05-18 00:27:15.436 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:27:15.439 +04:00  INF  Route matched with {action = "AddMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] AddMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-18 00:27:19.165 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Img], [a].[Name]
+FROM [Actors] AS [a]
+2023-05-18 00:27:19.199 +04:00  INF  Executed DbCommand (12ms) [Parameters=[@p0='?' (Size = 7), @p1='?' (Size = 7), @p2='?' (DbType = DateTime), @p3='?' (Size = 1000), @p4='?' (Size = 500), @p5='?' (DbType = Boolean), @p6='?' (DbType = DateTime), @p7='?' (Size = 100), @p8='?' (Size = 500), @p9='?' (Size = 4000), @p10='?' (Size = 4000), @p11='?' (DbType = Int32), @p12='?' (DbType = Double), @p13='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Movies] ([Color], [Color2], [CreatedAt], [Description], [Img], [IsDeleted], [ModifiedAt], [Title], [Video], [Metadata_Genre], [Metadata_Hr], [Metadata_Year], [Rating_IMDb], [Rating_RottenTomatoes])
+OUTPUT INSERTED.[Id]
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+2023-05-18 00:27:19.238 +04:00  INF  Executing StatusCodeResult, setting HTTP status code 200
+2023-05-18 00:27:19.241 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 3799.0513ms
+2023-05-18 00:27:19.243 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
+2023-05-18 00:27:19.246 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/v1/Movies/AddMovie application/json-patch+json 633 - 200 0 - 3815.9303ms

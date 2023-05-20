@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SigmaMovies.API</name>
+    </assembly>
+    <members>
+        <member name="M:SigmaMovies.API.Controllers.ActorsController.GetAllActors(System.Threading.CancellationToken)">
+            <summary>
+            Retrieves all actors.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.ActorsController.GetActorById(System.Threading.CancellationToken,System.Int32)">
+            <summary>
+            Retrieves actor by id.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="id">The actor id.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.ActorsController.GetActorByIdFull(System.Threading.CancellationToken,System.Int32)">
+            <summary>
+            Retrieves actor with nested movie by id.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="id">The actor id.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.ActorsController.AddActor(System.Threading.CancellationToken,SigmaMovies.Application.Actors.Requests.ActorRequestModel)">
+            <summary>
+            Adds a new actor to the database.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="request">Actor's request model.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.ActorsController.UpdateActor(System.Threading.CancellationToken,SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested)">
+            <summary>
+            Updates an actor.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="request">Actor's request model.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.ActorsController.UpdateActorWithNested(System.Threading.CancellationToken,SigmaMovies.Application.Actors.Requests.ActorRequestPutModel)">
+            <summary>
+            Updates actor with nested movie.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="request">Actor's request model.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.ActorsController.UpdatePatchActor(Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{SigmaMovies.Domain.Actors.Actor},System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Patches actor.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="request">Actor's request model.</param>
+            <param name="id">Actor's id.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.MoviesController.GetAllMovies(System.Threading.CancellationToken,System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+            <summary>
+            Retrieves a list of all movies.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="genre">The movie's genre.</param>
+            <param name="year">The movie's year.</param>
+            <param name="isDeleted">The movie's delete status.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.MoviesController.GetMovieById(System.Threading.CancellationToken,System.Int32)">
+            <summary>
+            Retrieves movie by Id.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="Id">The movie id.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.MoviesController.AddMovie(System.Threading.CancellationToken,SigmaMovies.Application.Movies.Requests.MovieRequestModel)">
+            <summary>
+            Adds a new movie to database.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="movieRequest">The movie request model.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.MoviesController.UpdateMovie(System.Threading.CancellationToken,SigmaMovies.Application.Movies.Requests.MovieRequestPutModel)">
+            <summary>
+            Updates a movie.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="request">The movie request model.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.MoviesController.UpdatePatchMovie(Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{SigmaMovies.Domain.Movies.Movie},System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Patches a movie.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="request">The movie request model.</param>
+            <param name="id">The movie id.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+        <member name="M:SigmaMovies.API.Controllers.MoviesController.DeleteMovie(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a movie.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <param name="id">The movie id.</param>
+            <response code="200">Returns an empty response.</response>
+        </member>
+    </members>
+</doc>

@@ -1,4 +1,6 @@
-﻿using SigmaMovies.Domain.Movies;
+﻿using SigmaMovies.Application.Movies.Requests;
+using SigmaMovies.Application.Movies.Responses;
+using SigmaMovies.Domain.Movies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +11,9 @@ namespace SigmaMovies.Application.Actors.Responses
 {
     public class ActorResponseModel
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Img { get; set; }
-        public List<Movie> Movies { get; set; }
+        public List<MovieDTO> Movies { get; set; }
     }
 }

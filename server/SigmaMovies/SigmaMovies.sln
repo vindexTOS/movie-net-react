@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaMovies.API", "SigmaMovies.API\SigmaMovies.API.csproj", "{F5E91F98-2258-48C9-AA43-66098F5406E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigmaMovies.API", "SigmaMovies.API\SigmaMovies.API.csproj", "{F5E91F98-2258-48C9-AA43-66098F5406E6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{683654DD-7CEC-4E71-8642-B5436811FC4B}"
 EndProject
@@ -13,13 +13,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{BF9A2385-1929-4D29-AF20-6EDEA46E77F1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaMovies.Application", "SigmaMovies.Application\SigmaMovies.Application.csproj", "{C38ECC48-47E7-421F-BD42-88F3900A79AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigmaMovies.Application", "SigmaMovies.Application\SigmaMovies.Application.csproj", "{C38ECC48-47E7-421F-BD42-88F3900A79AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaMovies.Domain", "SigmaMovies.Domain\SigmaMovies.Domain.csproj", "{6E4DECEA-11BF-42CD-A849-4822F9AD591D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigmaMovies.Domain", "SigmaMovies.Domain\SigmaMovies.Domain.csproj", "{6E4DECEA-11BF-42CD-A849-4822F9AD591D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaMovies.Infrastructure", "SigmaMovies.Infrastructure\SigmaMovies.Infrastructure.csproj", "{6FE64472-C2F9-4E6A-9B2E-DFB953B04D49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigmaMovies.Infrastructure", "SigmaMovies.Infrastructure\SigmaMovies.Infrastructure.csproj", "{6FE64472-C2F9-4E6A-9B2E-DFB953B04D49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaMovies.Persistence", "SigmaMovies.Persistence\SigmaMovies.Persistence.csproj", "{77C1A930-73AA-4F97-824D-DD5396A33E67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SigmaMovies.Persistence", "SigmaMovies.Persistence\SigmaMovies.Persistence.csproj", "{77C1A930-73AA-4F97-824D-DD5396A33E67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8C58CBDA-8E21-4312-8CE1-BFEDA46FCDDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SigmaMoviesTest", "SigmaMoviesTest\SigmaMoviesTest.csproj", "{517E12BA-F96A-4FE8-93BC-F3B1DF9C0E09}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workers", "Workers", "{4B1A13F8-FCA3-4185-AFA4-C5A9EBDAB228}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RatingService", "RatingService\RatingService.csproj", "{41B01234-DF34-4A64-AD27-63077A7585A0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +55,14 @@ Global
 		{77C1A930-73AA-4F97-824D-DD5396A33E67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77C1A930-73AA-4F97-824D-DD5396A33E67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77C1A930-73AA-4F97-824D-DD5396A33E67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{517E12BA-F96A-4FE8-93BC-F3B1DF9C0E09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{517E12BA-F96A-4FE8-93BC-F3B1DF9C0E09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{517E12BA-F96A-4FE8-93BC-F3B1DF9C0E09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{517E12BA-F96A-4FE8-93BC-F3B1DF9C0E09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41B01234-DF34-4A64-AD27-63077A7585A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41B01234-DF34-4A64-AD27-63077A7585A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41B01234-DF34-4A64-AD27-63077A7585A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41B01234-DF34-4A64-AD27-63077A7585A0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,6 +76,10 @@ Global
 		{6E4DECEA-11BF-42CD-A849-4822F9AD591D} = {8B42B1A5-F131-4A6E-94AC-151843654E5D}
 		{6FE64472-C2F9-4E6A-9B2E-DFB953B04D49} = {74F53DFD-BC59-4712-81BA-82DF07FB3EB2}
 		{77C1A930-73AA-4F97-824D-DD5396A33E67} = {74F53DFD-BC59-4712-81BA-82DF07FB3EB2}
+		{8C58CBDA-8E21-4312-8CE1-BFEDA46FCDDB} = {683654DD-7CEC-4E71-8642-B5436811FC4B}
+		{517E12BA-F96A-4FE8-93BC-F3B1DF9C0E09} = {8C58CBDA-8E21-4312-8CE1-BFEDA46FCDDB}
+		{4B1A13F8-FCA3-4185-AFA4-C5A9EBDAB228} = {683654DD-7CEC-4E71-8642-B5436811FC4B}
+		{41B01234-DF34-4A64-AD27-63077A7585A0} = {4B1A13F8-FCA3-4185-AFA4-C5A9EBDAB228}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3F1B132E-D340-4932-92DF-03F6F1A35DFA}

@@ -112,6 +112,43 @@ namespace SigmaMovies.Persistence.Migrations
                     b.ToTable("Movies", (string)null);
                 });
 
+            modelBuilder.Entity("SigmaMovies.Domain.Users.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ModifiedAt")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasMaxLength(512)
+                        .HasColumnType("nvarchar(512)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("UserRole")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users", (string)null);
+                });
+
             modelBuilder.Entity("ActorMovie", b =>
                 {
                     b.HasOne("SigmaMovies.Domain.Actors.Actor", null)
@@ -129,6 +166,30 @@ namespace SigmaMovies.Persistence.Migrations
 
             modelBuilder.Entity("SigmaMovies.Domain.Movies.Movie", b =>
                 {
+                    b.OwnsOne("SigmaMovies.Domain.Movies.Metadata", "Metadata", b1 =>
+                        {
+                            b1.Property<int>("MovieId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Genre")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Hr")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<int>("Year")
+                                .HasColumnType("int");
+
+                            b1.HasKey("MovieId");
+
+                            b1.ToTable("Movies");
+
+                            b1.WithOwner()
+                                .HasForeignKey("MovieId");
+                        });
+
                     b.OwnsOne("SigmaMovies.Domain.Movies.Rating", "Rating", b1 =>
                         {
                             b1.Property<int>("MovieId")
@@ -147,6 +208,9 @@ namespace SigmaMovies.Persistence.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("MovieId");
                         });
+
+                    b.Navigation("Metadata")
+                        .IsRequired();
 
                     b.Navigation("Rating")
                         .IsRequired();
