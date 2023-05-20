@@ -40124,3 +40124,4084 @@ Response logged from middleware StatusCode = 200
 TraceIdentifier = 0HMQPE5SC94H1:0000000D
 Body = [{"id":2,"title":"კახელი ვირიტყანიები","color":"#0000F","color2":"#0000F","img":"ragaclinki.com","video":"ragacytlinki.com","description":"ფულეიჩდი","actors":[],"rating":{"imDb":7.8,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":3,"title":"Fight Club","color":"red","color2":"blue","img":"theimg","video":"thevideo","description":"thedesc","actors":[],"rating":{"imDb":9.0,"rottenTomatoes":90},"metadata":{"hr":"","year":0,"genre":""}},{"id":4,"title":"Inglorious basters","color":"red","color2":"blue","img":"img","video":"video","description":"desc","actors":[],"rating":{"imDb":9.0,"rottenTomatoes":90},"metadata":{"hr":"","year":0,"genre":""}},{"id":5,"title":"test","color":"test","color2":"test","img":"test","video":"test","description":"test","actors":[],"rating":{"imDb":7.0,"rottenTomatoes":7},"metadata":{"hr":"","year":0,"genre":""}},{"id":7,"title":"testactor","color":"string","color2":"string","img":"string","video":"string","description":"string","actors":[{"id":9,"name":"wewewew","img":"string"},{"id":10,"name":"wqwqwqwq","img":"string"}],"rating":{"imDb":0.0,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":8,"title":"sakaifokino","color":"string","color2":"string","img":"string","video":"string","description":"string","actors":[{"id":7,"name":"მიხო","img":"ფსიხო"}],"rating":{"imDb":0.0,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":9,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","actors":[],"rating":{"imDb":9.0,"rottenTomatoes":94},"metadata":{"hr":"3:00:00","year":2008,"genre":"Detective"}}]
 ResponseTime = 21.05.2023 00:35:14
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/index.html
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 00:59:48
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEKIIPAIC:00000001
+Body = <!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="swagger-ui"></div>
+
+    <!-- Workaround for https://github.com/swagger-api/swagger-editor/issues/1371 -->
+    <script>
+        if (window.navigator.userAgent.indexOf("Edge") > -1) {
+            console.log("Removing native Edge fetch in favor of swagger-ui's polyfill")
+            window.fetch = undefined;
+        }
+    </script>
+
+    <script src="./swagger-ui-bundle.js"></script>
+    <script src="./swagger-ui-standalone-preset.js"></script>
+    <script>
+        /* Source: https://gist.github.com/lamberta/3768814
+         * Parse a string function definition and return a function object. Does not use eval.
+         * @param {string} str
+         * @return {function}
+         *
+         * Example:
+         *  var f = function (x, y) { return x * y; };
+         *  var g = parseFunction(f.toString());
+         *  g(33, 3); //=> 99
+         */
+        function parseFunction(str) {
+            if (!str) return void (0);
+
+            var fn_body_idx = str.indexOf('{'),
+                fn_body = str.substring(fn_body_idx + 1, str.lastIndexOf('}')),
+                fn_declare = str.substring(0, fn_body_idx),
+                fn_params = fn_declare.substring(fn_declare.indexOf('(') + 1, fn_declare.lastIndexOf(')')),
+                args = fn_params.split(',');
+
+            args.push(fn_body);
+
+            function Fn() {
+                return Function.apply(this, args);
+            }
+            Fn.prototype = Function.prototype;
+
+            return new Fn();
+        }
+
+        window.onload = function () {
+            var configObject = JSON.parse('{"urls":[{"url":"v1/swagger.json","name":"SigmaMovies.API v1"}],"deepLinking":false,"persistAuthorization":false,"displayOperationId":false,"defaultModelsExpandDepth":1,"defaultModelExpandDepth":1,"defaultModelRendering":"example","displayRequestDuration":false,"docExpansion":"list","showExtensions":false,"showCommonExtensions":false,"supportedSubmitMethods":["get","put","post","delete","options","head","patch","trace"],"tryItOutEnabled":false}');
+            var oauthConfigObject = JSON.parse('{"scopeSeparator":" ","scopes":[],"useBasicAuthenticationWithAccessCodeGrant":false,"usePkceWithAuthorizationCodeGrant":false}');
+
+            // Workaround for https://github.com/swagger-api/swagger-ui/issues/5945
+            configObject.urls.forEach(function (item) {
+                if (item.url.startsWith("http") || item.url.startsWith("/")) return;
+                item.url = window.location.href.replace("index.html", item.url).split('#')[0];
+            });
+
+            // If validatorUrl is not explicitly provided, disable the feature by setting to null
+            if (!configObject.hasOwnProperty("validatorUrl"))
+                configObject.validatorUrl = null
+
+            // If oauth2RedirectUrl isn't specified, use the built-in default
+            if (!configObject.hasOwnProperty("oauth2RedirectUrl"))
+                configObject.oauth2RedirectUrl = (new URL("oauth2-redirect.html", window.location.href)).href;
+
+            // Apply mandatory parameters
+            configObject.dom_id = "#swagger-ui";
+            configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
+            configObject.layout = "StandaloneLayout";
+
+            // Parse and add interceptor functions
+            var interceptors = JSON.parse('{"RequestInterceptorFunction":null,"ResponseInterceptorFunction":null}');
+            if (interceptors.RequestInterceptorFunction)
+                configObject.requestInterceptor = parseFunction(interceptors.RequestInterceptorFunction);
+            if (interceptors.ResponseInterceptorFunction)
+                configObject.responseInterceptor = parseFunction(interceptors.ResponseInterceptorFunction);
+
+            // Begin Swagger UI call region
+
+            const ui = SwaggerUIBundle(configObject);
+
+            ui.initOAuth(oauthConfigObject);
+
+            // End Swagger UI call region
+
+            window.ui = ui
+        }
+    </script>
+</body>
+</html>
+
+ResponseTime = 21.05.2023 00:59:48
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/v1/swagger.json
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 00:59:51
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEKIIPAIC:00000007
+Body = {
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SigmaMovies Api",
+    "description": "Api for sigmest of sigma movies",
+    "contact": {
+      "name": "Movies Application",
+      "email": "akaki.ujarashvili@gmail.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/Actors/GetAllActors": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves all actors.",
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/GetActorById": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves actor by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The actor id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/GetActorByIdFull": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves actor with nested movie by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The actor id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/AddActor": {
+      "post": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Adds a new actor to the database.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdateActor": {
+      "put": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Updates an actor.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdateActorWithNested": {
+      "put": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Updates actor with nested movie.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdatePatchActor/{id}": {
+      "patch": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Patches actor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Actor's id.",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/api/Authorization/Register": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authorization/LogIn": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Movies/GetAllMovies": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Retrieves a list of all movies.",
+        "parameters": [
+          {
+            "name": "genre",
+            "in": "query",
+            "description": "The movie's genre.",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "The movie's year.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "The movie's delete status.",
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Movies/GetMovieById": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Retrieves movie by Id.",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "description": "The movie id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/AddMovie": {
+      "post": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Adds a new movie to database.",
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/UpdateMovie": {
+      "put": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Updates a movie.",
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/UpdatePatchMovie/{id}": {
+      "patch": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Patches a movie.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The movie id.",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/DeleteMovie": {
+      "delete": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Deletes a movie.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The movie id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Microsoft.AspNetCore.JsonPatch.Operations.Operation": {
+        "type": "object",
+        "properties": {
+          "operationType": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.OperationType"
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "op": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.AspNetCore.JsonPatch.Operations.OperationType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestPutModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "movies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieRequestModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieRequestPutModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorDto"
+            },
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Responses.MovieResponseModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorDto"
+            },
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Users.Requests.UserRequestModel": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Domain.Movies.Metadata": {
+        "type": "object",
+        "properties": {
+          "hr": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "genre": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Domain.Movies.Rating": {
+        "type": "object",
+        "properties": {
+          "imDb": {
+            "type": "number",
+            "format": "double"
+          },
+          "rottenTomatoes": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "basic": {
+        "type": "apiKey",
+        "description": "Basic Authorization header using the Bearer scheme.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "basic": [ ]
+    }
+  ]
+}
+ResponseTime = 21.05.2023 00:59:52
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/index.html
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:09:12
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE0:00000001
+Body = <!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="swagger-ui"></div>
+
+    <!-- Workaround for https://github.com/swagger-api/swagger-editor/issues/1371 -->
+    <script>
+        if (window.navigator.userAgent.indexOf("Edge") > -1) {
+            console.log("Removing native Edge fetch in favor of swagger-ui's polyfill")
+            window.fetch = undefined;
+        }
+    </script>
+
+    <script src="./swagger-ui-bundle.js"></script>
+    <script src="./swagger-ui-standalone-preset.js"></script>
+    <script>
+        /* Source: https://gist.github.com/lamberta/3768814
+         * Parse a string function definition and return a function object. Does not use eval.
+         * @param {string} str
+         * @return {function}
+         *
+         * Example:
+         *  var f = function (x, y) { return x * y; };
+         *  var g = parseFunction(f.toString());
+         *  g(33, 3); //=> 99
+         */
+        function parseFunction(str) {
+            if (!str) return void (0);
+
+            var fn_body_idx = str.indexOf('{'),
+                fn_body = str.substring(fn_body_idx + 1, str.lastIndexOf('}')),
+                fn_declare = str.substring(0, fn_body_idx),
+                fn_params = fn_declare.substring(fn_declare.indexOf('(') + 1, fn_declare.lastIndexOf(')')),
+                args = fn_params.split(',');
+
+            args.push(fn_body);
+
+            function Fn() {
+                return Function.apply(this, args);
+            }
+            Fn.prototype = Function.prototype;
+
+            return new Fn();
+        }
+
+        window.onload = function () {
+            var configObject = JSON.parse('{"urls":[{"url":"v1/swagger.json","name":"SigmaMovies.API v1"}],"deepLinking":false,"persistAuthorization":false,"displayOperationId":false,"defaultModelsExpandDepth":1,"defaultModelExpandDepth":1,"defaultModelRendering":"example","displayRequestDuration":false,"docExpansion":"list","showExtensions":false,"showCommonExtensions":false,"supportedSubmitMethods":["get","put","post","delete","options","head","patch","trace"],"tryItOutEnabled":false}');
+            var oauthConfigObject = JSON.parse('{"scopeSeparator":" ","scopes":[],"useBasicAuthenticationWithAccessCodeGrant":false,"usePkceWithAuthorizationCodeGrant":false}');
+
+            // Workaround for https://github.com/swagger-api/swagger-ui/issues/5945
+            configObject.urls.forEach(function (item) {
+                if (item.url.startsWith("http") || item.url.startsWith("/")) return;
+                item.url = window.location.href.replace("index.html", item.url).split('#')[0];
+            });
+
+            // If validatorUrl is not explicitly provided, disable the feature by setting to null
+            if (!configObject.hasOwnProperty("validatorUrl"))
+                configObject.validatorUrl = null
+
+            // If oauth2RedirectUrl isn't specified, use the built-in default
+            if (!configObject.hasOwnProperty("oauth2RedirectUrl"))
+                configObject.oauth2RedirectUrl = (new URL("oauth2-redirect.html", window.location.href)).href;
+
+            // Apply mandatory parameters
+            configObject.dom_id = "#swagger-ui";
+            configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
+            configObject.layout = "StandaloneLayout";
+
+            // Parse and add interceptor functions
+            var interceptors = JSON.parse('{"RequestInterceptorFunction":null,"ResponseInterceptorFunction":null}');
+            if (interceptors.RequestInterceptorFunction)
+                configObject.requestInterceptor = parseFunction(interceptors.RequestInterceptorFunction);
+            if (interceptors.ResponseInterceptorFunction)
+                configObject.responseInterceptor = parseFunction(interceptors.ResponseInterceptorFunction);
+
+            // Begin Swagger UI call region
+
+            const ui = SwaggerUIBundle(configObject);
+
+            ui.initOAuth(oauthConfigObject);
+
+            // End Swagger UI call region
+
+            window.ui = ui
+        }
+    </script>
+</body>
+</html>
+
+ResponseTime = 21.05.2023 01:09:12
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/v1/swagger.json
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:09:14
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE0:00000007
+Body = {
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SigmaMovies Api",
+    "description": "Api for sigmest of sigma movies",
+    "contact": {
+      "name": "Movies Application",
+      "email": "akaki.ujarashvili@gmail.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/Actors/GetAllActors": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves all actors.",
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/GetActorById": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves actor by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The actor id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/GetActorByIdFull": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves actor with nested movie by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The actor id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/AddActor": {
+      "post": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Adds a new actor to the database.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdateActor": {
+      "put": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Updates an actor.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdateActorWithNested": {
+      "put": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Updates actor with nested movie.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdatePatchActor/{id}": {
+      "patch": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Patches actor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Actor's id.",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/api/Authorization/Register": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authorization/LogIn": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Movies/GetAllMovies": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Retrieves a list of all movies.",
+        "parameters": [
+          {
+            "name": "genre",
+            "in": "query",
+            "description": "The movie's genre.",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "The movie's year.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "The movie's delete status.",
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Movies/GetMovieById": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Retrieves movie by Id.",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "description": "The movie id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/AddMovie": {
+      "post": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Adds a new movie to database.",
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/UpdateMovie": {
+      "put": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Updates a movie.",
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/UpdatePatchMovie/{id}": {
+      "patch": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Patches a movie.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The movie id.",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/DeleteMovie": {
+      "delete": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Deletes a movie.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The movie id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Microsoft.AspNetCore.JsonPatch.Operations.Operation": {
+        "type": "object",
+        "properties": {
+          "operationType": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.OperationType"
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "op": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.AspNetCore.JsonPatch.Operations.OperationType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestPutModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "movies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieRequestModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieRequestPutModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorDto"
+            },
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Responses.MovieResponseModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorDto"
+            },
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Users.Requests.UserRequestModel": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Domain.Movies.Metadata": {
+        "type": "object",
+        "properties": {
+          "hr": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "genre": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Domain.Movies.Rating": {
+        "type": "object",
+        "properties": {
+          "imDb": {
+            "type": "number",
+            "format": "double"
+          },
+          "rottenTomatoes": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "basic": {
+        "type": "apiKey",
+        "description": "Basic Authorization header using the Bearer scheme.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "basic": [ ]
+    }
+  ]
+}
+ResponseTime = 21.05.2023 01:09:14
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /v1/Actors/GetAllActors
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:10:52
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE1:00000001
+Body = [{"id":3,"name":"apapaapapapa","img":"string","movies":null},{"id":4,"name":"444444","img":"string","movies":null},{"id":5,"name":"asasasa","img":"ddddd","movies":null},{"id":6,"name":"qsvii","img":"string","movies":null},{"id":7,"name":"მიხო","img":"ფსიხო","movies":null},{"id":8,"name":"8888","img":"string","movies":null},{"id":9,"name":"wewewew","img":"string","movies":null},{"id":10,"name":"wqwqwqwq","img":"string","movies":null},{"id":11,"name":"bbbbbbbbbbbbbbbbbbbbbbbbb","img":"string","movies":null},{"id":14,"name":"cxrrrr","img":"string","movies":null},{"id":15,"name":"atttat","img":"string","movies":null},{"id":16,"name":"შორენა ბეგაშვილი","img":"ფოტო","movies":null},{"id":17,"name":"bames jond","img":"pict","movies":null}]
+ResponseTime = 21.05.2023 01:10:54
+ logged from Middleware
+IP = ::1
+Address = https
+Method = POST
+Path = /v1/Actors/AddActor
+IsSecured = True
+QueryString = 
+RequestBody = {
+  "name": "John Smith",
+  "img": "https://example.com/images/john-smith.jpg"
+}
+Time = 21.05.2023 01:11:02
+Response logged from middleware StatusCode = 401
+TraceIdentifier = 0HMQPEPQOANE1:00000003
+Body = 
+ResponseTime = 21.05.2023 01:11:03
+ logged from Middleware
+IP = ::1
+Address = https
+Method = POST
+Path = /api/Authorization/LogIn
+IsSecured = True
+QueryString = 
+RequestBody = {
+  "username": "Admin@gmail.com",
+  "password": "Akaki!1"
+}
+Time = 21.05.2023 01:11:34
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE2:00000001
+Body = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFkbWluQGdtYWlsLmNvbSIsIlVzZXJJZCI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2ODQ2MTcwOTUsImV4cCI6MTY4NDYyMDY5NCwiaWF0IjoxNjg0NjE3MDk1LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QifQ.7G7iU3XbM_jbpDtGFQqqDepBCvm0F64U62Lw-gAvQxo
+ResponseTime = 21.05.2023 01:11:35
+ logged from Middleware
+IP = ::1
+Address = https
+Method = POST
+Path = /v1/Actors/AddActor
+IsSecured = True
+QueryString = 
+RequestBody = {
+  "name": "John Smith",
+  "img": "https://example.com/images/john-smith.jpg"
+}
+Time = 21.05.2023 01:11:52
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE3:00000001
+Body = 
+ResponseTime = 21.05.2023 01:11:53
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/v1/swagger.json
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:16:11
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE4:00000005
+Body = {
+  "openapi": "3.0.1",
+  "info": {
+    "title": "SigmaMovies Api",
+    "description": "Api for sigmest of sigma movies",
+    "contact": {
+      "name": "Movies Application",
+      "email": "akaki.ujarashvili@gmail.com"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/v1/Actors/GetAllActors": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves all actors.",
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/GetActorById": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves actor by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The actor id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/GetActorByIdFull": {
+      "get": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Retrieves actor with nested movie by id.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The actor id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/AddActor": {
+      "post": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Adds a new actor to the database.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"name":"John Smith","img":"https://example.com/images/john-smith.jpg"}
+                },
+                "Example 2": {
+                  "value": {"name":"Jane Doe","img":"https://example.com/images/jane-doe.jpg"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdateActor": {
+      "put": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Updates an actor.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"John Doe","img":"https://example.com/image.jpg"}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Jane Smith","img":"https://example.com/image.png"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdateActorWithNested": {
+      "put": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Updates actor with nested movie.",
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"name":"Tom Hanks","img":"https://example.com/tom-hanks.jpg","movies":[{"id":1,"title":"Forrest Gump","color":"#00FF00","color2":"#FFFFFF","img":"https://example.com/forrest-gump.jpg","video":"https://example.com/forrest-gump.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.8,"rottenTomatoes":71},"metadata":null},{"id":2,"title":"Cast Away","color":"#FF0000","color2":"#FFFFFF","img":"https://example.com/cast-away.jpg","video":"https://example.com/cast-away.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":7.8,"rottenTomatoes":90},"metadata":null}]}
+                },
+                "Example 2": {
+                  "value": {"id":2,"name":"Emma Stone","img":"https://example.com/emma-stone.jpg","movies":[{"id":3,"title":"La La Land","color":"#FFA500","color2":"#FFFFFF","img":"https://example.com/la-la-land.jpg","video":"https://example.com/la-la-land.mp4","description":"Lorem ipsum dolor sit amet.","rating":{"imDb":8.0,"rottenTomatoes":91},"metadata":null}]}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Actors/UpdatePatchActor/{id}": {
+      "patch": {
+        "tags": [
+          "Actors"
+        ],
+        "summary": "Patches actor.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Actor's id.",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Actor's request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/api/Authorization/Register": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Authorization/LogIn": {
+      "post": {
+        "tags": [
+          "Authorization"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Users.Requests.UserRequestModel"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Movies/GetAllMovies": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Retrieves a list of all movies.",
+        "parameters": [
+          {
+            "name": "genre",
+            "in": "query",
+            "description": "The movie's genre.",
+            "style": "form",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "year",
+            "in": "query",
+            "description": "The movie's year.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "isDeleted",
+            "in": "query",
+            "description": "The movie's delete status.",
+            "style": "form",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response.",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Responses.MovieResponseModel"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/Movies/GetMovieById": {
+      "get": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Retrieves movie by Id.",
+        "parameters": [
+          {
+            "name": "Id",
+            "in": "query",
+            "description": "The movie id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/AddMovie": {
+      "post": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Adds a new movie to database.",
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":0,"title":"The Matrix","color":"Green","color2":"Black","img":"https://www.example.com/the-matrix.jpg","video":"https://www.example.com/the-matrix.mp4","description":"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.","rating":{"imDb":8.7,"rottenTomatoes":87},"actors":["Keanu Reeves","Carrie-Anne Moss","Laurence Fishburne"],"metadata":{"hr":"2h 16m","year":1999,"genre":"Sci-Fi"}}
+                },
+                "Example 2": {
+                  "value": {"id":0,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","rating":{"imDb":9.0,"rottenTomatoes":94},"actors":["Christian Bale","Heath Ledger","Aaron Eckhart"],"metadata":{"hr":"2h 32m","year":2008,"genre":"Action"}}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/UpdateMovie": {
+      "put": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Updates a movie.",
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieRequestPutModel"
+              },
+              "examples": {
+                "Example 1": {
+                  "value": {"id":1,"title":"The Shawshank Redemption","color":"Green","color2":"Yellow","img":"https://www.example.com/images/shawshank_redemption.jpg","video":"https://www.example.com/videos/shawshank_redemption.mp4","description":"Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.","actors":[{"id":1,"name":"Tim Robbins","img":"https://www.example.com/images/tim_robbins.jpg"},{"id":2,"name":"Morgan Freeman","img":"https://www.example.com/images/morgan_freeman.jpg"}],"rating":{"imDb":9.3,"rottenTomatoes":90},"metadata":{"hr":"2h 22m","year":1994,"genre":"Drama"}}
+                },
+                "Example 2": {
+                  "value": {"id":2,"title":"The Godfather","color":"Black","color2":"White","img":"https://www.example.com/images/godfather.jpg","video":"https://www.example.com/videos/godfather.mp4","description":"The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.","actors":[{"id":3,"name":"Marlon Brando","img":"https://www.example.com/images/marlon_brando.jpg"},{"id":4,"name":"Al Pacino","img":"https://www.example.com/images/al_pacino.jpg"}],"rating":{"imDb":9.2,"rottenTomatoes":98},"metadata":{"hr":"2h 55m","year":1972,"genre":"Crime"}}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/UpdatePatchMovie/{id}": {
+      "patch": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Patches a movie.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The movie id.",
+            "required": true,
+            "style": "simple",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The movie request model.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.Operation"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    },
+    "/v1/Movies/DeleteMovie": {
+      "delete": {
+        "tags": [
+          "Movies"
+        ],
+        "summary": "Deletes a movie.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "description": "The movie id.",
+            "style": "form",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an empty response."
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Microsoft.AspNetCore.JsonPatch.Operations.Operation": {
+        "type": "object",
+        "properties": {
+          "operationType": {
+            "$ref": "#/components/schemas/Microsoft.AspNetCore.JsonPatch.Operations.OperationType"
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "op": {
+            "type": "string",
+            "nullable": true
+          },
+          "from": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Microsoft.AspNetCore.JsonPatch.Operations.OperationType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestModel": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestPutModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "movies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Movies.Requests.MovieDTO"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Actors.Requests.ActorRequestPutModelNoNested": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieDTO": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieRequestModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Requests.MovieRequestPutModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorDto"
+            },
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Movies.Responses.MovieResponseModel": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "color": {
+            "type": "string",
+            "nullable": true
+          },
+          "color2": {
+            "type": "string",
+            "nullable": true
+          },
+          "img": {
+            "type": "string",
+            "nullable": true
+          },
+          "video": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "actors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigmaMovies.Application.Actors.Requests.ActorDto"
+            },
+            "nullable": true
+          },
+          "rating": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Rating"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/SigmaMovies.Domain.Movies.Metadata"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Application.Users.Requests.UserRequestModel": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Domain.Movies.Metadata": {
+        "type": "object",
+        "properties": {
+          "hr": {
+            "type": "string",
+            "nullable": true
+          },
+          "year": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "genre": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SigmaMovies.Domain.Movies.Rating": {
+        "type": "object",
+        "properties": {
+          "imDb": {
+            "type": "number",
+            "format": "double"
+          },
+          "rottenTomatoes": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "basic": {
+        "type": "apiKey",
+        "description": "Basic Authorization header using the Bearer scheme.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "basic": [ ]
+    }
+  ]
+}
+ResponseTime = 21.05.2023 01:16:11
+ logged from Middleware
+IP = ::1
+Address = https
+Method = POST
+Path = /swagger/index.html
+IsSecured = True
+QueryString = 
+RequestBody = {"query":"\n    query IntrospectionQuery {\n      __schema {\n        \n        queryType { name }\n        mutationType { name }\n        subscriptionType { name }\n        types {\n          ...FullType\n        }\n        directives {\n          name\n          description\n          \n          locations\n          args {\n            ...InputValue\n          }\n        }\n      }\n    }\n\n    fragment FullType on __Type {\n      kind\n      name\n      description\n      \n      fields(includeDeprecated: true) {\n        name\n        description\n        args {\n          ...InputValue\n        }\n        type {\n          ...TypeRef\n        }\n        isDeprecated\n        deprecationReason\n      }\n      inputFields {\n        ...InputValue\n      }\n      interfaces {\n        ...TypeRef\n      }\n      enumValues(includeDeprecated: true) {\n        name\n        description\n        isDeprecated\n        deprecationReason\n      }\n      possibleTypes {\n        ...TypeRef\n      }\n    }\n\n    fragment InputValue on __InputValue {\n      name\n      description\n      type { ...TypeRef }\n      defaultValue\n      \n      \n    }\n\n    fragment TypeRef on __Type {\n      kind\n      name\n      ofType {\n        kind\n        name\n        ofType {\n          kind\n          name\n          ofType {\n            kind\n            name\n            ofType {\n              kind\n              name\n              ofType {\n                kind\n                name\n                ofType {\n                  kind\n                  name\n                  ofType {\n                    kind\n                    name\n                  }\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  "}
+Time = 21.05.2023 01:16:50
+Response logged from middleware StatusCode = 404
+TraceIdentifier = 0HMQPEPQOANE6:00000001
+Body = 
+ResponseTime = 21.05.2023 01:16:50
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/index.html/v1/Actors/GetAllActors
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:18:11
+Response logged from middleware StatusCode = 404
+TraceIdentifier = 0HMQPEPQOANE7:00000001
+Body = 
+ResponseTime = 21.05.2023 01:18:11
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/index.html
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:18:28
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE6:00000002
+Body = <!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="swagger-ui"></div>
+
+    <!-- Workaround for https://github.com/swagger-api/swagger-editor/issues/1371 -->
+    <script>
+        if (window.navigator.userAgent.indexOf("Edge") > -1) {
+            console.log("Removing native Edge fetch in favor of swagger-ui's polyfill")
+            window.fetch = undefined;
+        }
+    </script>
+
+    <script src="./swagger-ui-bundle.js"></script>
+    <script src="./swagger-ui-standalone-preset.js"></script>
+    <script>
+        /* Source: https://gist.github.com/lamberta/3768814
+         * Parse a string function definition and return a function object. Does not use eval.
+         * @param {string} str
+         * @return {function}
+         *
+         * Example:
+         *  var f = function (x, y) { return x * y; };
+         *  var g = parseFunction(f.toString());
+         *  g(33, 3); //=> 99
+         */
+        function parseFunction(str) {
+            if (!str) return void (0);
+
+            var fn_body_idx = str.indexOf('{'),
+                fn_body = str.substring(fn_body_idx + 1, str.lastIndexOf('}')),
+                fn_declare = str.substring(0, fn_body_idx),
+                fn_params = fn_declare.substring(fn_declare.indexOf('(') + 1, fn_declare.lastIndexOf(')')),
+                args = fn_params.split(',');
+
+            args.push(fn_body);
+
+            function Fn() {
+                return Function.apply(this, args);
+            }
+            Fn.prototype = Function.prototype;
+
+            return new Fn();
+        }
+
+        window.onload = function () {
+            var configObject = JSON.parse('{"urls":[{"url":"v1/swagger.json","name":"SigmaMovies.API v1"}],"deepLinking":false,"persistAuthorization":false,"displayOperationId":false,"defaultModelsExpandDepth":1,"defaultModelExpandDepth":1,"defaultModelRendering":"example","displayRequestDuration":false,"docExpansion":"list","showExtensions":false,"showCommonExtensions":false,"supportedSubmitMethods":["get","put","post","delete","options","head","patch","trace"],"tryItOutEnabled":false}');
+            var oauthConfigObject = JSON.parse('{"scopeSeparator":" ","scopes":[],"useBasicAuthenticationWithAccessCodeGrant":false,"usePkceWithAuthorizationCodeGrant":false}');
+
+            // Workaround for https://github.com/swagger-api/swagger-ui/issues/5945
+            configObject.urls.forEach(function (item) {
+                if (item.url.startsWith("http") || item.url.startsWith("/")) return;
+                item.url = window.location.href.replace("index.html", item.url).split('#')[0];
+            });
+
+            // If validatorUrl is not explicitly provided, disable the feature by setting to null
+            if (!configObject.hasOwnProperty("validatorUrl"))
+                configObject.validatorUrl = null
+
+            // If oauth2RedirectUrl isn't specified, use the built-in default
+            if (!configObject.hasOwnProperty("oauth2RedirectUrl"))
+                configObject.oauth2RedirectUrl = (new URL("oauth2-redirect.html", window.location.href)).href;
+
+            // Apply mandatory parameters
+            configObject.dom_id = "#swagger-ui";
+            configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
+            configObject.layout = "StandaloneLayout";
+
+            // Parse and add interceptor functions
+            var interceptors = JSON.parse('{"RequestInterceptorFunction":null,"ResponseInterceptorFunction":null}');
+            if (interceptors.RequestInterceptorFunction)
+                configObject.requestInterceptor = parseFunction(interceptors.RequestInterceptorFunction);
+            if (interceptors.ResponseInterceptorFunction)
+                configObject.responseInterceptor = parseFunction(interceptors.ResponseInterceptorFunction);
+
+            // Begin Swagger UI call region
+
+            const ui = SwaggerUIBundle(configObject);
+
+            ui.initOAuth(oauthConfigObject);
+
+            // End Swagger UI call region
+
+            window.ui = ui
+        }
+    </script>
+</body>
+</html>
+
+ResponseTime = 21.05.2023 01:18:28
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /swagger/index.html
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:20:11
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE6:00000003
+Body = <!-- HTML for static distribution bundle build -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <link rel="stylesheet" type="text/css" href="./swagger-ui.css">
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" />
+    <style>
+
+        html {
+            box-sizing: border-box;
+            overflow: -moz-scrollbars-vertical;
+            overflow-y: scroll;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            margin: 0;
+            background: #fafafa;
+        }
+    </style>
+    
+</head>
+
+<body>
+    <div id="swagger-ui"></div>
+
+    <!-- Workaround for https://github.com/swagger-api/swagger-editor/issues/1371 -->
+    <script>
+        if (window.navigator.userAgent.indexOf("Edge") > -1) {
+            console.log("Removing native Edge fetch in favor of swagger-ui's polyfill")
+            window.fetch = undefined;
+        }
+    </script>
+
+    <script src="./swagger-ui-bundle.js"></script>
+    <script src="./swagger-ui-standalone-preset.js"></script>
+    <script>
+        /* Source: https://gist.github.com/lamberta/3768814
+         * Parse a string function definition and return a function object. Does not use eval.
+         * @param {string} str
+         * @return {function}
+         *
+         * Example:
+         *  var f = function (x, y) { return x * y; };
+         *  var g = parseFunction(f.toString());
+         *  g(33, 3); //=> 99
+         */
+        function parseFunction(str) {
+            if (!str) return void (0);
+
+            var fn_body_idx = str.indexOf('{'),
+                fn_body = str.substring(fn_body_idx + 1, str.lastIndexOf('}')),
+                fn_declare = str.substring(0, fn_body_idx),
+                fn_params = fn_declare.substring(fn_declare.indexOf('(') + 1, fn_declare.lastIndexOf(')')),
+                args = fn_params.split(',');
+
+            args.push(fn_body);
+
+            function Fn() {
+                return Function.apply(this, args);
+            }
+            Fn.prototype = Function.prototype;
+
+            return new Fn();
+        }
+
+        window.onload = function () {
+            var configObject = JSON.parse('{"urls":[{"url":"v1/swagger.json","name":"SigmaMovies.API v1"}],"deepLinking":false,"persistAuthorization":false,"displayOperationId":false,"defaultModelsExpandDepth":1,"defaultModelExpandDepth":1,"defaultModelRendering":"example","displayRequestDuration":false,"docExpansion":"list","showExtensions":false,"showCommonExtensions":false,"supportedSubmitMethods":["get","put","post","delete","options","head","patch","trace"],"tryItOutEnabled":false}');
+            var oauthConfigObject = JSON.parse('{"scopeSeparator":" ","scopes":[],"useBasicAuthenticationWithAccessCodeGrant":false,"usePkceWithAuthorizationCodeGrant":false}');
+
+            // Workaround for https://github.com/swagger-api/swagger-ui/issues/5945
+            configObject.urls.forEach(function (item) {
+                if (item.url.startsWith("http") || item.url.startsWith("/")) return;
+                item.url = window.location.href.replace("index.html", item.url).split('#')[0];
+            });
+
+            // If validatorUrl is not explicitly provided, disable the feature by setting to null
+            if (!configObject.hasOwnProperty("validatorUrl"))
+                configObject.validatorUrl = null
+
+            // If oauth2RedirectUrl isn't specified, use the built-in default
+            if (!configObject.hasOwnProperty("oauth2RedirectUrl"))
+                configObject.oauth2RedirectUrl = (new URL("oauth2-redirect.html", window.location.href)).href;
+
+            // Apply mandatory parameters
+            configObject.dom_id = "#swagger-ui";
+            configObject.presets = [SwaggerUIBundle.presets.apis, SwaggerUIStandalonePreset];
+            configObject.layout = "StandaloneLayout";
+
+            // Parse and add interceptor functions
+            var interceptors = JSON.parse('{"RequestInterceptorFunction":null,"ResponseInterceptorFunction":null}');
+            if (interceptors.RequestInterceptorFunction)
+                configObject.requestInterceptor = parseFunction(interceptors.RequestInterceptorFunction);
+            if (interceptors.ResponseInterceptorFunction)
+                configObject.responseInterceptor = parseFunction(interceptors.ResponseInterceptorFunction);
+
+            // Begin Swagger UI call region
+
+            const ui = SwaggerUIBundle(configObject);
+
+            ui.initOAuth(oauthConfigObject);
+
+            // End Swagger UI call region
+
+            window.ui = ui
+        }
+    </script>
+</body>
+</html>
+
+ResponseTime = 21.05.2023 01:20:11
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:21:12
+Response logged from middleware StatusCode = 404
+TraceIdentifier = 0HMQPEPQOANE6:00000004
+Body = 
+ResponseTime = 21.05.2023 01:21:12
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /v1/Actors/GetAllActors
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:21:32
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANE6:00000005
+Body = [{"id":3,"name":"apapaapapapa","img":"string","movies":null},{"id":4,"name":"444444","img":"string","movies":null},{"id":5,"name":"asasasa","img":"ddddd","movies":null},{"id":6,"name":"qsvii","img":"string","movies":null},{"id":7,"name":"მიხო","img":"ფსიხო","movies":null},{"id":8,"name":"8888","img":"string","movies":null},{"id":9,"name":"wewewew","img":"string","movies":null},{"id":10,"name":"wqwqwqwq","img":"string","movies":null},{"id":11,"name":"bbbbbbbbbbbbbbbbbbbbbbbbb","img":"string","movies":null},{"id":14,"name":"cxrrrr","img":"string","movies":null},{"id":15,"name":"atttat","img":"string","movies":null},{"id":16,"name":"შორენა ბეგაშვილი","img":"ფოტო","movies":null},{"id":17,"name":"bames jond","img":"pict","movies":null},{"id":18,"name":"John Smith","img":"https://example.com/images/john-smith.jpg","movies":null}]
+ResponseTime = 21.05.2023 01:21:32
+ logged from Middleware
+IP = ::1
+Address = https
+Method = POST
+Path = /v1/Actors/AddActor
+IsSecured = True
+QueryString = 
+RequestBody = {
+  "name": "John Smith",
+  "img": "https://example.com/images/john-smith.jpg"
+}
+Time = 21.05.2023 01:22:12
+Response logged from middleware StatusCode = 401
+TraceIdentifier = 0HMQPEPQOANEB:00000001
+Body = 
+ResponseTime = 21.05.2023 01:22:12
+ logged from Middleware
+IP = ::1
+Address = https
+Method = POST
+Path = /v1/Actors/AddActor
+IsSecured = True
+QueryString = 
+RequestBody = {
+  "name": "John Smith",
+  "img": "https://example.com/images/john-smith.jpg"
+}
+Time = 21.05.2023 01:23:19
+Response logged from middleware StatusCode = 401
+TraceIdentifier = 0HMQPEPQOANE6:00000006
+Body = 
+ResponseTime = 21.05.2023 01:23:19
+ logged from Middleware
+IP = ::1
+Address = https
+Method = GET
+Path = /v1/Movies/GetAllMovies
+IsSecured = True
+QueryString = 
+RequestBody = 
+Time = 21.05.2023 01:23:35
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPEPQOANEB:00000003
+Body = [{"id":1,"title":"string","color":"string","color2":"string","img":"string","video":"string","description":"string","actors":[{"id":10,"name":"wqwqwqwq","img":"string"}],"rating":{"imDb":0.0,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":2,"title":"კახელი ვირიტყანიები","color":"#0000F","color2":"#0000F","img":"ragaclinki.com","video":"ragacytlinki.com","description":"ფულეიჩდი","actors":[],"rating":{"imDb":7.8,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":3,"title":"Fight Club","color":"red","color2":"blue","img":"theimg","video":"thevideo","description":"thedesc","actors":[],"rating":{"imDb":9.0,"rottenTomatoes":90},"metadata":{"hr":"","year":0,"genre":""}},{"id":4,"title":"Inglorious basters","color":"red","color2":"blue","img":"img","video":"video","description":"desc","actors":[],"rating":{"imDb":9.0,"rottenTomatoes":90},"metadata":{"hr":"","year":0,"genre":""}},{"id":5,"title":"test","color":"test","color2":"test","img":"test","video":"test","description":"test","actors":[],"rating":{"imDb":7.0,"rottenTomatoes":7},"metadata":{"hr":"","year":0,"genre":""}},{"id":6,"title":"ვვვვვვვვ","color":"string","color2":"string","img":"string","video":"string","description":"string","actors":[{"id":10,"name":"wqwqwqwq","img":"string"}],"rating":{"imDb":0.0,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":7,"title":"testactor","color":"string","color2":"string","img":"string","video":"string","description":"string","actors":[{"id":9,"name":"wewewew","img":"string"},{"id":10,"name":"wqwqwqwq","img":"string"}],"rating":{"imDb":0.0,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":8,"title":"sakaifokino","color":"string","color2":"string","img":"string","video":"string","description":"string","actors":[{"id":7,"name":"მიხო","img":"ფსიხო"}],"rating":{"imDb":0.0,"rottenTomatoes":0},"metadata":{"hr":"","year":0,"genre":""}},{"id":9,"title":"The Dark Knight","color":"Black","color2":"White","img":"https://www.example.com/the-dark-knight.jpg","video":"https://www.example.com/the-dark-knight.mp4","description":"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","actors":[],"rating":{"imDb":9.0,"rottenTomatoes":94},"metadata":{"hr":"3:00:00","year":2008,"genre":"Detective"}}]
+ResponseTime = 21.05.2023 01:23:36
+ logged from Middleware
+IP = ::1
+Address = https
+Method = POST
+Path = /v1/Actors/AddActor
+IsSecured = True
+QueryString = 
+RequestBody = {
+  "name": "John Smith",
+  "img": "https://example.com/images/john-smith.jpg"
+}
+Time = 21.05.2023 01:26:09
+Response logged from middleware StatusCode = 401
+TraceIdentifier = 0HMQPEPQOANE6:00000007
+Body = 
+ResponseTime = 21.05.2023 01:26:09
