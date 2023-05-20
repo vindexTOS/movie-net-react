@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SigmaMovies.Domain.Actors;
 using SigmaMovies.Domain.Movies;
+using SigmaMovies.Domain.Users;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace SigmaMovies.Persistence.Context
 
 
         //DbSets
+        public DbSet<User> Users { get; set; }
         public DbSet<Movie> Movies { get; set; }
         public DbSet<Actor> Actors { get; set; }
 

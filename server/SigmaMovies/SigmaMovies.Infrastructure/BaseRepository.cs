@@ -35,24 +35,20 @@ namespace SigmaMovies.Infrastructure
         public async Task AddAsync(CancellationToken token, T entity)
         {
             await _dbSet.AddAsync(entity, token);
-            //await _context.SaveChangesAsync(token);
         }
 
         public async Task UpdateAsync(CancellationToken token, T entity)
         {
             if (entity == null)
                 return;
-
             _dbSet.Update(entity);
 
-            //await _context.SaveChangesAsync(token);
         }
 
         public async Task RemoveAsync(CancellationToken token, params object[] key)
         {
             var entity = await GetAsync(token, key);
             _dbSet.Remove(entity);
-            //await _context.SaveChangesAsync(token);
         }
 
         //public async Task RemoveAsync(CancellationToken token, T entity)

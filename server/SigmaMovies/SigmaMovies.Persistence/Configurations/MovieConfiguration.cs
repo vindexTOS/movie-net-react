@@ -19,6 +19,7 @@ namespace SigmaMovies.Persistence.Configurations
             builder.Property(movie => movie.Img).IsRequired().HasMaxLength(500);
             builder.Property(movie => movie.Video).IsRequired().HasMaxLength(500);
             builder.Property(movie => movie.Description).IsRequired().HasMaxLength(1000);
+            builder.OwnsOne(movie => movie.Metadata);
             builder.Property(movie => movie.CreatedAt).IsRequired().HasColumnType("datetime");
             builder.Property(movie => movie.ModifiedAt).IsRequired().HasColumnType("datetime");
             builder.Property(movie => movie.IsDeleted).IsRequired();

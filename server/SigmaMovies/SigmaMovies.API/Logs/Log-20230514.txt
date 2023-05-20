@@ -1,0 +1,463 @@
+2023-05-14 18:57:27.836 +04:00  INF  Executed DbCommand (27ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-14 18:57:27.938 +04:00  INF  Executed DbCommand (24ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-14 18:57:27.947 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-14 18:57:27.952 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-14 18:57:27.983 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-14 18:57:28.013 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-14 18:57:28.780 +04:00  INF  Executed DbCommand (120ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-14 18:57:28.801 +04:00  INF  Starting...
+2023-05-14 18:57:28.999 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-14 18:57:29.485 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-14 18:57:29.532 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-14 18:57:29.538 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-14 18:57:29.552 +04:00  INF  Hosting environment: Development
+2023-05-14 18:57:29.951 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-14 18:57:30.632 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-14 18:57:31.359 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 726.9983ms
+2023-05-14 18:57:31.375 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-14 18:57:31.375 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-14 18:57:31.403 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 11999 application/javascript;+charset=utf-8 27.7427ms
+2023-05-14 18:57:31.488 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 112.4704ms
+2023-05-14 18:57:31.633 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-14 18:57:32.140 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 507.7507ms
+2023-05-14 18:58:17.548 +04:00  INF  Request starting HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 295
+2023-05-14 18:58:17.806 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 18:58:17.865 +04:00  INF  Route matched with {action = "UpdateMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task UpdateMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestPutModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-14 18:58:18.684 +04:00  INF  Executed DbCommand (53ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:58:19.200 +04:00  INF  Executed DbCommand (10ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:58:19.233 +04:00  INF  Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:58:19.251 +04:00  INF  Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:58:19.664 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API) in 1787.9258ms
+2023-05-14 18:58:19.668 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 18:58:20.414 +04:00  INF  Request finished HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 295 - 500 - application/json 2867.1924ms
+2023-05-14 18:58:25.853 +04:00  INF  Request starting HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 295
+2023-05-14 18:58:25.877 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 18:58:25.881 +04:00  INF  Route matched with {action = "UpdateMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task UpdateMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestPutModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-14 18:58:25.916 +04:00  INF  Executed DbCommand (14ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:58:47.148 +04:00  INF  Executed DbCommand (49ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:59:19.263 +04:00  INF  Executed DbCommand (8ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:59:19.273 +04:00  INF  Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:59:19.281 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 18:59:19.533 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API) in 53647.7457ms
+2023-05-14 18:59:19.536 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 18:59:19.997 +04:00  INF  Request finished HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 295 - 500 - application/json 54144.0057ms
+2023-05-14 18:59:28.886 +04:00  INF  Request starting HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 295
+2023-05-14 18:59:28.896 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 18:59:28.898 +04:00  INF  Route matched with {action = "UpdateMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task UpdateMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestPutModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-14 18:59:37.186 +04:00  INF  Executed DbCommand (45ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:01:00.704 +04:00  INF  Executed DbCommand (51ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:01:11.466 +04:00  INF  Executed DbCommand (9ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:01:11.473 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:01:11.482 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:01:11.692 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API) in 102791.0119ms
+2023-05-14 19:01:11.695 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 19:01:12.058 +04:00  INF  Request finished HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 295 - 500 - application/json 103171.7638ms
+2023-05-14 19:02:15.645 +04:00  INF  Request starting HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 369
+2023-05-14 19:02:15.653 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 19:02:15.657 +04:00  INF  Route matched with {action = "UpdateMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task UpdateMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestPutModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-14 19:02:22.149 +04:00  INF  Executed DbCommand (37ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:02:51.864 +04:00  INF  Executed DbCommand (53ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:03:47.654 +04:00  INF  Executed DbCommand (22ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:03:47.667 +04:00  INF  Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:03:47.675 +04:00  INF  Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:03:47.684 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:03:47.693 +04:00  INF  Executed DbCommand (2ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 19:03:48.017 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API) in 92354.8873ms
+2023-05-14 19:03:48.085 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 19:03:48.561 +04:00  INF  Request finished HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 369 - 500 - application/json 92915.9116ms
+2023-05-14 19:04:01.329 +04:00  INF  Request starting HTTP/2 PUT https://localhost:7086/v1/Movies/UpdateMovie application/json-patch+json 368
+2023-05-14 19:04:01.342 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.UpdateMovie (SigmaMovies.API)'
+2023-05-14 19:04:01.351 +04:00  INF  Route matched with {action = "UpdateMovie", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task UpdateMovie(System.Threading.CancellationToken, SigmaMovies.Application.Movies.Requests.MovieRequestPutModel) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-14 19:04:05.205 +04:00  INF  Executed DbCommand (42ms) [Parameters=[@__id_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT [t].[Id], [t].[Color], [t].[Color2], [t].[CreatedAt], [t].[Description], [t].[Img], [t].[IsDeleted], [t].[ModifiedAt], [t].[Title], [t].[Video], [t].[Rating_IMDb], [t].[Rating_RottenTomatoes], [t0].[ActorsId], [t0].[MoviesId], [t0].[Id], [t0].[Img], [t0].[Name]
+FROM (
+    SELECT TOP(2) [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes]
+    FROM [Movies] AS [m]
+    WHERE [m].[Id] = @__id_0
+) AS [t]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t0] ON [t].[Id] = [t0].[MoviesId]
+ORDER BY [t].[Id], [t0].[ActorsId], [t0].[MoviesId]
+2023-05-14 20:52:53.105 +04:00  INF  Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-14 20:52:53.554 +04:00  INF  Executed DbCommand (334ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-14 20:52:53.562 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-14 20:52:53.567 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-14 20:52:53.611 +04:00  INF  Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-14 20:52:53.640 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-14 20:52:54.252 +04:00  INF  Executed DbCommand (113ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-14 20:52:54.269 +04:00  INF  Starting...
+2023-05-14 20:52:54.328 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-14 20:52:54.724 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-14 20:52:54.726 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-14 20:52:54.730 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-14 20:52:54.732 +04:00  INF  Hosting environment: Development
+2023-05-14 20:52:54.733 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-14 20:52:55.492 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-14 20:52:56.277 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 780.9643ms
+2023-05-14 20:52:56.322 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-14 20:52:56.328 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-14 20:52:56.389 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 11999 application/javascript;+charset=utf-8 67.2472ms
+2023-05-14 20:52:56.639 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 311.4584ms
+2023-05-14 20:52:56.854 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-14 20:52:57.907 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1053.2799ms
+2023-05-14 20:53:02.995 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies - -
+2023-05-14 20:53:03.213 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-14 20:53:03.269 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-14 20:53:03.819 +04:00  INF  Executed DbCommand (96ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes], [t].[ActorsId], [t].[MoviesId], [t].[Id], [t].[Img], [t].[Name]
+FROM [Movies] AS [m]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t] ON [m].[Id] = [t].[MoviesId]
+WHERE [m].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [m].[Id], [t].[ActorsId], [t].[MoviesId]
+2023-05-14 20:53:04.196 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-14 20:53:04.212 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 935.0337ms
+2023-05-14 20:53:04.214 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-14 20:53:04.228 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/v1/Movies/GetAllMovies - - - 200 1678 application/json;+charset=utf-8 1233.1657ms
+2023-05-14 20:54:59.315 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/v1/Movies/GetAllActors - -
+2023-05-14 20:54:59.330 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllActors (SigmaMovies.API)'
+2023-05-14 20:54:59.341 +04:00  INF  Route matched with {action = "GetAllActors", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllActors(System.Threading.CancellationToken) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-14 20:54:59.447 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[Id], [a].[Img], [a].[Name]
+FROM [Actors] AS [a]
+2023-05-14 20:54:59.467 +04:00  INF  Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Actors.Responses.ActorResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-14 20:54:59.476 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllActors (SigmaMovies.API) in 131.6388ms
+2023-05-14 20:54:59.478 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllActors (SigmaMovies.API)'
+2023-05-14 20:54:59.482 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/v1/Movies/GetAllActors - - - 200 797 application/json;+charset=utf-8 167.0754ms
+2023-05-14 21:37:06.141 +04:00  INF  Executed DbCommand (60ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-14 21:37:06.328 +04:00  INF  Executed DbCommand (40ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-14 21:37:06.342 +04:00  INF  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-14 21:37:06.348 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-14 21:37:06.397 +04:00  INF  Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-14 21:37:06.444 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-14 21:37:07.293 +04:00  INF  Executed DbCommand (33ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-14 21:37:07.315 +04:00  INF  Starting...
+2023-05-14 21:37:07.392 +04:00  INF  User profile is available. Using 'C:\Users\Guram\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-14 21:37:07.839 +04:00  INF  Now listening on: https://localhost:7086
+2023-05-14 21:37:07.856 +04:00  INF  Now listening on: http://localhost:5119
+2023-05-14 21:37:07.861 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-14 21:37:07.863 +04:00  INF  Hosting environment: Development
+2023-05-14 21:37:07.865 +04:00  INF  Content root path: D:\MyProjects\SigmaMovie\server\SigmaMovies\SigmaMovies.API
+2023-05-14 21:37:08.985 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/index.html - -
+2023-05-14 21:37:10.270 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/index.html - - - 200 - text/html;charset=utf-8 1289.3083ms
+2023-05-14 21:37:10.983 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - -
+2023-05-14 21:37:10.997 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_framework/aspnetcore-browser-refresh.js - - - 200 11999 application/javascript;+charset=utf-8 13.8096ms
+2023-05-14 21:37:11.093 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/_vs/browserLink - -
+2023-05-14 21:37:11.183 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 89.9315ms
+2023-05-14 21:37:11.493 +04:00  INF  Request starting HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - -
+2023-05-14 21:37:12.517 +04:00  INF  Request finished HTTP/2 GET https://localhost:7086/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 1023.4880ms
+2023-05-14 21:40:43.880 +04:00  INF  Request starting HTTP/2 POST https://localhost:7086/api/Authorization/LogIn application/json-patch+json 60
+2023-05-14 21:40:44.096 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-14 21:40:44.173 +04:00  INF  Route matched with {action = "LogIn", controller = "Authorization"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.String] LogIn(System.Threading.CancellationToken, SigmaMovies.Application.Users.Requests.UserRequestModel) on controller SigmaMovies.API.Controllers.AuthorizationController (SigmaMovies.API).
+2023-05-14 21:40:44.683 +04:00  INF  Executed DbCommand (137ms) [Parameters=[@__name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__name_0
+2023-05-14 21:40:45.029 +04:00  INF  Executed DbCommand (5ms) [Parameters=[@__username_0='?' (Size = 100), @__password_1='?' (Size = 512)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__username_0 AND @__password_1 = [u].[PasswordHash]
+2023-05-14 21:40:45.797 +04:00  INF  Executing ObjectResult, writing value of type 'System.String'.
+2023-05-14 21:40:45.808 +04:00  INF  Executed action SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API) in 1626.702ms
+2023-05-14 21:40:45.813 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-14 21:40:45.829 +04:00  INF  Request finished HTTP/2 POST https://localhost:7086/api/Authorization/LogIn application/json-patch+json 60 - 200 - text/plain;+charset=utf-8 1948.7165ms

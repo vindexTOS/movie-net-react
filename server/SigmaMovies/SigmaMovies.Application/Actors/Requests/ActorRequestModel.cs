@@ -1,4 +1,5 @@
-﻿using SigmaMovies.Domain.Movies;
+﻿using SigmaMovies.Application.Movies.Requests;
+using SigmaMovies.Domain.Movies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,5 @@ namespace SigmaMovies.Application.Actors.Requests
     {
         public string Name { get; set; }
         public string Img { get; set; }
-        public List<Movie> Movies { get; set; }
     }
 }
