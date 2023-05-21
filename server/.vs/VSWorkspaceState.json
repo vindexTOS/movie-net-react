@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\SigmaMovies",
+    "\\SigmaMovies\\SigmaMovies.API",
+    "\\SigmaMovies\\SigmaMovies.Persistence",
+    "\\SigmaMovies\\SigmaMovies.Persistence\\Seed"
+  ],
+  "PreviewInSolutionExplorer": false
+}

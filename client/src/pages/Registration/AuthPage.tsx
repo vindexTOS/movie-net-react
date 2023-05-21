@@ -23,7 +23,7 @@ const AuthPage = () => {
           title="Sign Up"
         />
       </div>
-      <p className="text-white w-[50%] text-center absolute font-bold text-[1.2rem] bottom-10 max_sm8:bottom-0 max_sm8:w-[90%]  max_smm:text-[1rem]   max_smm:w-[90%]">
+      <p className="text-white w-[50%] text-center absolute font-bold text-[1.2rem] bottom-10 max_sm8:bottom-0 max_sm8:w-[90%]  bottom-[-5rem] max_smm:text-[1rem]   max_smm:w-[90%]">
         You have two choices. Take the blue pill and{' '}
         <span
           className="text-blue-400  cursor-pointer"

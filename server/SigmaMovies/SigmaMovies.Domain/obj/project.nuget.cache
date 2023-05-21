@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OTD9N98lq0mHdiEB1HD7uaGCZIk77ukn9mZdlFSib6/fXTuex6QiLP9HHP19tJcfa8o1N4M3cwBB1mQR6idXDA==",
+  "dgSpecHash": "fbjrewQ7MVbL7bDyN78kZN8wePro0YZHKIlRlZqee9AWIQYsltDLg1IEsoTD8py6R5t6ptPdijNGX/cDXBC33Q==",
   "success": true,
-  "projectFilePath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj",
+  "projectFilePath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

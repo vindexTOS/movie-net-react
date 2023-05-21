@@ -1,0 +1,304 @@
+ logged from Middleware
+IP = ::1
+Address = http
+Method = POST
+Path = /LogIn
+IsSecured = False
+QueryString = 
+RequestBody = {
+    "username":"Admin@gmail.com", "password":"Akaki!1"
+}
+Time = 5/21/2023 2:37:58 PM
+Response logged from middleware StatusCode = 404
+TraceIdentifier = 0HMQPSTOMLKIU:00000001
+Body = 
+ResponseTime = 5/21/2023 2:37:58 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = POST
+Path = /LogIn
+IsSecured = False
+QueryString = 
+RequestBody = {
+    "username":"Admin@gmail.com", "password":"Akaki!1"
+}
+Time = 5/21/2023 2:39:58 PM
+Response logged from middleware StatusCode = 404
+TraceIdentifier = 0HMQPSTOMLKIU:00000002
+Body = 
+ResponseTime = 5/21/2023 2:39:58 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = POST
+Path = /LogIn
+IsSecured = False
+QueryString = 
+RequestBody = {
+    "username":"Admin@gmail.com", "password":"Akaki!1"
+}
+Time = 5/21/2023 2:40:01 PM
+Response logged from middleware StatusCode = 404
+TraceIdentifier = 0HMQPSTOMLKIU:00000003
+Body = 
+ResponseTime = 5/21/2023 2:40:01 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = POST
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = {
+    "username":"Admin@gmail.com",
+    "password":"Akaki!1"
+}
+Time = 5/21/2023 3:29:17 PM
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPTQEJKFBG:00000001
+Body = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFkbWluQGdtYWlsLmNvbSIsIlVzZXJJZCI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2ODQ2Njg1NTksImV4cCI6MTY4NDY3MjE1OSwiaWF0IjoxNjg0NjY4NTU5LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QifQ.-naS5y9RNvho4WWJBzv4LYulvuCSFmHFtbvEa2_GAno
+ResponseTime = 5/21/2023 3:29:19 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:56:11 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000001
+Body = 
+ResponseTime = 5/21/2023 3:56:11 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = POST
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = {
+    "username":"Admin@gmail.com",
+    "password":"Akaki!1"
+}
+Time = 5/21/2023 3:56:27 PM
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPTQEJKFBG:00000002
+Body = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFkbWluQGdtYWlsLmNvbSIsIlVzZXJJZCI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2ODQ2NzAxODcsImV4cCI6MTY4NDY3Mzc4NywiaWF0IjoxNjg0NjcwMTg3LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QifQ.ILLi8WLVgCxxDSFgq0DosmZ6lJ-PnlLmB_j6nPnLS-4
+ResponseTime = 5/21/2023 3:56:27 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:56:39 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000002
+Body = 
+ResponseTime = 5/21/2023 3:56:39 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:56:40 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000003
+Body = 
+ResponseTime = 5/21/2023 3:56:40 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:56:41 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000004
+Body = 
+ResponseTime = 5/21/2023 3:56:41 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:56:41 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000005
+Body = 
+ResponseTime = 5/21/2023 3:56:41 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:56:42 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000006
+Body = 
+ResponseTime = 5/21/2023 3:56:42 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = POST
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = {
+    "username":"Admin@gmail.com",
+    "password":"Akaki!1"
+}
+Time = 5/21/2023 3:57:02 PM
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPTQEJKFBG:00000003
+Body = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFkbWluQGdtYWlsLmNvbSIsIlVzZXJJZCI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2ODQ2NzAyMjIsImV4cCI6MTY4NDY3MzgyMiwiaWF0IjoxNjg0NjcwMjIyLCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QifQ.Bt-uZH82lD3ddUm1f4yRDXiX6jdOpvoiLpxFj2wEIRM
+ResponseTime = 5/21/2023 3:57:02 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:05 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000007
+Body = 
+ResponseTime = 5/21/2023 3:58:05 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:05 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000008
+Body = 
+ResponseTime = 5/21/2023 3:58:05 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:06 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:00000009
+Body = 
+ResponseTime = 5/21/2023 3:58:06 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:06 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:0000000A
+Body = 
+ResponseTime = 5/21/2023 3:58:06 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:20 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:0000000B
+Body = 
+ResponseTime = 5/21/2023 3:58:20 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:21 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:0000000C
+Body = 
+ResponseTime = 5/21/2023 3:58:21 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:21 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:0000000D
+Body = 
+ResponseTime = 5/21/2023 3:58:21 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:58:22 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:0000000E
+Body = 
+ResponseTime = 5/21/2023 3:58:22 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = POST
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = {
+    "username":"Admin@gmail.com",
+    "password":"Akaki!1"
+}
+Time = 5/21/2023 3:59:09 PM
+Response logged from middleware StatusCode = 200
+TraceIdentifier = 0HMQPTQEJKFBG:00000004
+Body = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IkFkbWluQGdtYWlsLmNvbSIsIlVzZXJJZCI6IjEiLCJyb2xlIjoiQWRtaW4iLCJuYmYiOjE2ODQ2NzAzNDksImV4cCI6MTY4NDY3Mzk0OSwiaWF0IjoxNjg0NjcwMzQ5LCJpc3MiOiJsb2NhbGhvc3QiLCJhdWQiOiJsb2NhbGhvc3QifQ.LTFMT5g8fH8YC8uqnSYGAHHDacnyHTP7QQ6y7HC0cwk
+ResponseTime = 5/21/2023 3:59:09 PM
+ logged from Middleware
+IP = ::1
+Address = http
+Method = OPTIONS
+Path = /api/Authorization/LogIn
+IsSecured = False
+QueryString = 
+RequestBody = 
+Time = 5/21/2023 3:59:45 PM
+Response logged from middleware StatusCode = 405
+TraceIdentifier = 0HMQPTQEJKFBH:0000000F
+Body = 
+ResponseTime = 5/21/2023 3:59:45 PM
