@@ -20,13 +20,22 @@ body {
   background: rgb(4, 12, 14);
   background: linear-gradient(
     313deg,
-    rgba(4, 12, 14, 1) 0%,
-    rgba(19, 34, 38, 1) 63%,
+    #040c0e 0%,
+    #132226 63%,
     rgba(54, 58, 55, 1) 89%,
     rgba(111, 99, 84, 1) 100%
   );
 }
-
+.dropdownbg {
+  background: rgb(4, 12, 14);
+  background: linear-gradient(
+    313deg,
+    #040c0e 0%,
+    #132226 63%,
+    rgb(43, 48, 43) 89%,
+    rgb(70, 63, 59) 100%
+  );
+}
 .depthshaddow {
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(19, 24, 49, 0.5),

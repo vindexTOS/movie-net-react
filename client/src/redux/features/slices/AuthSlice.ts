@@ -5,6 +5,7 @@ const initialState = {
   error: '',
   username: '',
   password: '',
+  text: '',
   userDecoded: {},
 }
 
@@ -27,7 +28,11 @@ const AuthSlice = createSlice({
 
       state.userDecoded = jwt(cookies.get('jwt_authorization'))
     },
+    getText: (state, action) => {
+      state.text === action.payload
+    },
     LogOut: (state) => {
+      console.log('logout')
       const cookies = new Cookies()
       state.userDecoded = {}
       cookies.remove('jwt_authorization')
@@ -42,4 +47,5 @@ export const {
   getPassword,
   getCookies,
   LogOut,
+  getText,
 } = AuthSlice.actions

@@ -5,7 +5,7 @@ import NavBar from './components/navbar/NavBar'
 import LogIn from './pages/Registration/LogIn'
 import Signup from './pages/Registration/Signup'
 import AuthPage from './pages/Registration/AuthPage'
-import UserPannel from './pages/UserPages/UserPannel'
+import UserPanel from './pages/UserPages/UserPannel'
 function App() {
   return (
     <>
@@ -15,7 +15,7 @@ function App() {
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/authorisation" element={<AuthPage />} />
-        <Route path="/user-main" element={<UserPannel />} />
+        <Route path="/user-main" element={<UserPanel />} />
       </Routes>
     </>
   )

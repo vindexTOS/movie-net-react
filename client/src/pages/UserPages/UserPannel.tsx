@@ -2,35 +2,61 @@ import React, { useEffect } from 'react'
 import { getCookies, LogOut } from '../../redux/features/slices/AuthSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
-import { useNavigate } from 'react-router-dom'
-const UserPannel = () => {
+import { Link, useNavigate } from 'react-router-dom'
+import PostMovie from './PostMovie'
+const UserPanel = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const navigate = useNavigate()
-  useEffect(() => {
-    setTimeout(() => {
-      dispatch(getCookies())
-    }, 1000)
-  }, [])
+
   const hanndleLogout = () => {
     dispatch(LogOut())
     navigate('/login')
   }
+
   const userData = useSelector((state: any) => state.auth.userDecoded)
-  if (userData && userData.unique_name) {
+
+  useEffect(() => {
+    if (userData.unique_name) {
+      dispatch(getCookies())
+    }
+  }, [])
+  if (userData?.unique_name) {
     return (
       <div className="w-[100%] h-[100vh] flex-col flex items-center justify-center">
         <h1 className="text-white text-[4rem]"> {userData.unique_name}</h1>
-        <button
+        {/* <button
           className="text-red-600 text-[2rem]"
           onClick={() => hanndleLogout()}
         >
           LOG OUT
-        </button>
+        </button> */}
+        <PostMovie />
       </div>
     )
   } else {
-    return <div>Loading</div>
+    const [loading, setLoading] = React.useState<string>('Loading...')
+    setTimeout(() => {
+      setLoading(' to accsess this page')
+    }, 3000)
+
+    return (
+      <div className="w-[100%] h-[100vh] flex items-center justify-center">
+        {loading === 'Loading...' ? (
+          <h1 className="text-white text-[2rem]"> {loading}</h1>
+        ) : (
+          <span className="text-white text-[2rem] ">
+            <Link
+              className="text-blue-400 hover:underline text-blue-500"
+              to="/login"
+            >
+              Log in
+            </Link>
+            {loading}
+          </span>
+        )}
+      </div>
+    )
   }
 }
 
-export default UserPannel
+export default UserPanel
