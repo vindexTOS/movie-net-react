@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj": {}
+    "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj": {}
   },
   "projects": {
-    "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj": {
+    "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj",
+        "projectUniqueName": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj",
         "projectName": "SigmaMovies.Domain",
-        "projectPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj",
-        "packagesPath": "C:\\Users\\Guram\\.nuget\\packages\\",
-        "outputPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Domain\\obj\\",
+        "projectPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Guram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,21 +55,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj": {
+    "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj",
+        "projectUniqueName": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj",
         "projectName": "SigmaMovies.Persistence",
-        "projectPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj",
-        "packagesPath": "C:\\Users\\Guram\\.nuget\\packages\\",
-        "outputPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Persistence\\obj\\",
+        "projectPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Guram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -83,8 +83,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj": {
-                "projectPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj"
+              "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj": {
+                "projectPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Domain\\SigmaMovies.Domain.csproj"
               }
             }
           }
@@ -142,7 +142,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

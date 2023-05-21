@@ -10,6 +10,10 @@ module.exports = {
       },
     },
     screens: {
+      // heights
+      laptop: { raw: '(max-height:900px)' },
+      // => @media (max-height: 900px) { ...
+      //widths
       xm: '500px',
       sm: '640px',
       // => @media (min-width: 640px) { ... }
@@ -24,7 +28,10 @@ module.exports = {
       // => @media (min-width: 1280px) { ... }
       '1xl': '1361px',
       '2xl': '1536px',
+
       // => @media (min-width: 1536px) { ... }
+
+      max_XL4: { max: '1800px' },
       max_XL3: { max: '1590px' },
       max_Xll: { max: '1360px' },
       max_xl: { max: '1286px' },
@@ -36,6 +43,7 @@ module.exports = {
       max_md2: { max: '900px' },
       max_md: { max: '767px' },
       // => @media (max-width: 767px) { ... }
+      max_smd: { max: '700px' },
       max_sm: { max: '640px' },
       max_sm8: { max: '825px' },
       // => @media (max-width: 639px) { ... }

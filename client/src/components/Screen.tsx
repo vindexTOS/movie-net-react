@@ -1,15 +1,15 @@
 import React, { useReducer } from 'react'
-import { filmData, movieDataType } from '../assets/dummydata/data'
+
 import imbd from '../assets/icons/imdb.png'
 import tomato from '../assets/icons/tomato.png'
 import RatingComponent from './RatingComponent'
-import { motion as m } from 'framer-motion'
+
 import Description from './Description'
 import Button from './Button'
 import Actors from './Actors'
 import Video from './Video'
 import Selector from './Selector'
-import { increment, decrement } from '../redux/features/slideMovieSlice'
+
 import { useDispatch, useSelector } from 'react-redux'
 
 export type Action = {
@@ -23,12 +23,12 @@ type State = {
 
 const Screen = () => {
   const style = {
-    screenDiv: `w-[100%] h-[100%]    rounded-[8px] flex flex-col    `,
+    screenDiv: `w-[100%] h-[100%]    rounded-[8px] flex flex-col  justify-around    `,
     img: `w-[30%] h-[500px] rounded-[40px]  `,
-    btnDiv: ` gap-10 mt-20 ml-20 items-center justify-between flex`,
+    btnDiv: ` gap-5 items-center justify-between flex`,
     btn: `border-b-[1px]  text-[1.4rem] border-black w-[12rem] py-1 font-medium tracking-widest`,
 
-    ratingDiv: `flex gap-5 absolute top-20 left-40`,
+    ratingDiv: `flex gap-5 absolute  left-40`,
   }
 
   const dispatchRedux = useDispatch()
@@ -76,15 +76,26 @@ const Screen = () => {
     showVideo: false,
   })
   const titleCheck = state.showDec || state.showActors || state.showVideo
+
+  const [stopInreval, setStopInterval] = React.useState<boolean>(false)
+  const StopInterval = () => {
+    setStopInterval(true)
+    setTimeout(() => {
+      setStopInterval(false)
+    }, 10000)
+  }
+
   return (
     <div
+      onClick={() => StopInterval()}
       className={style.screenDiv}
       style={{
         background: ` ${movieData[index].color}   `,
       }}
     >
-      {/* <button onClick={() => console.log(movieData)}>ON CLICK</button> */}
-      <section className=" flex items-center justify-around w-[100%] h-[100%] px-10  ">
+      <section className="flex justify-around  ">
+        {/* <button onClick={() => console.log(movieData)}>ON CLICK</button> */}
+
         <div className={style.ratingDiv}>
           <RatingComponent
             img={imbd}
@@ -100,19 +111,19 @@ const Screen = () => {
           />
         </div>
         <div className="flex flex-col justify-around items-center h-[100%] ">
-          <div className="flex flex-col items-center justify-center h-[500px] mt-20 space-between gap-10">
+          <div className="flex flex-col items-center   h-[500px]   py-10  ">
             <h1
               style={{
                 color: titleCheck
                   ? `${movieData[index].color}`
                   : `${movieData[index].color2}`,
               }}
-              className={`text-center w-[600px]  mt-5  text-[4rem] font-bold tracking-widest  h-[200px]  `}
+              className={`text-center w-[300px]  mt-5  text-[2.7rem] font-bold tracking-widest  h-[200px]  `}
             >
               {movieData[index].title}
             </h1>
             <p
-              className="text-bold text-[1.5rem] w-[400px] text-center "
+              className="text-bold text-[1.2rem] w-[400px] text-center "
               style={{
                 color: titleCheck
                   ? `${movieData[index].color}`
@@ -187,7 +198,7 @@ const Screen = () => {
         -
       </button> */}
       </section>
-      <Selector />
+      <Selector StopInterval={StopInterval} stopInreval={stopInreval} />
     </div>
   )
 }

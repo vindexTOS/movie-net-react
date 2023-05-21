@@ -9,7 +9,6 @@ using SigmaMovies.API.Infrastructure.Auth.JWT;
 using Microsoft.OpenApi.Models;
 using SigmaMovies.Persistence.Seed;
 using Swashbuckle.AspNetCore.Filters;
-
 using SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandling;
 using SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandler;
 using Serilog;
@@ -44,19 +43,19 @@ builder.Services.AddSwaggerGen(option =>
         Description = "Basic Authorization header using the Bearer scheme."
     });
     option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
                 {
-                    {
-                          new OpenApiSecurityScheme
-                            {
-                                Reference = new OpenApiReference
-                                {
-                                    Type = ReferenceType.SecurityScheme,
-                                    Id = "basic"
-                                }
-                            },
-                            new string[] {}
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "basic"
+                }
+            },
+            new string[] {}
         }
-                });
+    });
     option.CustomSchemaIds(type => type.ToString());
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine($"{AppContext.BaseDirectory}", xmlFile);
@@ -67,8 +66,6 @@ builder.Services.AddSwaggerGen(option =>
 
 builder.Services.AddTokenAuthentication(builder.Configuration.GetSection(nameof(JWTConfiguration)).GetSection(nameof(JWTConfiguration.Secret)).Value);
 
-
-
 builder.Services.AddServices();
 builder.Services.AddControllersWithViews()
     .AddNewtonsoftJson();
@@ -76,7 +73,6 @@ builder.Services.AddControllersWithViews()
 builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection(nameof(ConnectionStrings)));
 builder.Services.Configure<JWTConfiguration>(builder.Configuration.GetSection(nameof(JWTConfiguration)));
 builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
-
 
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -89,6 +85,16 @@ Log.Logger = new LoggerConfiguration().ReadFrom.Configuration(builder.Configurat
 
 builder.Host.UseSerilog();
 builder.Services.AddSwaggerExamplesFromAssemblies(Assembly.GetExecutingAssembly());
+
+// Enable CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowOrigin",
+        builder => builder.AllowAnyOrigin()
+                          .AllowAnyMethod()
+                          .AllowAnyHeader());
+});
+
 var app = builder.Build();
 
 app.UseMiddleware<ExceptionHandlingMiddleware>();
@@ -104,6 +110,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseRouting();
 
+app.UseCors("AllowOrigin"); // Apply CORS policy
+
 app.UseAuthentication();
 app.UseAuthorization();
 
@@ -114,7 +122,7 @@ SigmaMoviesSeed.Initialize(app.Services);
 try
 {
     Log.Information("Starting...");
-    app.Run();
+app.Run();
 }
 catch (Exception ex)
 {

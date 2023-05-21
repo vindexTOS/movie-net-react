@@ -1,0 +1,240 @@
+2023-05-21 14:37:20.306 +04:00  INF  Executed DbCommand (43ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 14:37:20.554 +04:00  INF  Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 14:37:20.563 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 14:37:20.579 +04:00  INF  Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 14:37:20.743 +04:00  INF  Executed DbCommand (145ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-21 14:37:20.828 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-21 14:37:21.309 +04:00  INF  Executed DbCommand (28ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-21 14:37:21.321 +04:00  INF  Starting...
+2023-05-21 14:37:21.386 +04:00  INF  User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-21 14:37:21.549 +04:00  INF  Now listening on: http://localhost:5000
+2023-05-21 14:37:21.552 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-21 14:37:21.553 +04:00  INF  Hosting environment: Production
+2023-05-21 14:37:21.554 +04:00  INF  Content root path: D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.API\bin\Debug\net7.0
+2023-05-21 14:37:57.949 +04:00  INF  Request starting HTTP/1.1 POST http://localhost:5000/LogIn application/json 60
+2023-05-21 14:37:58.015 +04:00  WRN  Failed to determine the https port for redirect.
+2023-05-21 14:37:58.544 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5000/LogIn application/json 60 - 404 0 - 598.4934ms
+2023-05-21 14:39:58.523 +04:00  INF  Request starting HTTP/1.1 POST http://localhost:5000/LogIn application/json 60
+2023-05-21 14:39:58.540 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5000/LogIn application/json 60 - 404 0 - 17.7165ms
+2023-05-21 14:40:01.429 +04:00  INF  Request starting HTTP/1.1 POST http://localhost:5000/LogIn application/json 60
+2023-05-21 14:40:01.442 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5000/LogIn application/json 60 - 404 0 - 12.6166ms
+2023-05-21 14:40:02.046 +04:00  INF  Application is shutting down...
+2023-05-21 15:27:43.856 +04:00  INF  Executed DbCommand (32ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 15:27:43.980 +04:00  INF  Executed DbCommand (33ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 15:27:43.996 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 15:27:44.005 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 15:27:44.031 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-21 15:27:44.107 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-21 15:27:44.912 +04:00  INF  Executed DbCommand (35ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-21 15:27:44.945 +04:00  INF  Starting...
+2023-05-21 15:27:44.987 +04:00  INF  User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-21 15:27:45.090 +04:00  INF  Now listening on: http://localhost:5000
+2023-05-21 15:27:45.095 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-21 15:27:45.096 +04:00  INF  Hosting environment: Production
+2023-05-21 15:27:45.103 +04:00  INF  Content root path: D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.API\bin\Debug\net7.0
+2023-05-21 15:28:04.084 +04:00  INF  Request starting HTTP/1.1 GET http://localhost:5000/api/Authorization/LogIn application/json 65
+2023-05-21 15:28:22.921 +04:00  INF  Request finished HTTP/1.1 GET http://localhost:5000/api/Authorization/LogIn application/json 65 - 500 - application/json 18839.8993ms
+2023-05-21 15:29:09.351 +04:00  INF  Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 15:29:09.430 +04:00  INF  Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 15:29:09.435 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 15:29:09.438 +04:00  INF  Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 15:29:09.455 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-21 15:29:09.477 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-21 15:29:09.832 +04:00  INF  Executed DbCommand (23ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-21 15:29:09.842 +04:00  INF  Starting...
+2023-05-21 15:29:09.882 +04:00  INF  User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-21 15:29:09.982 +04:00  INF  Now listening on: http://localhost:5000
+2023-05-21 15:29:09.988 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-21 15:29:09.990 +04:00  INF  Hosting environment: Production
+2023-05-21 15:29:09.991 +04:00  INF  Content root path: D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.API\bin\Debug\net7.0
+2023-05-21 15:29:17.883 +04:00  INF  Request starting HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65
+2023-05-21 15:29:17.936 +04:00  WRN  Failed to determine the https port for redirect.
+2023-05-21 15:29:18.154 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:29:18.367 +04:00  INF  Route matched with {action = "LogIn", controller = "Authorization"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LogIn(System.Threading.CancellationToken, SigmaMovies.Application.Users.Requests.UserRequestModel) on controller SigmaMovies.API.Controllers.AuthorizationController (SigmaMovies.API).
+2023-05-21 15:29:18.950 +04:00  INF  Executed DbCommand (29ms) [Parameters=[@__name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__name_0
+2023-05-21 15:29:19.260 +04:00  INF  Executed DbCommand (9ms) [Parameters=[@__username_0='?' (Size = 100), @__password_1='?' (Size = 512)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__username_0 AND @__password_1 = [u].[PasswordHash]
+2023-05-21 15:29:19.486 +04:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-05-21 15:29:19.501 +04:00  INF  Executed action SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API) in 1118.6609ms
+2023-05-21 15:29:19.513 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:29:19.552 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65 - 200 - text/plain;+charset=utf-8 1670.8720ms
+2023-05-21 15:56:11.006 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:56:11.015 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:11.018 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:11.022 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 16.4579ms
+2023-05-21 15:56:27.187 +04:00  INF  Request starting HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65
+2023-05-21 15:56:27.193 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:56:27.195 +04:00  INF  Route matched with {action = "LogIn", controller = "Authorization"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LogIn(System.Threading.CancellationToken, SigmaMovies.Application.Users.Requests.UserRequestModel) on controller SigmaMovies.API.Controllers.AuthorizationController (SigmaMovies.API).
+2023-05-21 15:56:27.330 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__name_0
+2023-05-21 15:56:27.343 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__username_0='?' (Size = 100), @__password_1='?' (Size = 512)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__username_0 AND @__password_1 = [u].[PasswordHash]
+2023-05-21 15:56:27.354 +04:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-05-21 15:56:27.358 +04:00  INF  Executed action SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API) in 160.88ms
+2023-05-21 15:56:27.361 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:56:27.370 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65 - 200 - text/plain;+charset=utf-8 183.4088ms
+2023-05-21 15:56:39.653 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:56:39.656 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:39.658 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:39.667 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 14.6082ms
+2023-05-21 15:56:40.569 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:56:40.585 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:40.587 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:40.591 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 22.1873ms
+2023-05-21 15:56:41.129 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:56:41.133 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:41.136 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:41.141 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 11.0654ms
+2023-05-21 15:56:41.345 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:56:41.349 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:41.350 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:41.353 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 7.9385ms
+2023-05-21 15:56:42.867 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:56:42.870 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:42.871 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:56:42.876 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 9.2491ms
+2023-05-21 15:57:02.636 +04:00  INF  Request starting HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65
+2023-05-21 15:57:02.639 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:57:02.642 +04:00  INF  Route matched with {action = "LogIn", controller = "Authorization"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LogIn(System.Threading.CancellationToken, SigmaMovies.Application.Users.Requests.UserRequestModel) on controller SigmaMovies.API.Controllers.AuthorizationController (SigmaMovies.API).
+2023-05-21 15:57:02.661 +04:00  INF  Executed DbCommand (2ms) [Parameters=[@__name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__name_0
+2023-05-21 15:57:02.674 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__username_0='?' (Size = 100), @__password_1='?' (Size = 512)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__username_0 AND @__password_1 = [u].[PasswordHash]
+2023-05-21 15:57:02.691 +04:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-05-21 15:57:02.694 +04:00  INF  Executed action SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API) in 46.3853ms
+2023-05-21 15:57:02.697 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:57:02.723 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65 - 200 - text/plain;+charset=utf-8 87.7464ms
+2023-05-21 15:58:05.124 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:05.134 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:05.142 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:05.146 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 22.1608ms
+2023-05-21 15:58:05.923 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:05.928 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:05.930 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:05.935 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 12.4259ms
+2023-05-21 15:58:06.136 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:06.141 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:06.142 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:06.144 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 7.9192ms
+2023-05-21 15:58:06.336 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:06.339 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:06.341 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:06.345 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 9.3855ms
+2023-05-21 15:58:20.133 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:20.138 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:20.140 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:20.144 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 11.1134ms
+2023-05-21 15:58:21.073 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:21.077 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:21.078 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:21.083 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 10.2242ms
+2023-05-21 15:58:21.641 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:21.645 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:21.646 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:21.650 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 9.3464ms
+2023-05-21 15:58:22.065 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:58:22.069 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:22.071 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:58:22.074 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 9.0861ms
+2023-05-21 15:59:09.748 +04:00  INF  Request starting HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65
+2023-05-21 15:59:09.752 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:59:09.763 +04:00  INF  Route matched with {action = "LogIn", controller = "Authorization"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] LogIn(System.Threading.CancellationToken, SigmaMovies.Application.Users.Requests.UserRequestModel) on controller SigmaMovies.API.Controllers.AuthorizationController (SigmaMovies.API).
+2023-05-21 15:59:09.771 +04:00  INF  Executed DbCommand (2ms) [Parameters=[@__name_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__name_0
+2023-05-21 15:59:09.782 +04:00  INF  Executed DbCommand (1ms) [Parameters=[@__username_0='?' (Size = 100), @__password_1='?' (Size = 512)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[CreatedAt], [u].[IsDeleted], [u].[ModifiedAt], [u].[PasswordHash], [u].[UserName], [u].[UserRole]
+FROM [Users] AS [u]
+WHERE [u].[UserName] = @__username_0 AND @__password_1 = [u].[PasswordHash]
+2023-05-21 15:59:09.787 +04:00  INF  Executing OkObjectResult, writing value of type 'System.String'.
+2023-05-21 15:59:09.789 +04:00  INF  Executed action SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API) in 22.5549ms
+2023-05-21 15:59:09.797 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.AuthorizationController.LogIn (SigmaMovies.API)'
+2023-05-21 15:59:09.800 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5000/api/Authorization/LogIn application/json 65 - 200 - text/plain;+charset=utf-8 51.8346ms
+2023-05-21 15:59:45.353 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - -
+2023-05-21 15:59:45.362 +04:00  INF  Executing endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:59:45.369 +04:00  INF  Executed endpoint '405 HTTP Method Not Supported'
+2023-05-21 15:59:45.374 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5000/api/Authorization/LogIn - - - 405 0 - 21.2474ms
+2023-05-21 16:14:17.586 +04:00  INF  Application is shutting down...
+2023-05-21 16:16:54.056 +04:00  INF  Executed DbCommand (25ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 16:16:54.172 +04:00  INF  Executed DbCommand (30ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 16:16:54.193 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-05-21 16:16:54.203 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-05-21 16:16:54.453 +04:00  INF  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-05-21 16:16:54.495 +04:00  INF  No migrations were applied. The database is already up to date.
+2023-05-21 16:16:55.361 +04:00  INF  Executed DbCommand (25ms) [Parameters=[@__user_UserName_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Users] AS [u]
+        WHERE [u].[UserName] = @__user_UserName_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-05-21 16:16:55.375 +04:00  INF  Starting...
+2023-05-21 16:16:55.438 +04:00  INF  User profile is available. Using 'C:\Users\User\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-05-21 16:16:55.569 +04:00  INF  Now listening on: http://localhost:5000
+2023-05-21 16:16:55.571 +04:00  INF  Application started. Press Ctrl+C to shut down.
+2023-05-21 16:16:55.572 +04:00  INF  Hosting environment: Production
+2023-05-21 16:16:55.573 +04:00  INF  Content root path: D:\projects\movie-react-net\server\SigmaMovies\SigmaMovies.API\bin\Debug\net7.0

@@ -9,16 +9,16 @@ const slideSlice = createSlice({
   initialState,
   reducers: {
     increment: (state, { payload }: { payload: number }) => {
-      console.log(payload, state.index)
+      // console.log(payload, state.index)
       if (state.index > payload - 2) {
         state.index = 0
       } else {
         state.index++
       }
     },
-    decrement: (state) => {
+    decrement: (state, { payload }: { payload: number }) => {
       if (state.index <= 0) {
-        state.index = 0
+        state.index = payload - 1
       } else {
         state.index--
       }

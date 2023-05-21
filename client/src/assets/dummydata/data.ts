@@ -14,6 +14,11 @@ export type movieDataType = {
     RottenTomatos: number
   }
   quote: string
+  metadata: {
+    hr: string
+    year: string
+    genre: string[]
+  }
 }
 
 export const filmData: movieDataType[] = [
@@ -47,6 +52,11 @@ export const filmData: movieDataType[] = [
       IMDb: 7.6,
       RottenTomatos: 68,
     },
+    metadata: {
+      hr: `1h 42m`,
+      year: `2000`,
+      genre: [`Thriller`, `Satire`],
+    },
   },
   {
     quote: `You Are the Same Decaying Organic Matter as Everything Else.`,
@@ -76,6 +86,11 @@ export const filmData: movieDataType[] = [
       IMDb: 8.8,
       RottenTomatos: 79,
     },
+    metadata: {
+      hr: `2h 19m`,
+      year: `1999`,
+      genre: [`Action`, `Thriller`],
+    },
   },
   {
     quote: `if you want to win the lottery, you have to make the money to buy the ticket`,
@@ -104,6 +119,11 @@ export const filmData: movieDataType[] = [
       IMDb: 7.8,
       RottenTomatos: 95,
     },
+    metadata: {
+      hr: `1h 57m`,
+      year: `2014`,
+      genre: [`Thriller`, `Crime`],
+    },
   },
   {
     quote: `You tell me where we start, where we're going, where we're going afterwards. I give you five minutes when we get there. Anything happens in that five minutes and I'm yours. No matter what`,
@@ -112,25 +132,96 @@ export const filmData: movieDataType[] = [
     color2: `#cf1b4e`,
     img: `https://firebasestorage.googleapis.com/v0/b/pcmarket-8f5e8.appspot.com/o/sigmamovies%2Fsignalnoise_drive.jpg?alt=media&token=df7e14de-61fd-4824-91eb-d9a6e1dc05d1`,
     video: `https://www.youtube.com/embed/kKaR6AqoYqk`,
-    dec: `NIGHTCRAWLER is a thriller set in the nocturnal underbelly of contemporary Los Angeles. Jake Gyllenhaal stars as Lou Bloom, a driven young man desperate for work who discovers the high-speed world of L.A. crime journalism. Finding a group of freelance camera crews who film crashes, fires, murder and other mayhem, Lou muscles into the cut-throat, dangerous realm of nightcrawling - where each police siren wail equals a possible windfall and victims are converted into dollars and cents. Aided by Rene Russo as Nina, a veteran of the blood-sport that is local TV news, Lou blurs the line between observer and participant to become the star of his own story`,
+    dec: `This action drama follows a mysterious man who has multiple jobs as a garage mechanic, a Hollywood stuntman and a getaway driver seems to be trying to escape his shady past as he falls for his neighbor - whose husband is in prison and who's looking after her child alone. Meanwhile, his garage mechanic boss is trying to set up a race team using gangland money, which implicates our driver as he is to be used as the race team's main driver. Our hero gets more than he bargained for when he meets the man who is married to the woman he loves`,
     actors: [
       {
-        name: 'Jake Gyllenhaal',
+        name: 'Ryan Gosling',
         img:
-          'https://images.mubicdn.net/images/cast_member/3071/cache-3195-1568084972/image-w856.jpg?size=800x',
+          'https://s.yimg.com/ny/api/res/1.2/EChXLkRnuoYtja8B88_E3g--/YXBwaWQ9aGlnaGxhbmRlcjt3PTQyMDtoPTU1MA--/https://media.zenfs.com/en-AU/homerun/y7.newidea/d0048687d4851f23d33076fa8fb1f83b',
       },
       {
-        name: `Rene Russo`,
-        img: `https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcTGjrlRH7eSeBPR0WqpgATo78sGdALSayVHPr3q8UkuDe_IfNdtRUCEfBrOPYqvD9OUDtKehSV9Vkq6X9k`,
+        name: `Carey Mulligan`,
+        img: `https://encrypted-tbn2.gstatic.com/licensed-image?q=tbn:ANd9GcSqahph7hGZInR6TIR4MOaxkSOALxh_JCAgvtww5T0253DerbYqXpxZdvnuyqKfQ3Qs32J6EOP59U0fB4s`,
       },
       {
-        name: `Riz Ahmed`,
-        img: `https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcQcO4ab1Tlo9ttiLGdhMNCrzaWtdGYJ2MM_7ERXIDimGKFBK6ZLQ1_cwjSZVucowMUl9aOWUjxHkKrstOQ`,
+        name: `Bryan Cranston`,
+        img: `https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRTJmZSP1xT23YJesXxqvx9-F0emf6NrtkFeESkEXgUTWEELzuaTkm5HYtJt2c-sF-eFdCnHpNBwIc7fVU`,
       },
     ],
     rating: {
       IMDb: 7.8,
-      RottenTomatos: 95,
+      RottenTomatos: 93,
+    },
+    metadata: {
+      hr: `1h 40m`,
+      year: `2011`,
+      genre: [`Action`, `Drama`],
+    },
+  },
+  {
+    quote: `Every leap of civilization was built on the back of a disposable workforce, but I can only make so many`,
+    title: 'Blade Runner 2049 ',
+    color: `#02042c`,
+    color2: `#cc0319`,
+    img: `https://i0.wp.com/artofvfx.com/wp-content/uploads/2017/08/blade_runner_twenty_forty_nine_ver5_xlg.jpg`,
+    video: ` `,
+    dec: `The story opens in 2049, thirty years after the events of the first film. An on-screen text states that the Tyrell Corporation has collapsed decades before, in the wake of violent revolts involving their Nexus-6 through -8 Replicants, forcing the company into bankruptcy. After the world's ecosystems collapsed in the mid 2020s, famine swept the Earth, killing millions. With his invention of synthetic farming, a wealthy businessman named Niander Wallace (Jared Leto) ended food shortages and acquired Tyrell's remaining assets to form his own corporation. The Wallace Company has reinvigorated the Replicant industry by mass producing the Nexus-9 Replicants, a new generation of artificial humans with modified behavior to make them more obedient than the older models. These Replicants have implanted memories and open-ended lifespans, and are still used for slave labor on the off-world colonies (the Moon, Mars, and the moons of Jupiter, Saturn, etc.), but some are also used as Blade Runner units, hunting down and "retiring" the few remaining older model Replicants that are still at large.`,
+    actors: [
+      {
+        name: ' ',
+        img: '  ',
+      },
+      {
+        name: ` `,
+        img: ` `,
+      },
+      {
+        name: ` `,
+        img: ` `,
+      },
+    ],
+    rating: {
+      IMDb: 8.1,
+      RottenTomatos: 89,
+    },
+    metadata: {
+      hr: `2h 43m`,
+      year: `2017`,
+      genre: [`Sci-fi`, `Action`],
     },
   },
 ]
+
+// {
+//   quote: ` `,
+//   title: ' ',
+//   color: ` `,
+//   color2: ` `,
+//   img: `  `,
+//   video: ` `,
+//   dec: ` `,
+//   actors: [
+//     {
+//       name: ' ',
+//       img:
+//         '  ',
+//     },
+//     {
+//       name: ` `,
+//       img: ` `,
+//     },
+//     {
+//       name: ` `,
+//       img: ` `,
+//     },
+//   ],
+//   rating: {
+//     IMDb:  ,
+//     RottenTomatos:  ,
+//   },
+//   metadata: {
+//     hr: ` `,
+//     year: ` `,
+//     genre: [` `, ` `],
+//   },
+// },

@@ -2,17 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-.mainBG {
+@font-face {
+  font-family: 'FightThis';
+  src: url('./assets/fonts/FIGHTT__.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+p {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1 {
+  font-family: fantasy;
+  letter-spacing: 1px;
+}
+
+body {
   background: rgb(4, 12, 14);
   background: linear-gradient(
     313deg,
-    rgba(4, 12, 14, 1) 0%,
-    rgba(19, 34, 38, 1) 63%,
+    #040c0e 0%,
+    #132226 63%,
     rgba(54, 58, 55, 1) 89%,
     rgba(111, 99, 84, 1) 100%
   );
 }
-
+.dropdownbg {
+  background: rgb(4, 12, 14);
+  background: linear-gradient(
+    313deg,
+    #040c0e 0%,
+    #132226 63%,
+    rgb(43, 48, 43) 89%,
+    rgb(70, 63, 59) 100%
+  );
+}
 .depthshaddow {
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgba(19, 24, 49, 0.5),
@@ -23,4 +46,54 @@
   box-shadow: 6px 8px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 6px 8px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 6px 8px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.gridSystem {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(19rem, 20rem));
+}
+
+.cardBoxShaddow {
+  box-shadow: 2px 23px 28px 13px rgba(0, 0, 0, 0.7);
+  -webkit-box-shadow: 2px 23px 28px 13px rgba(0, 0, 0, 0.7);
+  -moz-box-shadow: 2px 23px 28px 13px rgba(0, 0, 0, 0.7);
+}
+
+.blackbg {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.42720763723150357) 0%,
+    rgba(0, 0, 0, 1) 17%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  backdrop-filter: blur(1px);
+}
+
+.overLay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, transparent, #121212 70%);
+}
+
+.authpagebg {
+  background-image: url('./assets/background/authbg.webp');
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.signupbg {
+  background: linear-gradient(to right, transparent, #000000 40%);
+  width: 100vw;
+  height: 700px;
+}
+
+.bretImg {
+  transform: scaleX(-1);
 }
