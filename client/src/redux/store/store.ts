@@ -3,11 +3,13 @@ import infoReducer from '../features/infoSlice'
 import slideReducer from '../features/slideMovieSlice'
 import dataSlice from '../features/dataSlice'
 import AuthReducer from '../features/slices/AuthSlice'
+import CreateMoveiReducer from '../features/slices/CreateMovieSlice'
 const rootReducer = combineReducers({
   info: infoReducer,
   slide: slideReducer,
   data: dataSlice,
   auth: AuthReducer,
+  crateMovie: CreateMoveiReducer,
 })
 
 const store = configureStore({

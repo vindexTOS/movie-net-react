@@ -9,7 +9,7 @@ import MetaData from './MetaData'
 const PostMovie = () => {
   const { color1, color2 } = useMainContext()
   const style = {
-    mainDiv: `flex flex-col items-center justify-center gap-5 w-[75%] h-[700px]  backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow`,
+    mainDiv: `flex flex-col items-center justify-center gap-5 w-[90%] h-[700px]  backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow`,
     TitleAndImg: `flex`,
   }
   const { htmlImg } = useMainContext()

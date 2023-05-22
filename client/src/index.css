@@ -97,3 +97,29 @@ body {
 .bretImg {
   transform: scaleX(-1);
 }
+
+.element-without-scrollbar {
+  /* Hide the default scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+  /* Add custom scrollbar styles */
+}
+
+/* Add custom scrollbar styles for WebKit browsers (Chrome, Safari) */
+.element-without-scrollbar::-webkit-scrollbar {
+  width: 0px;
+}
+
+.element-without-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.element-without-scrollbar::-webkit-scrollbar-thumb {
+  background-color: transparent;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
