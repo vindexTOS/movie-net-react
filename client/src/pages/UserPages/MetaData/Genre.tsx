@@ -8,11 +8,11 @@ const Genre = () => {
   const style = {
     movieGen: `flex flex-col items-center  justify-center gap-2`,
     genInput: `outline-none text-center rounded-[10px] w-[9rem] h-[2rem]`,
-    genreDiv: ` z-10  flex flex-col absolute top-[27rem] bg-gray-200 boxshaddow w-[9rem] max-h-[9rem] rounded-[15px] items-center text-[1.1rem] overflow-y-scroll  element-without-scrollbar py-1  `,
+    genreDiv: ` z-10  flex flex-col absolute top-[44rem] bg-gray-200 boxshaddow w-[9rem] max-h-[9rem] rounded-[15px] items-center text-[1.1rem] overflow-y-scroll  element-without-scrollbar py-1  `,
   }
 
   const dispatch = useDispatch()
-  const genere = useSelector((state: any) => state.crateMovie.genere)
+  const genere = useSelector((state: any) => state.createMovie.genere)
   const [searchGenre, setSearchGenre] = React.useState<string>('')
 
   const [dropDownGenre, setDropDownGenre] = React.useState<boolean>(false)
@@ -25,17 +25,21 @@ const Genre = () => {
 
   const [genreArray, setGenreArray] = React.useState<string[]>([])
   const TakeGenere = (genre: string) => {
-    if (genreArray.length < 3) {
+    if (genreArray.length < 2) {
       if (!genreArray.includes(genre)) {
         setGenreArray((prevArray) => [...prevArray, genre])
       }
     }
     // console.log(genreArray)
+    dispatch(getGenre(genreArray.toString()))
   }
   const RemoveGenre = (genere: string) => {
     let newArr = genreArray.filter((val: string) => val !== genere)
     setGenreArray(newArr)
   }
+  // React.useEffect(() => {
+  //   console.log()
+  // }, [genreArray])
   return (
     <div ref={dropDownRef} className={style.movieGen}>
       <h1> Genre</h1>
@@ -58,7 +62,7 @@ const Genre = () => {
                 <div
                   className="cursor-pointer hover:bg-gray-400 hover:text-white w-[100%] transition-all group-hover:w-full   ml-2 rounded-[5px] flex items-center justify-center"
                   onClick={() => {
-                    dispatch(getGenre(val)), TakeGenere(val)
+                    TakeGenere(val)
                   }}
                   key={val}
                 >
@@ -68,8 +72,8 @@ const Genre = () => {
             })}
         </div>
       )}
-      <div className="flex gap-2 w-[300px] flex-wrap absolute top-[30rem] z-0">
-        {genreArray.slice(0, 3).map((val: string) => {
+      <div className="flex gap-2 w-[300px] flex-wrap absolute ml-[10rem] top-[41rem] z-0">
+        {genreArray.slice(0, 2).map((val: string) => {
           return (
             <div
               onClick={() => RemoveGenre(val)}

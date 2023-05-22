@@ -10,7 +10,10 @@ import axios from 'axios'
 import Cookies from 'universal-cookie'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCookies } from './redux/features/slices/AuthSlice'
-
+export type actorType = {
+  name: string
+  img: string
+}
 type Cell = {
   image: any
   htmlImg: String | null
@@ -28,6 +31,8 @@ type Cell = {
   color2: string
   handleColor: (color: any) => void
   handleColor2: (color: any) => void
+  Actor: actorType[]
+  setActor: React.Dispatch<React.SetStateAction<actorType[]>>
 }
 
 const context = createContext<Cell | null>(null)
@@ -137,6 +142,10 @@ export const ContextProvider = ({
   const handleColor2 = (color: any) => {
     setColor2(color.hex)
   }
+
+  ///actor information
+
+  const [Actor, setActor] = React.useState<actorType[]>([])
   return (
     <context.Provider
       value={{
@@ -155,6 +164,8 @@ export const ContextProvider = ({
         color2,
         setColor2,
         handleColor2,
+        Actor,
+        setActor,
       }}
     >
       {children}

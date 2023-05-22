@@ -10,7 +10,7 @@ const MoviesGrid = () => {
   return (
     <main className={style.main}>
       {movieData.map((val: movieDataType) => (
-        <MovieCard {...val} />
+        <MovieCard key={val.video} {...val} />
       ))}
     </main>
   )

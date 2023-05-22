@@ -1,7 +1,7 @@
 import React from 'react'
 import { SketchPicker } from 'react-color'
 import { useMainContext } from '../../context'
-
+import useOutClick from '../../Hooks/useOutClick'
 const ColorDiv = () => {
   const {
     handleColor,
@@ -16,25 +16,18 @@ const ColorDiv = () => {
   const [dropDownColor2, setDropDownColor2] = React.useState<boolean>(false)
 
   const dropDownRef = React.useRef<HTMLDivElement | null>(null)
+  const handelClick = () => {
+    setDropDownColor1(false)
+    setDropDownColor2(false)
+  }
 
-  React.useEffect(() => {
-    const handleOutclick = (e: { target: any }) => {
-      if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
-        setDropDownColor1(false)
-        setDropDownColor2(false)
-      }
-    }
-    document.addEventListener('mousedown', handleOutclick)
-    return () => {
-      document.removeEventListener('mousedown', handleOutclick)
-    }
-  }, [dropDownRef])
+  useOutClick(dropDownRef, handelClick)
   return (
-    <div ref={dropDownRef} className="flex gap-2">
+    <div ref={dropDownRef} className="flex  gap-2">
       <div
         style={{ color: `${color1}` }}
         onClick={() => setDropDownColor1(!dropDownColor1)}
-        className="w-[30%] font-bold h-[2rem] bg-gray-300 boxshaddow rounded-[8px] flex items-center justify-center "
+        className="w-[350px] font-bold h-[3rem] bg-gray-300 boxshaddow rounded-[8px] flex items-center justify-center "
       >
         {color1 ? color1 : 'Color-1'}
       </div>
@@ -46,7 +39,7 @@ const ColorDiv = () => {
       <div
         style={{ color: `${color2}` }}
         onClick={() => setDropDownColor2(!dropDownColor2)}
-        className="w-[30%] font-bold h-[2rem] bg-gray-300 boxshaddow rounded-[8px] flex items-center justify-center "
+        className="w-[350px] font-bold h-[3rem] bg-gray-300 boxshaddow rounded-[8px] flex items-center justify-center "
       >
         {color2 ? color2 : 'Color-2'}
       </div>

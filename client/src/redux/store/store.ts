@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
   slide: slideReducer,
   data: dataSlice,
   auth: AuthReducer,
-  crateMovie: CreateMoveiReducer,
+  createMovie: CreateMoveiReducer,
 })
 
 const store = configureStore({

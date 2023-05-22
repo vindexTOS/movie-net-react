@@ -9,7 +9,7 @@ const Year = () => {
     yearInput: `outline-none text-center rounded-[10px] w-[9rem] h-[2rem]`,
     movieLength: `flex flex-col items-center  justify-center gap-2`,
   }
-  const year = useSelector((state: any) => state.crateMovie.year)
+  const year = useSelector((state: any) => state.createMovie.year)
 
   const yearArray = Array.from(
     { length: 2024 - 1900 },
@@ -52,7 +52,7 @@ const Year = () => {
         </div>
       )}
       <p
-        className={`flex gap-2 w-[4rem] mr-[5rem]  items-center justify-center text-center flex-wrap absolute top-[30rem] z-0 boxshaddow p-1 rounded-[9px] bg-gray-100 ${
+        className={`flex gap-2 w-[4rem] ml-[0rem]  items-center justify-center text-center flex-wrap absolute top-[41rem] z-0 boxshaddow p-1 rounded-[9px] bg-gray-100 ${
           !year && 'hidden'
         }`}
       >
