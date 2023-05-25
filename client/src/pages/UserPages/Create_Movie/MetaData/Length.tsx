@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { getLength } from '../../../redux/features/slices/CreateMovieSlice'
+import { getLength } from '../../../../redux/features/slices/CreateMovieSlice'
 const Length = () => {
   const style = {
     input: `w-[4.2rem] h-[2rem] text-center outline-none rounded-[5px] px-1   appearance-none `,

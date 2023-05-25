@@ -1,7 +1,7 @@
 import React from 'react'
 import { SketchPicker } from 'react-color'
-import { useMainContext } from '../../context'
-import useOutClick from '../../Hooks/useOutClick'
+import { useMainContext } from '../../../context'
+import useOutClick from '../../../Hooks/useOutClick'
 const ColorDiv = () => {
   const {
     handleColor,

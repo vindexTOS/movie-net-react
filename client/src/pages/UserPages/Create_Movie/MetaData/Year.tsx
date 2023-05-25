@@ -1,7 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getYear } from '../../../redux/features/slices/CreateMovieSlice'
-import useOutClick from '../../../Hooks/useOutClick'
+import { getYear } from '../../../../redux/features/slices/CreateMovieSlice'
+import useOutClick from '../../../../Hooks/useOutClick'
 const Year = () => {
   const dispatch = useDispatch()
   const style = {

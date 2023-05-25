@@ -10,6 +10,8 @@ import axios from 'axios'
 import Cookies from 'universal-cookie'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCookies } from './redux/features/slices/AuthSlice'
+import { GetAllMovies } from './redux/features/Thunks/MovieCrud'
+import { ThunkDispatch } from '@reduxjs/toolkit'
 export type actorType = {
   name: string
   img: string
@@ -42,7 +44,7 @@ export const ContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const data = useSelector((state: any) => state.auth.userDecoded)
   // gettomg jwt cookies from local cookies
   const cookies = new Cookies()
@@ -53,6 +55,13 @@ export const ContextProvider = ({
     if (token) {
       dispatch(getCookies())
     }
+  }, [])
+
+  useEffect(() => {
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    axios.defaults.headers.common['Content-Type'] = 'application/json'
+
+    dispatch(GetAllMovies({ dispatch }))
   }, [])
 
   const { forumID } = useParams()

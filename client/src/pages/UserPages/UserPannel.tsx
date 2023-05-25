@@ -3,7 +3,7 @@ import { getCookies, LogOut } from '../../redux/features/slices/AuthSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { Link, useNavigate } from 'react-router-dom'
-import PostMovie from './PostMovie'
+import PostMovie from './Create_Movie/PostMovie'
 const UserPanel = () => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const navigate = useNavigate()

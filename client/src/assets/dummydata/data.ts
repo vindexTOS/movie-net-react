@@ -278,3 +278,46 @@ export const topMovieGenres = [
   'Serial Killer',
   'Romantic Comedy',
 ]
+
+/// test data
+const jsnObj = {
+  id: 0,
+  title: 'The Dark Knight',
+  color: 'Black',
+  color2: 'White',
+  img: 'https://www.example.com/the-dark-knight.jpg',
+  video: 'https://www.example.com/the-dark-knight.mp4',
+  description:
+    'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
+  rating: {
+    imDb: 9,
+    rottenTomatoes: 94,
+  },
+  actors: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],
+  metadata: {
+    hr: '2h 32m',
+    year: 2008,
+    genre: 'Action',
+  },
+}
+
+//  jsno
+// {
+//   "id": 4,
+//   "title": "The Dark Knight",
+//   "color": "Black",
+//   "color2": "White",
+//   "img": "https://www.example.com/the-dark-knight.jpg",
+//   "video": "https://www.example.com/the-dark-knight.mp4",
+//   "description":
+//     "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+//   "rating": {
+//     "imDb": 9,
+//     "rottenTomatoes": 94
+//   },
+//   "actors": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+//   "metadata": {
+//     "hr": "2h 32m",
+//     "year": "2008",
+//     "genre": "Action",
+//   }}

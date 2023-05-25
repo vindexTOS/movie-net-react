@@ -265,3 +265,4 @@ VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13
 2023-05-22 22:35:08.136 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API) in 590.6848ms
 2023-05-22 22:35:08.139 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.AddMovie (SigmaMovies.API)'
 2023-05-22 22:35:08.142 +04:00  INF  Request finished HTTP/1.1 POST http://localhost:5119/v1/Movies/AddMovie application/json 534 - 200 0 - 628.7815ms
+2023-05-22 23:17:39.370 +04:00  INF  Application is shutting down...

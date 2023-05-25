@@ -1,6 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = {
+type initialStateType = {
+  title: string
+  description: string
+  photoUrl: string
+  length: string
+  year: string
+  genere: string
+  actorName: string
+  img: string
+  imDb: number
+  rottenTomatoes: string
+  video: string
+  actors: string[]
+}
+
+const initialState: initialStateType = {
   title: '',
   description: '',
   photoUrl: '',
@@ -9,9 +24,10 @@ const initialState = {
   genere: '',
   actorName: '',
   img: '',
-  imDb: '',
+  imDb: 0,
   rottenTomatoes: '',
   video: '',
+  actors: [],
 }
 
 const CreateMovieSlice = createSlice({
@@ -54,6 +70,9 @@ const CreateMovieSlice = createSlice({
     getVideo: (state, action) => {
       state.video = action.payload
     },
+    getActors: (state, action) => {
+      state.actors = action.payload
+    },
   },
 })
 
@@ -70,4 +89,5 @@ export const {
   getImDb,
   getTomatos,
   getVideo,
+  getActors,
 } = CreateMovieSlice.actions

@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
-import uploadPhoto from '../../assets/photos/uploadPhoto.jpg'
+import uploadPhoto from '../../../assets/photos/uploadPhoto.jpg'
 import { MdOutlineAddAPhoto } from 'react-icons/md'
 import { TbPhotoX } from 'react-icons/tb'
-import { useMainContext } from '../../context'
+import { useMainContext } from '../../../context'
 type ImgProp = {
   htmlImg: String | null
 }

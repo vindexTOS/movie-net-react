@@ -1,8 +1,8 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import useOutClick from '../../../Hooks/useOutClick'
-import { topMovieGenres } from '../../../assets/dummydata/data'
-import { getGenre } from '../../../redux/features/slices/CreateMovieSlice'
+import useOutClick from '../../../../Hooks/useOutClick'
+import { topMovieGenres } from '../../../../assets/dummydata/data'
+import { getGenre } from '../../../../redux/features/slices/CreateMovieSlice'
 
 const Genre = () => {
   const style = {

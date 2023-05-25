@@ -3,7 +3,7 @@ import { MdLocalMovies } from 'react-icons/md'
 import {
   getTitle,
   getDescription,
-} from '../../redux/features/slices/CreateMovieSlice'
+} from '../../../redux/features/slices/CreateMovieSlice'
 import { useDispatch } from 'react-redux'
 const TitleAndDec = () => {
   const style = {
