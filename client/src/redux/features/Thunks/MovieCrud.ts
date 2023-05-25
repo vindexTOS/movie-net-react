@@ -1,5 +1,5 @@
 import { ThunkDispatch, createAsyncThunk } from '@reduxjs/toolkit'
-import { getMovieData } from '../dataSlice'
+import { getMovieData } from '../slices/dataSlice'
 import axios from 'axios'
 type MovieObjectType = {
   title: string
@@ -38,7 +38,7 @@ const CreateMovie = createAsyncThunk(
 const GetAllMovies = createAsyncThunk(
   'movie/get',
   async (val: GetMoviesType) => {
-    const apiKey = `http://localhost:5119/v1/Movies/GetAllMovies`
+    const apiKey = `http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false`
 
     const data = await axios
       .get(apiKey)
@@ -49,4 +49,13 @@ const GetAllMovies = createAsyncThunk(
   },
 )
 
-export { CreateMovie, GetAllMovies }
+const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
+  const apiUrl = `http://localhost:5119/v1/Movies/DeleteMovie/?id=${id}`
+
+  await axios
+    .delete(apiUrl)
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
+})
+
+export { CreateMovie, GetAllMovies, DeleteMovie }

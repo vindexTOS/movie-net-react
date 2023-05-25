@@ -11,7 +11,7 @@ const MoviesGrid = () => {
     return (
       <main onClick={() => console.log(movieData)} className={style.main}>
         {movieData?.map((val: movieDataType) => (
-          <MovieCard key={val.video} {...val} />
+          <MovieCard key={val.id} {...val} />
         ))}
       </main>
     )

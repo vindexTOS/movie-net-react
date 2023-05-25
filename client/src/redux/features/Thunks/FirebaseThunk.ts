@@ -20,6 +20,7 @@ export const FireBasePhotoThunk = createAsyncThunk(
         val.dispatch(getPhotoUrl(downloadURL))
         //   setLoading(false)
         console.log(downloadURL)
+
         //   removeImgFromHtml()
       } catch (error) {
         console.log(error)

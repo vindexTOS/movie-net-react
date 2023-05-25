@@ -1,5 +1,5 @@
 import React from 'react'
-import TVcomponent from './MainPage/TVcomponent'
+import TVcomponent from './MainPage/Screen-components/TVcomponent'
 import MoviesGrid from './MoviesGrid'
 import AuthPage from './Registration/AuthPage'
 const MainPage = () => {

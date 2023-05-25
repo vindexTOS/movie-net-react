@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import infoReducer from '../features/infoSlice'
-import slideReducer from '../features/slideMovieSlice'
-import dataSlice from '../features/dataSlice'
+import infoReducer from '../features/slices/infoSlice'
+import slideReducer from '../features/slices/slideMovieSlice'
+import dataSlice from '../features/slices/dataSlice'
 import AuthReducer from '../features/slices/AuthSlice'
 import CreateMoveiReducer from '../features/slices/CreateMovieSlice'
 const rootReducer = combineReducers({

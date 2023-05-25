@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { filmData, movieDataType } from '../../assets/dummydata/data'
-import { RootState } from '../store/store'
+import { movieDataType } from '../../../assets/dummydata/data'
+import { RootState } from '../../store/store'
 import { createSelector } from '@reduxjs/toolkit'
 export const initialState = {
   movieData: [],
