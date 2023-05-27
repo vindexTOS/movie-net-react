@@ -30,7 +30,7 @@ const SingleMovieMain = () => {
 
     const style = {
       section: `w-[100%] h-[100%] py-20 flex justify-center  items-center`,
-      mainDiv: ` h-[1900px] w-[50%] flex flex-col backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow flex   justify-between`,
+      mainDiv: ` h-[1900px] w-[60%]   flex flex-col backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow flex   justify-between`,
       img: `w-[500px] h-[100%] rounded-[20px] boxshaddow `,
       imgDiv: `mt-10 ml-5 h-[100%] w-[100%]   flex flex-col  `,
 

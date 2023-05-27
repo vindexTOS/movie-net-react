@@ -1,6 +1,8 @@
 import { ThunkDispatch, createAsyncThunk } from '@reduxjs/toolkit'
 import { getMovieData } from '../slices/dataSlice'
+
 import axios from 'axios'
+import { UpdatedValuesType } from '../../../pages/UserPages/UpdateMovie/UpdateMovie'
 type MovieObjectType = {
   title: string
   color: string
@@ -58,4 +60,22 @@ const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
     .catch((err) => console.log(err))
 })
 
-export { CreateMovie, GetAllMovies, DeleteMovie }
+const UpdateMovieThunk = createAsyncThunk(
+  'movie/patch',
+  async ({ id, obj }: { id: string; obj: UpdatedValuesType }) => {
+    const apiUrl = `http://localhost:5119/v1/Movies/UpdateMovie`
+
+    // obj.actors = [
+    //   {
+    //     id: 0,
+    //     name: 'Tim Robbins',
+    //     img: 'https://www.example.com/images/tim_robbins.jpg',
+    //   },
+    // ]
+    await axios
+      .put(apiUrl, obj)
+      .then((res) => console.log(res))
+      .then((err) => console.log(err))
+  },
+)
+export { CreateMovie, GetAllMovies, DeleteMovie, UpdateMovieThunk }

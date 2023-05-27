@@ -37,7 +37,7 @@ const Actors = () => {
         setError('')
       }, 300)
     }
-    dispatch(getActor(''))
+    // dispatch(getActor(''))
     console.log(error)
     console.log(Actor)
   }
@@ -83,17 +83,17 @@ const Actors = () => {
         </button>
       </div>
       <div className="flex gap-5 ">
-        {Actor.map((val: string) => {
+        {Actor.map((val: any) => {
           return (
             <div
               key={val}
               className="flex items-center justify-center flex-col"
             >
-              {/* <img
+              <img
                 className="w-[100px] h-[100px] boxshaddow rounded-[10px]"
                 src={val.img}
-              /> */}
-              <h1 className="text-[1.6rem] text-gray-800">{val}</h1>
+              />
+              <h1 className="text-[1.6rem] text-gray-800">{val.name}</h1>
             </div>
           )
         })}

@@ -6203,3 +6203,110 @@ ORDER BY [m].[Id], [t].[ActorsId], [t].[MoviesId]
 2023-05-25 23:00:54.781 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 23.8264ms
 2023-05-25 23:00:54.782 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
 2023-05-25 23:00:54.797 +04:00  INF  Request finished HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 200 1971 application/json;+charset=utf-8 59.9943ms
+2023-05-25 23:40:46.417 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:46.452 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:46.537 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:46.570 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:46.570 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 204 - - 153.6373ms
+2023-05-25 23:40:46.575 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 204 - - 123.4108ms
+2023-05-25 23:40:46.577 +04:00  INF  Request starting HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:46.581 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:46.585 +04:00  INF  Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2023-05-25 23:40:46.586 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:46.588 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-25 23:40:46.602 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes], [t].[ActorsId], [t].[MoviesId], [t].[Id], [t].[Img], [t].[Name]
+FROM [Movies] AS [m]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t] ON [m].[Id] = [t].[MoviesId]
+ORDER BY [m].[Id], [t].[ActorsId], [t].[MoviesId]
+2023-05-25 23:40:46.607 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-25 23:40:46.609 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 13.9196ms
+2023-05-25 23:40:46.611 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:46.616 +04:00  INF  Request finished HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 200 1971 application/json;+charset=utf-8 38.9227ms
+2023-05-25 23:40:46.618 +04:00  INF  Request starting HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:46.627 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:46.629 +04:00  INF  Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2023-05-25 23:40:46.630 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:46.632 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-25 23:40:46.644 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes], [t].[ActorsId], [t].[MoviesId], [t].[Id], [t].[Img], [t].[Name]
+FROM [Movies] AS [m]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t] ON [m].[Id] = [t].[MoviesId]
+ORDER BY [m].[Id], [t].[ActorsId], [t].[MoviesId]
+2023-05-25 23:40:46.652 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-25 23:40:46.655 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 13.8111ms
+2023-05-25 23:40:46.657 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:46.697 +04:00  INF  Request finished HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 200 1971 application/json;+charset=utf-8 79.4074ms
+2023-05-25 23:40:55.867 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:55.869 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:55.920 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:55.928 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:55.963 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 204 - - 96.6722ms
+2023-05-25 23:40:56.001 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 204 - - 131.2362ms
+2023-05-25 23:40:56.007 +04:00  INF  Request starting HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:56.016 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:56.021 +04:00  INF  Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2023-05-25 23:40:56.022 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:56.025 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-25 23:40:56.035 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes], [t].[ActorsId], [t].[MoviesId], [t].[Id], [t].[Img], [t].[Name]
+FROM [Movies] AS [m]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t] ON [m].[Id] = [t].[MoviesId]
+ORDER BY [m].[Id], [t].[ActorsId], [t].[MoviesId]
+2023-05-25 23:40:56.043 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-25 23:40:56.047 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 16.751ms
+2023-05-25 23:40:56.049 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:56.054 +04:00  INF  Request finished HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 200 1971 application/json;+charset=utf-8 46.8959ms
+2023-05-25 23:40:56.055 +04:00  INF  Request starting HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:40:56.088 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:40:56.092 +04:00  INF  Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2023-05-25 23:40:56.106 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:56.108 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-25 23:40:56.149 +04:00  INF  Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes], [t].[ActorsId], [t].[MoviesId], [t].[Id], [t].[Img], [t].[Name]
+FROM [Movies] AS [m]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t] ON [m].[Id] = [t].[MoviesId]
+ORDER BY [m].[Id], [t].[ActorsId], [t].[MoviesId]
+2023-05-25 23:40:56.167 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-25 23:40:56.170 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 53.4987ms
+2023-05-25 23:40:56.172 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:40:56.178 +04:00  INF  Request finished HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 200 1971 application/json;+charset=utf-8 122.2706ms
+2023-05-25 23:41:53.184 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:41:53.235 +04:00  INF  Request starting HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:41:53.312 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 500 - application/json 76.7644ms
+2023-05-25 23:41:53.313 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:41:53.430 +04:00  INF  Request finished HTTP/1.1 OPTIONS http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 204 - - 245.9328ms
+2023-05-25 23:41:53.449 +04:00  INF  Request starting HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - -
+2023-05-25 23:41:53.462 +04:00  INF  CORS policy execution successful.
+2023-05-25 23:41:53.464 +04:00  INF  Bearer was not authenticated. Failure message: No SecurityTokenValidator available for token.
+2023-05-25 23:41:53.465 +04:00  INF  Executing endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:41:53.468 +04:00  INF  Route matched with {action = "GetAllMovies", controller = "Movies"}. Executing controller action with signature System.Threading.Tasks.Task`1[System.Collections.Generic.List`1[SigmaMovies.Application.Movies.Responses.MovieResponseModel]] GetAllMovies(System.Threading.CancellationToken, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Boolean]) on controller SigmaMovies.API.Controllers.MoviesController (SigmaMovies.API).
+2023-05-25 23:41:53.482 +04:00  INF  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Color], [m].[Color2], [m].[CreatedAt], [m].[Description], [m].[Img], [m].[IsDeleted], [m].[ModifiedAt], [m].[Title], [m].[Video], [m].[Metadata_Genre], [m].[Metadata_Hr], [m].[Metadata_Year], [m].[Rating_IMDb], [m].[Rating_RottenTomatoes], [t].[ActorsId], [t].[MoviesId], [t].[Id], [t].[Img], [t].[Name]
+FROM [Movies] AS [m]
+LEFT JOIN (
+    SELECT [a].[ActorsId], [a].[MoviesId], [a0].[Id], [a0].[Img], [a0].[Name]
+    FROM [ActorMovie] AS [a]
+    INNER JOIN [Actors] AS [a0] ON [a].[ActorsId] = [a0].[Id]
+) AS [t] ON [m].[Id] = [t].[MoviesId]
+ORDER BY [m].[Id], [t].[ActorsId], [t].[MoviesId]
+2023-05-25 23:41:53.495 +04:00  INF  Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[SigmaMovies.Application.Movies.Responses.MovieResponseModel, SigmaMovies.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2023-05-25 23:41:53.498 +04:00  INF  Executed action SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API) in 17.4818ms
+2023-05-25 23:41:53.500 +04:00  INF  Executed endpoint 'SigmaMovies.API.Controllers.MoviesController.GetAllMovies (SigmaMovies.API)'
+2023-05-25 23:41:53.511 +04:00  INF  Request finished HTTP/1.1 GET http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false - - - 200 1971 application/json;+charset=utf-8 61.4642ms
