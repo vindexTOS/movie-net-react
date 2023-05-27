@@ -1,5 +1,4 @@
-﻿using SigmaMovies.Application.Pagination;
-using SigmaMovies.Domain.Actors;
+﻿using SigmaMovies.Domain.Actors;
 using SigmaMovies.Domain.Movies;
 using System;
 using System.Collections.Generic;
@@ -16,7 +15,7 @@ namespace SigmaMovies.Application.Movies.Repositories
         Task Delete(int id, CancellationToken cancellationToken);
         void Detach(Actor actor);
         Task<bool> Exists(int id, CancellationToken cancellationToken);
-        Task<PagedList<Movie>> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter);
+        Task<List<Movie>> GetAllMovies(CancellationToken cancellationToken);
         Task<Movie> GetMovieById(int id, CancellationToken cancellationToken);
         Task Update(Movie movie, CancellationToken cancellationToken);
     }

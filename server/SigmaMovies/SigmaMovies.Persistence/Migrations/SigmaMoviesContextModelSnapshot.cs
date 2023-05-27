@@ -83,8 +83,8 @@ namespace SigmaMovies.Persistence.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(3000)
-                        .HasColumnType("nvarchar(3000)");
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
 
                     b.Property<string>("Img")
                         .IsRequired()

@@ -5800,19 +5800,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Guram\\.nuget\\packages\\": {}
+    "C:\\Users\\User\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.API\\SigmaMovies.API.csproj",
+      "projectUniqueName": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.API\\SigmaMovies.API.csproj",
       "projectName": "SigmaMovies.API",
-      "projectPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.API\\SigmaMovies.API.csproj",
-      "packagesPath": "C:\\Users\\Guram\\.nuget\\packages\\",
-      "outputPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.API\\obj\\",
+      "projectPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.API\\SigmaMovies.API.csproj",
+      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+      "outputPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Guram\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5820,20 +5820,21 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Application\\SigmaMovies.Application.csproj": {
-              "projectPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Application\\SigmaMovies.Application.csproj"
+            "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Application\\SigmaMovies.Application.csproj": {
+              "projectPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Application\\SigmaMovies.Application.csproj"
             },
-            "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Infrastructure\\SigmaMovies.Infrastructure.csproj": {
-              "projectPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Infrastructure\\SigmaMovies.Infrastructure.csproj"
+            "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Infrastructure\\SigmaMovies.Infrastructure.csproj": {
+              "projectPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Infrastructure\\SigmaMovies.Infrastructure.csproj"
             },
-            "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj": {
-              "projectPath": "D:\\MyProjects\\SigmaMovie\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj"
+            "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj": {
+              "projectPath": "D:\\projects\\movie-react-net\\server\\SigmaMovies\\SigmaMovies.Persistence\\SigmaMovies.Persistence.csproj"
             }
           }
         }
@@ -5946,7 +5947,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   },

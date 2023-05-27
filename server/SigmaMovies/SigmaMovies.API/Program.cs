@@ -12,20 +12,12 @@ using Swashbuckle.AspNetCore.Filters;
 using SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandling;
 using SigmaMovies.API.Infrastructure.Middlewares.ExceptionHandler;
 using Serilog;
-using Newtonsoft.Json;
-using System.Text.Json.Serialization;
-using Newtonsoft.Json.Converters;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-//builder.Services.AddControllers().AddNewtonsoftJson(options => {
-//    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-//});
-
-
-
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(option =>
@@ -75,19 +67,12 @@ builder.Services.AddSwaggerGen(option =>
 builder.Services.AddTokenAuthentication(builder.Configuration.GetSection(nameof(JWTConfiguration)).GetSection(nameof(JWTConfiguration.Secret)).Value);
 
 builder.Services.AddServices();
-//builder.Services.AddControllersWithViews()
-//    .AddNewtonsoftJson();
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson();
 
 builder.Services.Configure<ConnectionStrings>(builder.Configuration.GetSection(nameof(ConnectionStrings)));
 builder.Services.Configure<JWTConfiguration>(builder.Configuration.GetSection(nameof(JWTConfiguration)));
-
-
-builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true)
- //.AddJsonOptions(options =>
- //{
- //    options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); // use this to make all enums string
- //})
- ;
+builder.Services.AddControllers(options => options.SuppressImplicitRequiredAttributeForNonNullableReferenceTypes = true);
 
 builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
