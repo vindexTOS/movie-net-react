@@ -38,8 +38,4 @@
     <ProjectReference Include="..\SigmaMovies.Persistence\SigmaMovies.Persistence.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Logs\" />
-  </ItemGroup>
-
 </Project>

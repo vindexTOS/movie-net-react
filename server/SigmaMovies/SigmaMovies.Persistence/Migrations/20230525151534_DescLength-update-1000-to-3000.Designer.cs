@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SigmaMovies.Persistence.Context;
 
@@ -11,9 +12,11 @@ using SigmaMovies.Persistence.Context;
 namespace SigmaMovies.Persistence.Migrations
 {
     [DbContext(typeof(SigmaMoviesContext))]
-    partial class SigmaMoviesContextModelSnapshot : ModelSnapshot
+    [Migration("20230525151534_DescLength-update-1000-to-3000")]
+    partial class DescLengthupdate1000to3000
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

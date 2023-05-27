@@ -1,6 +1,5 @@
 ﻿
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using SigmaMovies.Application.Movies;
 using SigmaMovies.Application.Movies.Requests;
@@ -8,6 +7,11 @@ using SigmaMovies.Application.Movies.Responses;
 using SigmaMovies.Domain.Movies;
 using SigmaMovies.API.ModelExamples;
 using Swashbuckle.AspNetCore.Filters;
+using SigmaMovies.Application.Pagination;
+using SigmaMovies.Application.HelperModels;
+using Microsoft.AspNetCore.JsonPatch;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace SigmaMovies.API.Controllers
 {
@@ -26,16 +30,20 @@ namespace SigmaMovies.API.Controllers
         /// Retrieves a list of all movies.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
+        /// <param name="paginationFilter">The movie's pagination filter.</param>
+        /// <param name="sortBy">The movie's sorting algorithm.</param>
         /// <param name="genre">The movie's genre.</param>
         /// <param name="year">The movie's year.</param>
         /// <param name="isDeleted">The movie's delete status.</param>
         /// <response code="200">Returns an empty response.</response>
         [Route("GetAllMovies")]
         [HttpGet]
-        public async Task<List<MovieResponseModel>> GetAllMovies(CancellationToken cancellationToken, string? genre = null, int? year = null, bool? isDeleted = null)
+        public async Task<List<MovieResponseModel>> GetAllMovies(CancellationToken cancellationToken, [FromQuery] PaginationFilter paginationFilter,[FromQuery] SortBy? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null)
         {
-            return await movieService.GetAllMovies(cancellationToken,genre,year,isDeleted);
+            return await movieService.GetAllMovies(cancellationToken, paginationFilter, sortBy.HasValue ? sortBy.Value.ToString() : null, genre, year, isDeleted);
         }
+
+        //COPYOFTRUE
 
         /// <summary>
         /// Retrieves movie by Id.
