@@ -16,6 +16,21 @@
 # Mono auto generated files
 mono_crash.*
 
+# Cache directories
+bin/
+obj/
+
+# Ignore .editorconfig files
+.editorconfig
+
+
+
+# Cache files
+*.cache
+*.bak
+*.tmp
+
+
 # Build results
 [Dd]ebug/
 [Dd]ebugPublic/
@@ -97,6 +112,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.cache
 
 # Chutzpah Test files
 _Chutzpah*
