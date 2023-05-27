@@ -25,18 +25,21 @@ namespace SigmaMovies.API.Controllers
 
         [Route("Register")]
         [HttpPost]
-        public async Task
+        public async Task<ActionResult<string>>
         Register(CancellationToken cancellation, UserRequestModel user)
         {
+            var newUser = new UserRequestModel();
+            newUser.Username = user.Username;
+            newUser.Password = user.Password;
             _ = await _userService.CreateAsync(cancellation, user);
+            return await LogIn(cancellation, newUser);
         }
 
         [Route("LogIn")]
         [HttpPost]
-        public async Task<IActionResult>
+        public async Task<ActionResult<string>>
         LogIn(CancellationToken cancellation, UserRequestModel request)
         {
-            Console.WriteLine("HELLO");
             var user =
                 await _userService
                     .GetUserByUsername(cancellation, request.Username);
@@ -55,7 +58,7 @@ namespace SigmaMovies.API.Controllers
                         user.Id,
                         role,
                         _options);
-                return Ok(token);
+                return Ok(token.ToString());
             }
             catch (Exception ex)
             {

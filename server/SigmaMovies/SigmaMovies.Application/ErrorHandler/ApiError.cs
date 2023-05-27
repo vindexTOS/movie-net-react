@@ -54,8 +54,8 @@ namespace SigmaMovies.Application.ErrorHandler
         private void HandleException(MovieNotFoundException exception)
         {
             Code = exception.Message;
-            Status = (int)HttpStatusCode.NotFound;
-            Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.4";
+            Status = (int)HttpStatusCode.BadRequest;
+            Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1";
             Title = exception.Source;
             LogLevel = LogLevel.Information;
         }
@@ -63,8 +63,8 @@ namespace SigmaMovies.Application.ErrorHandler
         private void HandleException(ActorNotFoundException exception)
         {
             Code = exception.Message;
-            Status = (int)HttpStatusCode.NotFound;
-            Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.4";
+            Status = (int)HttpStatusCode.BadRequest;
+            Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1";
             Title = exception.Source;
             LogLevel = LogLevel.Information;
         }
@@ -72,8 +72,8 @@ namespace SigmaMovies.Application.ErrorHandler
         private void HandleException(UserNotFoundException exception)
         {
             Code = exception.Message;
-            Status = (int)HttpStatusCode.NotFound;
-            Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.4";
+            Status = (int)HttpStatusCode.BadRequest;
+            Type = "https://datatracker.ietf.org/doc/html/rfc7231#section-6.5.1";
             Title = exception.Source;
             LogLevel = LogLevel.Information;
         }

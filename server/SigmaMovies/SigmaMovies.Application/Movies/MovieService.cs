@@ -4,8 +4,11 @@ using SigmaMovies.Application.Exceptions;
 using SigmaMovies.Application.Movies.Repositories;
 using SigmaMovies.Application.Movies.Requests;
 using SigmaMovies.Application.Movies.Responses;
+using SigmaMovies.Application.Pagination;
 using SigmaMovies.Domain.Actors;
 using SigmaMovies.Domain.Movies;
+using System.Reflection.Metadata.Ecma335;
+using System.Threading.Channels;
 
 namespace SigmaMovies.Application.Movies
 {
@@ -35,17 +38,30 @@ namespace SigmaMovies.Application.Movies
             return await _unitOfWork.Movie.AddActorsToMovie(movie, actorNames, cancellationToken);
         }
 
-        public async Task<List<MovieResponseModel>> GetAllMovies(CancellationToken cancellationToken, string? genre = null, int? year = null,bool? isDeleted = null)
+        public async Task<List<MovieResponseModel>> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter, string? sortBy = null, string? genre = null, int? year = null, bool? isDeleted = null)
         {
-            var movies = await _repository.GetAllMovies(cancellationToken);
+            var movies = await _repository.GetAllMovies(cancellationToken, paginationFilter);
 
             var filteredMovies = movies
                 .Where(x => string.IsNullOrEmpty(genre) || x.Metadata.Genre == genre)
                 .Where(x => !year.HasValue || x.Metadata.Year == year.Value)
-                .Where(x => !isDeleted.HasValue  || isDeleted.Value == x.IsDeleted)
+                .Where(x => !isDeleted.HasValue || isDeleted.Value == x.IsDeleted)
                 .ToList();
 
-            return filteredMovies.Adapt<List<MovieResponseModel>>();
+            if (string.IsNullOrEmpty(sortBy))
+            {
+                return filteredMovies.Adapt<List<MovieResponseModel>>();
+            }
+            var result = sortBy.ToLower() switch
+            {
+
+                "year" => filteredMovies.OrderByDescending(x => x.Metadata.Year),
+                "imdbrating" => filteredMovies.OrderByDescending(x => x.Rating.IMDb),
+                "rtrating" => filteredMovies.OrderByDescending(x => x.Rating.RottenTomatoes),
+                _ => default  
+            };
+            if(result is null) return filteredMovies.Adapt<List<MovieResponseModel>>();
+            return result.Adapt<List<MovieResponseModel>>();
         }
 
 
@@ -136,15 +152,15 @@ namespace SigmaMovies.Application.Movies
             #endregion
         }
 
-        public async Task UpdatePatchMovie(int id, JsonPatchDocument<Movie> movie,CancellationToken cancellationToken)
+        public async Task UpdatePatchMovie(int id, JsonPatchDocument<Movie> movie, CancellationToken cancellationToken)
         {
-            var movieToUpdate = await _unitOfWork.Movie.GetMovieById(id, cancellationToken)?? throw new MovieNotFoundException("Movie not Found");
+            var movieToUpdate = await _unitOfWork.Movie.GetMovieById(id, cancellationToken) ?? throw new MovieNotFoundException("Movie not Found");
             movie.ApplyTo(movieToUpdate);
             await _unitOfWork.Save(cancellationToken);
 
         }
 
-        public async Task DeleteMovie(int id,CancellationToken cancellationToken)
+        public async Task DeleteMovie(int id, CancellationToken cancellationToken)
         {
             var movieToDelete = await _unitOfWork.Movie.GetMovieById(id, cancellationToken) ?? throw new MovieNotFoundException("Movie not Found");
             await _unitOfWork.Movie.Delete(movieToDelete.Id, cancellationToken);

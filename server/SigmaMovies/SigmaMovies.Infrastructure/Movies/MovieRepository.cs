@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SigmaMovies.Application.Actors.Repositories;
 using SigmaMovies.Application.Movies.Repositories;
+using SigmaMovies.Application.Pagination;
 using SigmaMovies.Domain.Actors;
 using SigmaMovies.Domain.Movies;
 using SigmaMovies.Persistence.Context;
@@ -16,9 +17,9 @@ namespace SigmaMovies.Infrastructure.Movies
             _actorRepo = actorRepo;
         }
 
-        public async Task<List<Movie>> GetAllMovies(CancellationToken cancellationToken)
+        public async Task<PagedList<Movie>> GetAllMovies(CancellationToken cancellationToken, PaginationFilter paginationFilter)
         {
-            return await _dbSet.Include(x => x.Actors).ToListAsync();
+            return await PagedList<Movie>.ToPagedListAsync(  _dbSet.Include(x => x.Actors).OrderByDescending(x=>x.Id),paginationFilter.PageNumber,paginationFilter.PageSize);
         }
 
         public async Task<Movie> GetMovieById(int id, CancellationToken cancellationToken)
