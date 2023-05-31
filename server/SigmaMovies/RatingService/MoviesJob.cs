@@ -24,7 +24,7 @@ namespace RatingService
         {
             var cancellationToken = new CancellationToken();
 
-            var Movies = await _unitOfWork.Movie.GetAllMovies(cancellationToken);
+            var Movies = await _unitOfWork.Movie.GetAllMovies(cancellationToken,null);
             foreach (var item in Movies)
             {
                 await Console.Out.WriteLineAsync(item.Title);

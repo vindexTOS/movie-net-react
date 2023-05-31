@@ -60,11 +60,13 @@
             <param name="id">Actor's id.</param>
             <response code="200">Returns an empty response.</response>
         </member>
-        <member name="M:SigmaMovies.API.Controllers.MoviesController.GetAllMovies(System.Threading.CancellationToken,System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
+        <member name="M:SigmaMovies.API.Controllers.MoviesController.GetAllMovies(System.Threading.CancellationToken,SigmaMovies.Application.Pagination.PaginationFilter,System.Nullable{SigmaMovies.Application.HelperModels.SortBy},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean})">
             <summary>
             Retrieves a list of all movies.
             </summary>
             <param name="cancellationToken">The cancellation token.</param>
+            <param name="paginationFilter">The movie's pagination filter.</param>
+            <param name="sortBy">The movie's sorting algorithm.</param>
             <param name="genre">The movie's genre.</param>
             <param name="year">The movie's year.</param>
             <param name="isDeleted">The movie's delete status.</param>

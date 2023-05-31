@@ -9,6 +9,8 @@ import UserPanel from './pages/UserPages/UserPannel'
 import SingleMovieMain from './pages/MainPage/Single-Movie-Inside-Components/SingleMovieMain'
 import UpdateMovie from './pages/UserPages/UpdateMovie/UpdateMovie'
 import PostActorMain from './pages/UserPages/Create_Actors/PostActorMain'
+import ActorsListView from './pages/UserPages/Get_And_Update_Actors/ActorsListView'
+import ActorsMain from './pages/UserPages/Get_And_Update_Actors/ActorsMain'
 function App() {
   return (
     <>
@@ -22,6 +24,7 @@ function App() {
         <Route path="/movie/:id" element={<SingleMovieMain />} />
         <Route path="/movie-edit/:id" element={<UpdateMovie />} />
         <Route path="/add-actor" element={<PostActorMain />} />
+        <Route path="/actors" element={<ActorsMain />} />
       </Routes>
     </>
   )

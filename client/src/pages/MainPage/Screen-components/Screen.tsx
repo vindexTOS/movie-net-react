@@ -1,5 +1,5 @@
-import React, { useReducer } from 'react'
-
+import React, { useReducer, useState } from 'react'
+import { filmData } from '../../../assets/dummydata/data'
 import imbd from '../../../assets/icons/imdb.png'
 import tomato from '../../../assets/icons/tomato.png'
 import RatingComponent from './RatingComponent'
@@ -33,11 +33,12 @@ const Screen = () => {
 
   const dispatchRedux = useDispatch()
   const index = useSelector((state: any) => state.slide.index)
-  const movieData = useSelector((state: any) => state.data.movieData)
-
+  // const movieData = useSelector((state: any) => state.data.movieData)
+  // const [movieData, setMovieData] = useState(filmData)
+  const movieData = filmData
   const reducer = (state: State, action: Action) => {
     switch (action.type) {
-      case 'dec':
+      case 'description':
         return {
           ...state,
           showDec: state.showDec = true,
@@ -90,7 +91,7 @@ const Screen = () => {
       onClick={() => StopInterval()}
       className={style.screenDiv}
       style={{
-        background: ` ${movieData[index].color1}   `,
+        background: ` ${movieData[index].color}   `,
       }}
     >
       <section className="flex justify-around  ">
@@ -139,7 +140,7 @@ const Screen = () => {
               spec={'border-l-[1px]'}
               title={'Description'}
               clickEvent={dispatch}
-              type={'dec'}
+              type={'description'}
             />
             <Button
               color={movieData[index].color2}
@@ -165,7 +166,7 @@ const Screen = () => {
           </div>
           {state.showDec && (
             <Description
-              dec={movieData[index].dec}
+              dec={movieData[index].description}
               color1={movieData[index].color}
               color2={movieData[index].color2}
             />

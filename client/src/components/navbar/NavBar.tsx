@@ -38,9 +38,14 @@ const NavBar = () => {
   }, [dropDownRef])
   return (
     <nav ref={dropDownRef} className={style.nav}>
-      <button className="text-white" onClick={() => navigate('/')}>
-        HOME
-      </button>
+      <div className="flex gap-20">
+        <button className="text-white" onClick={() => navigate('/')}>
+          HOME
+        </button>
+        <button className="text-white" onClick={() => navigate('/actors')}>
+          ACTORS
+        </button>
+      </div>
       {/* <button onClick={() => console.log(userData)}>LOg</button> */}
       {userData?.unique_name ? (
         <p style={{ cursor: 'pointer' }} className="cursor-pointer ">

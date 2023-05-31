@@ -20,6 +20,9 @@ namespace SigmaMovies.API.Controllers
             this.actorService = actorService;
         }
 
+
+
+
         /// <summary>
         /// Retrieves all actors.
         /// </summary>
@@ -27,8 +30,7 @@ namespace SigmaMovies.API.Controllers
         /// <response code="200">Returns an empty response.</response>
         [Route("GetAllActors")]
         [HttpGet]
-        public async Task<IActionResult>
-        GetAllActors(CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAllActors(CancellationToken cancellationToken)
         {
             return Ok(await actorService.GetAllActors(cancellationToken));
         }
@@ -41,11 +43,11 @@ namespace SigmaMovies.API.Controllers
         /// <response code="200">Returns an empty response.</response>
         [Route("GetActorById")]
         [HttpGet]
-        public async Task<IActionResult>
-        GetActorById(CancellationToken cancellationToken, int id)
+        public async Task<IActionResult> GetActorById(CancellationToken cancellationToken, int id)
         {
             return Ok(await actorService.GetActorById(id, cancellationToken));
         }
+
 
         /// <summary>
         /// Retrieves actor with nested movie by id.
@@ -55,12 +57,11 @@ namespace SigmaMovies.API.Controllers
         /// <response code="200">Returns an empty response.</response>
         [Route("GetActorByIdFull")]
         [HttpGet]
-        public async Task<IActionResult>
-        GetActorByIdFull(CancellationToken cancellationToken, int id)
+        public async Task<IActionResult> GetActorByIdFull(CancellationToken cancellationToken, int id)
         {
-            return Ok(await actorService
-                .GetActorByIdFull(id, cancellationToken));
+            return Ok(await actorService.GetActorByIdFull(id, cancellationToken));
         }
+
 
         /// <summary>
         /// Adds a new actor to the database.
@@ -68,20 +69,11 @@ namespace SigmaMovies.API.Controllers
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="request">Actor's request model.</param>
         /// <response code="200">Returns an empty response.</response>
-        [
-            SwaggerRequestExample(
-                typeof (ActorRequestModel),
-                examplesProviderType:
-                typeof (ActorRequestModelExample))
-        ]
+        [SwaggerRequestExample(typeof(ActorRequestModel), examplesProviderType: typeof(ActorRequestModelExample))]
         [HttpPost("AddActor")]
         [Produces("application/json")]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult>
-        AddActor(
-            CancellationToken cancellationToken,
-            [FromBody] ActorRequestModel? request
-        )
+        public async Task<IActionResult> AddActor(CancellationToken cancellationToken, [FromBody] ActorRequestModel? request)
         {
             await actorService.AddActor(request, cancellationToken);
             return Ok();
@@ -93,24 +85,16 @@ namespace SigmaMovies.API.Controllers
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="request">Actor's request model.</param>
         /// <response code="200">Returns an empty response.</response>
-        [
-            SwaggerRequestExample(
-                typeof (ActorRequestPutModelNoNested),
-                examplesProviderType:
-                typeof (ActorRequestPutModelNoNestedExamples))
-        ]
+        [SwaggerRequestExample(typeof(ActorRequestPutModelNoNested), examplesProviderType: typeof(ActorRequestPutModelNoNestedExamples))]
         [HttpPut("UpdateActor")]
         [Produces("application/json")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult>
-        UpdateActor(
-            CancellationToken cancellationToken,
-            [FromBody] ActorRequestPutModelNoNested request
-        )
+        public async Task<ActionResult> UpdateActor(CancellationToken cancellationToken, [FromBody] ActorRequestPutModelNoNested request)
         {
             await actorService.UpdateActorAsync(cancellationToken, request);
             return Ok();
         }
+
 
         /// <summary>
         /// Updates actor with nested movie.
@@ -118,25 +102,16 @@ namespace SigmaMovies.API.Controllers
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <param name="request">Actor's request model.</param>
         /// <response code="200">Returns an empty response.</response>
-        [
-            SwaggerRequestExample(
-                typeof (ActorRequestPutModel),
-                examplesProviderType:
-                typeof (ActorRequestPutModelExamples))
-        ]
+        [SwaggerRequestExample(typeof(ActorRequestPutModel), examplesProviderType: typeof(ActorRequestPutModelExamples))]
         [Produces("application/json")]
         [HttpPut("UpdateActorWithNested")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult>
-        UpdateActorWithNested(
-            CancellationToken cancellationToken,
-            [FromBody] ActorRequestPutModel request
-        )
+        public async Task<ActionResult> UpdateActorWithNested(CancellationToken cancellationToken, [FromBody] ActorRequestPutModel request)
         {
-            await actorService
-                .UpdateActorWithNestedAsync(cancellationToken, request);
+            await actorService.UpdateActorWithNestedAsync(cancellationToken, request);
             return Ok();
         }
+
 
         /// <summary>
         /// Patches actor.
@@ -147,15 +122,11 @@ namespace SigmaMovies.API.Controllers
         /// <response code="200">Returns an empty response.</response>
         [HttpPatch("UpdatePatchActor/{id}")]
         [Authorize(Roles = "Admin")]
-        public async Task<ActionResult>
-        UpdatePatchActor(
-            [FromBody] JsonPatchDocument<Actor> request,
-            int id,
-            CancellationToken cancellationToken
-        )
+        public async Task<ActionResult> UpdatePatchActor([FromBody] JsonPatchDocument<Actor> request, int id, CancellationToken cancellationToken)
         {
             await actorService.UpdatePatchActor(id, request, cancellationToken);
             return Ok();
         }
+
     }
 }

@@ -61,7 +61,7 @@ const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
 })
 
 const UpdateMovieThunk = createAsyncThunk(
-  'movie/patch',
+  'movie/put',
   async ({ id, obj }: { id: string; obj: UpdatedValuesType }) => {
     const apiUrl = `http://localhost:5119/v1/Movies/UpdateMovie`
 

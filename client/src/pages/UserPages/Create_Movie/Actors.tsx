@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import useOutClick from '../../../Hooks/useOutClick'
 import {
   getActor,
   getImg,
@@ -16,14 +17,23 @@ const Actors = () => {
   }
   const dispatch = useDispatch()
   const { actorName, img } = useSelector((state: any) => state.createMovie)
-
+  const actorsData = useSelector((state: any) => state.actorsReducer.actorData)
   //   const [img, setImg] = React.useState<string>('')
   //   const [name, setName] = React.useState<string>('')
+
   const [error, setError] = React.useState<string>('')
-  const AddActor = () => {
+  const [dropDownActor, setDropDownActor] = useState<boolean>(false)
+
+  const dropDownRef = React.useRef<HTMLDivElement | null>(null)
+
+  const handleDropDownCancle = () => {
+    setDropDownActor(false)
+  }
+  useOutClick(dropDownRef, handleDropDownCancle)
+  const AddActor = (name: string, img: string) => {
     if (Actor.length < 3) {
       if (Actor) {
-        setActor([...Actor, actorName])
+        setActor([...Actor, { name, img }])
         dispatch(getActors(Actor))
       } else {
         setError('Fill Both Inputs')
@@ -42,8 +52,8 @@ const Actors = () => {
     console.log(Actor)
   }
   return (
-    <div className={style.mainDiv}>
-      <div className="flex flex-col gap-5  items-center  ">
+    <div className={style.mainDiv} onClick={() => console.log(actorsData)}>
+      <div ref={dropDownRef} className="flex flex-col gap-5  items-center  ">
         <div className="flex gap-2">
           <m.input
             value={actorName}
@@ -58,35 +68,45 @@ const Actors = () => {
               duration: 0.2,
             }}
             className={style.input}
+            onClick={() => setDropDownActor(!dropDownActor)}
             onChange={(e) => dispatch(getActor(e.target.value))}
             type="text"
             placeholder="Actor Name"
           />
-          <m.input
-            animate={{
-              x:
-                error === 'Fill Both Inputs'
-                  ? [20, 0, -20, 0, 20, 0, -20, 0]
-                  : [],
-            }}
-            transition={{
-              duration: 0.2,
-            }}
-            className={style.input}
-            onChange={(e) => dispatch(getImg(e.target.value))}
-            type="text"
-            placeholder="Photo URL"
-          />
+
+          {dropDownActor && (
+            <div className="bg-gray-200 boxshaddow rounded-[10px] w-[200px] max-h-[200px] absolute mt-10  items-center p-2">
+              {actorsData
+                ?.filter((val: any) => {
+                  if (
+                    val.name.toLowerCase().includes(actorName.toLowerCase())
+                  ) {
+                    return val
+                  }
+                })
+                .map((val: any, index: number) => (
+                  <div
+                    key={String(val.id + index + val.name)}
+                    onClick={() => {
+                      dispatch(getActor(val.name)), AddActor(val.name, val.img)
+                    }}
+                    className="cursor-pointer hover:bg-gray-300 px-2 hover:text-gray-500 rounded-[2px]"
+                  >
+                    {val.name}
+                  </div>
+                ))}
+            </div>
+          )}
         </div>
-        <button className={style.btn} onClick={() => AddActor()}>
+        {/* <button className={style.btn} onClick={() => AddActor()}>
           ADD
-        </button>
+        </button> */}
       </div>
       <div className="flex gap-5 ">
-        {Actor.map((val: any) => {
+        {Actor.map((val: any, index: number) => {
           return (
             <div
-              key={val}
+              key={String(val.img + val.name + index)}
               className="flex items-center justify-center flex-col"
             >
               <img

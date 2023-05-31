@@ -5,7 +5,7 @@ import { movieDataType } from '../assets/dummydata/data'
 const MoviesGrid = () => {
   const movieData = useSelector((state: any) => state.data.movieData)
   const style = {
-    main: `gridSystem gap-20 w-[100%] items-center justify-center pt-20`,
+    main: `gridSystem gap-20 w-[90%] items-center justify-center gap-2   backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow py-20 px-1   `,
   }
   if (movieData) {
     return (

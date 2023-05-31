@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getCookies } from './redux/features/slices/AuthSlice'
 import { GetAllMovies } from './redux/features/Thunks/MovieCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
+import { GetActors } from './redux/features/Thunks/ActorCrud'
 export type actorType = {
   name: string
   img: string
@@ -19,7 +20,7 @@ export type actorType = {
 type Cell = {
   image: any
   htmlImg: String | null
-  getThread: () => void
+
   imgUploadDrag: (e: React.DragEvent<HTMLLabelElement>) => void
   removeImgFromHtml: () => void
 
@@ -62,27 +63,8 @@ export const ContextProvider = ({
     axios.defaults.headers.common['Content-Type'] = 'application/json'
 
     dispatch(GetAllMovies({ dispatch }))
+    dispatch(GetActors({ dispatch }))
   }, [])
-
-  const { forumID } = useParams()
-  const [postData, setPostData] = useState<any>()
-  const getThread = async () => {
-    console.log('clicked')
-
-    try {
-      let apiUrl = `http://localhost:3000/threads/${forumID}`
-      await axios
-        .get(apiUrl)
-        .then((res) => {
-          console.log(res)
-          console.log('success')
-        })
-        .catch((err) => console.log(err))
-      console.log(forumID)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   const [image, setImage] = useState<any>(null)
   const [htmlImg, setHtmlImg] = useState<String | null>('')
@@ -158,7 +140,6 @@ export const ContextProvider = ({
   return (
     <context.Provider
       value={{
-        getThread,
         removeImgFromHtml,
         imgUploadDrag,
         imgUpload,

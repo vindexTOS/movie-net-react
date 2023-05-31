@@ -6,12 +6,13 @@ import MetaData from './MetaData'
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import EditDeleteDropDown from './EditDeleteDropDown'
 import useOutClick from '../../../Hooks/useOutClick'
+import DeletePopUp from './DeletePopUp'
 const SingleMovieMain = () => {
   const movieData = useSelector((state: any) => state.data.movieData)
   const { id } = useParams()
   const singleMovie = movieData?.find((val: any) => String(val.id) === id)
   const dropDownRef = React.useRef<HTMLDivElement | null>(null)
-
+  const deletePopUp = useSelector((state: any) => state.movieInner.deletePopUp)
   const [dropDown, setDropDown] = React.useState<boolean>(false)
   const handleDropDownCancle = () => {
     setDropDown(false)
@@ -24,7 +25,7 @@ const SingleMovieMain = () => {
     singleMovie.metadata &&
     singleMovie.rating
   ) {
-    const { color, color2, description, img, title, video } = singleMovie
+    const { color, color2, description, img, title, video, id } = singleMovie
     const { hr, year, genre } = singleMovie.metadata
     const { imDb, rottenTomatoes } = singleMovie.rating
 
@@ -52,13 +53,17 @@ const SingleMovieMain = () => {
     }
 
     return (
-      <section className={style.section}>
+      <section
+        className={style.section}
+        onClick={() => console.log(singleMovie)}
+      >
+        {deletePopUp && <DeletePopUp id={id} />}
         <div ref={dropDownRef} className={style.mainDiv}>
           <BiDotsHorizontalRounded
             onClick={() => setDropDown(!dropDown)}
             className={style.dotIcon}
           />
-          <EditDeleteDropDown dropDown={dropDown} id={singleMovie.id} />
+          <EditDeleteDropDown dropDown={dropDown} id={id} />
           <div className={style.imgDiv}>
             <div className="flex w-[100%] h-[80%] items-start justify-around">
               <h1

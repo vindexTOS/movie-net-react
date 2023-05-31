@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { DeleteMovie } from '../../../redux/features/Thunks/MovieCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { useNavigate } from 'react-router-dom'
-
+import { popUpDelete } from '../../../redux/features/slices/movieInner'
 const EditDeleteDropDown = ({
   dropDown,
   id,
@@ -36,7 +36,7 @@ const EditDeleteDropDown = ({
       >
         Edit
       </button>
-      <button onClick={() => dispatch(DeleteMovie(id))} className={style.btn}>
+      <button onClick={() => dispatch(popUpDelete())} className={style.btn}>
         Delete
       </button>
     </m.div>
