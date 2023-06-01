@@ -40,8 +40,8 @@ const CreateMovie = createAsyncThunk(
 const GetAllMovies = createAsyncThunk(
   'movie/get',
   async (val: GetMoviesType) => {
-    const apiKey = `http://localhost:5119/v1/Movies/GetAllMovies?isDeleted=false`
-
+    const apiKey = `http://localhost:5119/v1/Movies/GetAllMovies?PageNumber=1&PageSize=12&isDeleted=false`
+    // /GetAllMovies?PageNumber=3&PageSize=5&sortBy=Year&genre=ujas&year=2008&isDeleted=false
     const data = await axios
       .get(apiKey)
       .then((res) => res.data)

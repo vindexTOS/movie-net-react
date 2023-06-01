@@ -5,7 +5,7 @@ import ImgUpload from './ImgUpload'
 import ColorDiv from './ColorDiv'
 import { useMainContext } from '../../../context'
 import MetaData from './MetaData'
-import Actors from './Actors'
+import MovieActors from './MovieActors'
 import VideoPost from './VideoPost'
 import { useSelector, useDispatch } from 'react-redux'
 import { FireBasePhotoThunk } from '../../../redux/features/Thunks/FirebaseThunk'
@@ -83,7 +83,7 @@ const PostMovie = () => {
           </div>
         </div>
         <div className="flex flex-col gap-2">
-          <Actors />
+          <MovieActors />
           <VideoPost />
 
           <button className="text-white text-[2rem]" onClick={() => AddMovie()}>

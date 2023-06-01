@@ -2,7 +2,7 @@ import React from 'react'
 import ActorsListView from './ActorsListView'
 const ActorsMain = () => {
   const style = {
-    section: `w-[100%] h-[100vh] flex  items-center justify-center`,
+    section: `w-[100%] h-[100%] flex py-10  items-center justify-center`,
   }
 
   return (

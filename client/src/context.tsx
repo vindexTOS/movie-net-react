@@ -137,6 +137,10 @@ export const ContextProvider = ({
   ///actor information
 
   const [Actor, setActor] = React.useState<actorType[]>([])
+
+  // actor update 
+
+  
   return (
     <context.Provider
       value={{

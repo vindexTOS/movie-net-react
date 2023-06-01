@@ -1,5 +1,5 @@
 import React from 'react'
-import Actors from '../Create_Movie/Actors'
+import Actors from './Actors'
 import { useSelector, useDispatch } from 'react-redux'
 import { CreateActor } from '../../../redux/features/Thunks/ActorCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
@@ -15,14 +15,15 @@ const PostActorMain = () => {
     (state: any) => state.createMovie,
   )
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+  const url = useSelector((state: any) => state.createMovie.photoUrl)
 
   const handleActorPost = () => {
     const obj = {
       name: actorName,
-      img,
+      img: url,
     }
     console.log(obj)
-    if (actorName && img) {
+    if (actorName && url) {
       dispatch(CreateActor(obj))
     }
   }

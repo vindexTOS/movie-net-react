@@ -45,7 +45,7 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
     }
   }, [image])
   return (
-    <div className={style.mainDiv} onClick={() => console.log(url)}>
+    <div className={style.mainDiv} onClick={() => console.log(data)}>
       {role === 'Admin' && (
         <BiDotsHorizontalRounded
           onClick={() => setDropDown(!dropDown)}

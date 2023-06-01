@@ -13,6 +13,23 @@ const MoviesGrid = () => {
         {movieData?.map((val: movieDataType) => (
           <MovieCard key={val.id} {...val} />
         ))}
+        <div className="  gap-3   flex w-[100px] element-without-scrollbar   overflow-x-scroll ">
+          {/* {new Array(allPostData.totalPages)
+              .fill('')
+              .map((val: string, index: number) => (
+                <p
+                  onClick={() => {
+                    navigation(`/posts/page/${index + 1}`)
+                  }}
+                  className={` text-[1.3rem]  cursor-pointer ${
+                    Number(pages) === index + 1 ? 'text-blue-400' : `text-white`
+                  } `}
+                  key={index}
+                >
+                  {index + 1}
+                </p>
+              ))} */}
+        </div>
       </main>
     )
   } else {
