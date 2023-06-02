@@ -44,7 +44,7 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
       console.log('incremen')
       let interval = setTimeout(() => {
         dispatch(increment(movieData.length))
-      }, 3000)
+      }, 300)
 
       return () => clearInterval(interval)
     }

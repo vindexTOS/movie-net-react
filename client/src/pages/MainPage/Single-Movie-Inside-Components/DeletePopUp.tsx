@@ -20,7 +20,7 @@ const DeletePopUp = ({ id }: { id: number }) => {
     console.log(id)
     if (id) {
       await dispatch(DeleteMovie(id))
-      await dispatch(GetAllMovies({ dispatch }))
+      await dispatch(GetAllMovies({ dispatch, pages: 1 }))
       dispatch(popUpDelete())
       navigate('/')
     }

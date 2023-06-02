@@ -17,7 +17,9 @@ const UpdateMovie = () => {
   const { htmlImg } = useMainContext()
   const movieData = useSelector((state: any) => state.data.movieData)
   const { id } = useParams()
-  const singleMovie = movieData?.find((val: any) => String(val.id) === id)
+  const singleMovie = movieData?.movies?.find(
+    (val: any) => String(val.id) === id,
+  )
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const [titleState, setTitleState] = useState<string>('')
   const [yearState, setYearState] = useState<string>('')

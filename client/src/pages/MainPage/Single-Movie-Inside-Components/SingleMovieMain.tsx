@@ -10,7 +10,9 @@ import DeletePopUp from './DeletePopUp'
 const SingleMovieMain = () => {
   const movieData = useSelector((state: any) => state.data.movieData)
   const { id } = useParams()
-  const singleMovie = movieData?.find((val: any) => String(val.id) === id)
+  const singleMovie = movieData?.movies?.find(
+    (val: any) => String(val.id) === id,
+  )
   const dropDownRef = React.useRef<HTMLDivElement | null>(null)
   const deletePopUp = useSelector((state: any) => state.movieInner.deletePopUp)
   const [dropDown, setDropDown] = React.useState<boolean>(false)

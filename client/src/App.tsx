@@ -17,6 +17,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<MainPage />} />
+        <Route path="/movies/:pages" element={<MainPage />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/authorisation" element={<AuthPage />} />

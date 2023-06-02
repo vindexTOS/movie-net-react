@@ -62,7 +62,7 @@ export const ContextProvider = ({
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     axios.defaults.headers.common['Content-Type'] = 'application/json'
 
-    dispatch(GetAllMovies({ dispatch }))
+    dispatch(GetAllMovies({ dispatch, pages: 1 }))
     dispatch(GetActors({ dispatch }))
   }, [])
 
@@ -138,9 +138,8 @@ export const ContextProvider = ({
 
   const [Actor, setActor] = React.useState<actorType[]>([])
 
-  // actor update 
+  // actor update
 
-  
   return (
     <context.Provider
       value={{

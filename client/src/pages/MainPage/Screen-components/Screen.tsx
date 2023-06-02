@@ -35,7 +35,8 @@ const Screen = () => {
   const index = useSelector((state: any) => state.slide.index)
   // const movieData = useSelector((state: any) => state.data.movieData)
   // const [movieData, setMovieData] = useState(filmData)
-  const movieData = filmData
+  // const movieData = filmData
+  const [movieData, setMovieData] = useState(filmData)
   const reducer = (state: State, action: Action) => {
     switch (action.type) {
       case 'description':
