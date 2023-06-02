@@ -8,7 +8,7 @@ import { GetAllMovies } from '../redux/features/Thunks/MovieCrud'
 const MoviesGrid = () => {
   const movieData = useSelector((state: any) => state.data.movieData)
   const style = {
-    section: `w-[100%] items-center justify-center  flex flex-col`,
+    section: `w-[100%] items-center justify-center  flex flex-col z-10`,
     main: `gridSystem gap-20 w-[90%] items-center justify-center gap-2   backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow py-20 px-1   `,
   }
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
@@ -31,7 +31,15 @@ const MoviesGrid = () => {
                 onClick={() => {
                   {
                     navigation(`/movies/${index + 1}`),
-                      dispatch(GetAllMovies({ dispatch, pages: index + 1 }))
+                      dispatch(
+                        GetAllMovies({
+                          dispatch,
+                          pages: index + 1,
+                          sort: '',
+                          year: '',
+                          genre: '',
+                        }),
+                      )
                   }
                 }}
                 className={` text-[1.3rem]  cursor-pointer ${

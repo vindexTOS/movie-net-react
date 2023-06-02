@@ -36,8 +36,13 @@ type Cell = {
   handleColor2: (color: any) => void
   Actor: actorType[]
   setActor: React.Dispatch<React.SetStateAction<actorType[]>>
+  setYear: React.Dispatch<React.SetStateAction<string>>
+  setGenre: React.Dispatch<React.SetStateAction<string>>
+  setSort: React.Dispatch<React.SetStateAction<string>>
+  year: string
+  genre: string
+  sort: string
 }
-
 const context = createContext<Cell | null>(null)
 
 export const ContextProvider = ({
@@ -58,13 +63,21 @@ export const ContextProvider = ({
     }
   }, [])
 
+  // query filtering
+  const [year, setYear] = useState<string>('')
+  const [genre, setGenre] = useState<string>('')
+  const [sort, setSort] = useState<string>('')
+
   useEffect(() => {
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     axios.defaults.headers.common['Content-Type'] = 'application/json'
 
-    dispatch(GetAllMovies({ dispatch, pages: 1 }))
     dispatch(GetActors({ dispatch }))
   }, [])
+
+  useEffect(() => {
+    dispatch(GetAllMovies({ dispatch, pages: 1, sort, year, genre }))
+  }, [year, genre, sort])
 
   const [image, setImage] = useState<any>(null)
   const [htmlImg, setHtmlImg] = useState<String | null>('')
@@ -159,6 +172,12 @@ export const ContextProvider = ({
         handleColor2,
         Actor,
         setActor,
+        setYear,
+        setGenre,
+        setSort,
+        year,
+        genre,
+        sort,
       }}
     >
       {children}

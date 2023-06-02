@@ -36,7 +36,7 @@ const Screen = () => {
   // const movieData = useSelector((state: any) => state.data.movieData)
   // const [movieData, setMovieData] = useState(filmData)
   // const movieData = filmData
-  const [movieData, setMovieData] = useState(filmData)
+  // const [movieData, setMovieData] = useState(filmData)
   const reducer = (state: State, action: Action) => {
     switch (action.type) {
       case 'description':
@@ -92,7 +92,7 @@ const Screen = () => {
       onClick={() => StopInterval()}
       className={style.screenDiv}
       style={{
-        background: ` ${movieData[index].color}   `,
+        background: ` ${filmData[index]?.color}   `,
       }}
     >
       <section className="flex justify-around  ">
@@ -101,14 +101,14 @@ const Screen = () => {
         <div className={style.ratingDiv}>
           <RatingComponent
             img={imbd}
-            num={movieData[index].rating.IMDb}
-            color={movieData[index].color2}
+            num={filmData[index]?.rating.IMDb}
+            color={filmData[index]?.color2}
             secVal={`/10`}
           />
           <RatingComponent
             img={tomato}
-            num={movieData[index].rating.RottenTomatos}
-            color={movieData[index].color2}
+            num={filmData[index]?.rating.RottenTomatos}
+            color={filmData[index]?.color2}
             secVal={`%`}
           />
         </div>
@@ -117,48 +117,48 @@ const Screen = () => {
             <h1
               style={{
                 color: titleCheck
-                  ? `${movieData[index].color}`
-                  : `${movieData[index].color2}`,
+                  ? `${filmData[index]?.color}`
+                  : `${filmData[index]?.color2}`,
               }}
               className={`text-center w-[300px]  mt-5  text-[2.7rem] font-bold tracking-widest  h-[200px]  `}
             >
-              {movieData[index].title}
+              {filmData[index]?.title}
             </h1>
             <p
               className="text-bold text-[1.2rem] w-[400px] text-center "
               style={{
                 color: titleCheck
-                  ? `${movieData[index].color}`
-                  : `${movieData[index].color2}`,
+                  ? `${filmData[index]?.color}`
+                  : `${filmData[index]?.color2}`,
               }}
             >
-              „ {movieData[index].quote}"
+              „ {filmData[index]?.quote}"
             </p>
           </div>
           <div className={style.btnDiv}>
             <Button
-              color={movieData[index].color2}
+              color={filmData[index]?.color2}
               spec={'border-l-[1px]'}
               title={'Description'}
               clickEvent={dispatch}
               type={'description'}
             />
             <Button
-              color={movieData[index].color2}
+              color={filmData[index]?.color2}
               spec={'border-t-[1px]'}
               title={'Video'}
               clickEvent={dispatch}
               type={'video'}
             />
             <Button
-              color={movieData[index].color2}
+              color={filmData[index]?.color2}
               spec={'border-r-[1px]'}
               title={'Actors'}
               clickEvent={dispatch}
               type={'actors'}
             />
             <Button
-              color={movieData[index].color2}
+              color={filmData[index]?.color2}
               spec={'border-r-[1px]'}
               title={'Title'}
               clickEvent={dispatch}
@@ -167,29 +167,29 @@ const Screen = () => {
           </div>
           {state.showDec && (
             <Description
-              dec={movieData[index].description}
-              color1={movieData[index].color}
-              color2={movieData[index].color2}
+              dec={filmData[index]?.description}
+              color1={filmData[index]?.color}
+              color2={filmData[index]?.color2}
             />
           )}
           {state.showActors && (
             <Actors
-              actors={movieData[index].actors}
-              color1={movieData[index].color}
-              color2={movieData[index].color2}
+              actors={filmData[index]?.actors}
+              color1={filmData[index]?.color}
+              color2={filmData[index]?.color2}
             />
           )}
           {state.showVideo && (
             <Video
-              video={movieData[index].video}
-              color={movieData[index].color2}
+              video={filmData[index]?.video}
+              color={filmData[index]?.color2}
             />
           )}
         </div>
-        <img className={style.img} src={movieData[index].img} />
+        <img className={style.img} src={filmData[index]?.img} />
         {/* <button
         className="text-black text-[3rem]"
-        onClick={() => dispatchRedux(increment(movieData.length))}
+        onClick={() => dispatchRedux(increment(filmData.length))}
       >
         +
       </button>

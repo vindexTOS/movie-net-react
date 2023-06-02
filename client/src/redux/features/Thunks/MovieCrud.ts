@@ -26,6 +26,9 @@ type MovieObjectType = {
 type GetMoviesType = {
   dispatch: ThunkDispatch<any, any, any>
   pages: number
+  year: string
+  genre: string
+  sort: string
 }
 const CreateMovie = createAsyncThunk(
   'movie/post',
@@ -43,7 +46,7 @@ const GetAllMovies = createAsyncThunk(
   async (val: GetMoviesType) => {
     const apiKey = `http://localhost:5119/v1/Movies/GetAllMovies?PageNumber=${String(
       val.pages,
-    )}&PageSize=15&isDeleted=false`
+    )}&PageSize=8&sortBy=${val.sort}&genre=${val.genre}&year=${val.year}`
     // /GetAllMovies?PageNumber=3&PageSize=5&sortBy=Year&genre=ujas&year=2008&isDeleted=false
     const data = await axios
       .get(apiKey)

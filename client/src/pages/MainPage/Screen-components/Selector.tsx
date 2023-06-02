@@ -26,7 +26,7 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
   }
   const i = useSelector((state: any) => state.slide.index)
   const [mouseOver, setMouseOver] = React.useState<boolean[]>(
-    new Array(filmData.length).fill(false),
+    new Array(filmData?.length).fill(false),
   )
   const mouseIn = (index: number) => {
     let newVal = [...mouseOver]
@@ -43,8 +43,8 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
     if (!stopInreval) {
       console.log('incremen')
       let interval = setTimeout(() => {
-        dispatch(increment(movieData.length))
-      }, 300)
+        dispatch(increment(filmData?.length))
+      }, 3000)
 
       return () => clearInterval(interval)
     }
@@ -53,11 +53,11 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
     <section className="flex   items-center    w-[100%]    ">
       <div className={style.btnWrapper}>
         <FaArrowCircleLeft
-          onClick={() => dispatch(decrement(filmData.length))}
+          onClick={() => dispatch(decrement(filmData?.length))}
           className={style.icon}
         />{' '}
         <FaArrowCircleRight
-          onClick={() => dispatch(increment(filmData.length))}
+          onClick={() => dispatch(increment(filmData?.length))}
           className={style.icon}
         />
       </div>
