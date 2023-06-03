@@ -22,7 +22,7 @@ const FilterComponent: FC<FilterPropsType> = ({
     mappedDiv: ` absolute top-10 bg-gray-200 w-[100%] z-50 overflow-y-scroll  element-without-scrollbar  max-h-[200px] items-center flex flex-col rounded-b-[9px]  rounded-t-[6px] boxshaddow `,
     selectItem: `hover:bg-gray-400 hover:text-white w-[100%] rounded-[5px] cursor-pointer flex items-center justify-center`,
   }
-  const [search, setSearch] = useState<string>(defaultString)
+  const [search, setSearch] = useState<string>('')
   const [dropDown, setDropDown] = useState<boolean>(false)
   const dropDownRef = React.useRef<HTMLDivElement | null>(null)
   const handleDropDownCancle = () => {
@@ -33,6 +33,7 @@ const FilterComponent: FC<FilterPropsType> = ({
     <div ref={dropDownRef} className={style.mainDiv}>
       <div className={style.arrowDiv} onClick={() => setDropDown(!dropDown)}>
         <input
+          placeholder={defaultString}
           onChange={(e) => setSearch(String(e.target.value))}
           value={filterState ? filterState : search}
           className={style.input}
@@ -46,8 +47,10 @@ const FilterComponent: FC<FilterPropsType> = ({
         className={style.mappedDiv}
       >
         {filterData
-          ?.filter((val: string | number) => {
-            if (String(val).toLowerCase().includes(search.toLowerCase())) {
+          .filter((val) => {
+            if (search === '') {
+              return val
+            } else if (val.toLowerCase().includes(search.toLowerCase())) {
               return val
             }
           })
