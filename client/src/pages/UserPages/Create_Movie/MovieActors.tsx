@@ -23,7 +23,7 @@ const MovieActors = () => {
   } = useMainContext()
 
   const style = {
-    mainDiv: `w-[700px] h-[300px] bg-gray-300 boxshaddow rounded-[12px] flex items-center flex-col justify-center gap-10`,
+    mainDiv: `w-[90%] h-[300px] bg-gray-300 boxshaddow rounded-[12px] flex items-center flex-col justify-center gap-10`,
     input: `outline-none text-gray-400  px-2 rounded-[5px] h-[2.3rem]       outline-none   shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium   `,
     btn: ` w-[90%] text-white  bg-gradient-to-r from-cyan-400 via-cyan-500 to-cyan-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 shadow-lg shadow-cyan-500/50 dark:shadow-lg dark:shadow-cyan-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2`,
   }

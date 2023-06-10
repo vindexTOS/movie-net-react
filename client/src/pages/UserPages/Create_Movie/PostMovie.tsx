@@ -11,13 +11,16 @@ import { useSelector, useDispatch } from 'react-redux'
 import { FireBasePhotoThunk } from '../../../redux/features/Thunks/FirebaseThunk'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { CreateMovie } from '../../../redux/features/Thunks/MovieCrud'
+import { motion as m } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 const PostMovie = () => {
   const { color1, color2, image, htmlImg } = useMainContext()
   const style = {
-    mainDiv: `flex   items-center justify-around gap-5 w-[90%] h-[900px]  backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow`,
-    TitleAndImg: `flex flex-col gap-2 items-center justify-start`,
+    mainDiv: `flex    items-center justify-around gap-5 w-[90%] h-[900px]  max_lg:h-[1800px]  max_lg:items-center  max_lg:justify-center    backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow`,
+    TitleAndImg: `flex flex-col gap-2 items-center justify-start w-[50%]  max_lg:w-[90%]`,
+    btn: `text-white  w-[90%] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2`,
   }
-
+  const navigate = useNavigate()
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
 
   const {
@@ -36,8 +39,18 @@ const PostMovie = () => {
   React.useEffect(() => {
     console.log(image)
   }, [image])
+
+  const [error, setError] = useState<string>('')
+
   const AddMovie = async () => {
-    await dispatch(FireBasePhotoThunk({ dispatch, image }))
+    if (image) {
+      await dispatch(FireBasePhotoThunk({ dispatch, image }))
+    } else {
+      setError('Please Upload Image')
+      let time = setTimeout(() => {
+        setError('')
+      }, 4000)
+    }
   }
 
   React.useEffect(() => {
@@ -60,9 +73,28 @@ const PostMovie = () => {
           genre: genere,
         },
       }
-      dispatch(CreateMovie(movieObj))
-
-      console.log(movieObj)
+      if (
+        title &&
+        description &&
+        photoUrl &&
+        length &&
+        year &&
+        genere &&
+        actorName &&
+        video &&
+        rottenTomatoes &&
+        imDb &&
+        actors
+      ) {
+        dispatch(CreateMovie(movieObj))
+        console.log(movieObj)
+        navigate('/')
+      } else {
+        setError('Please Fill Out Every Value')
+        let time = setTimeout(() => {
+          setError('')
+        }, 4000)
+      }
     }
   }, [photoUrl])
   return (
@@ -71,23 +103,40 @@ const PostMovie = () => {
       className={style.mainDiv}
     >
       {/* <h1 className="text-[3rem]">Add A Movie</h1> */}
-      <div className="flex  w-[100%] justify-around  gap-5">
+      <div className="flex  w-[100%] justify-around  max_lg:items-center  max_lg:justify-center gap-5  max_lg:flex-col">
         <div className={style.TitleAndImg}>
-          <div className="flex items-center justify-center gap-2">
+          <div className="flex items-center justify-center gap-2 w-[100%]  ">
             <TitleAndDec />
             <ImgUpload htmlImg={htmlImg} />
           </div>
           <MetaData />
-          <div className="flex gap-2">
+          <div className="flex w-[100%]   ] gap-2">
             <ColorDiv />
           </div>
         </div>
-        <div className="flex flex-col gap-2">
+        {error ? (
+          <m.p
+            animate={{
+              x:
+                error === error
+                  ? [20, 0, -20, 0, 20, 0, -20, 0, 20, 0, -20, 0, 20, 0, -20, 0]
+                  : [],
+            }}
+            transition={{
+              duration: 0.2,
+            }}
+            className="absolute text-red-600 text-[5rem]  z-50 top-[20rem]"
+          >
+            {error}
+          </m.p>
+        ) : (
+          <p className="hidden"></p>
+        )}
+        <div className="flex w-[100%] max_lg:items-center max_lg:justify-center flex-col gap-2">
           <MovieActors />
           <VideoPost />
-
-          <button className="text-white text-[2rem]" onClick={() => AddMovie()}>
-            SUBMIT{' '}
+          <button onClick={() => AddMovie()} className={style.btn}>
+            Add Movie
           </button>
         </div>
       </div>

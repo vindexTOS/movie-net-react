@@ -21,8 +21,18 @@ const UserPanel = () => {
   // }, [])
   if (userData?.unique_name) {
     return (
-      <div className="w-[100%] h-[1200px] flex-col flex items-center  justify-start py-20">
-        <h1 className="text-white text-[4rem]"> {userData.unique_name}</h1>
+      <div className="w-[100%]  max_lg:h-[100%]  h-[1200px] flex-col flex items-center  justify-start py-20">
+        <div className="flex flex-col items-start">
+          <h1
+            className="text-white text-[1.5rem] max_lg:"
+            onClick={() => console.log(userData)}
+          >
+            {userData.unique_name}
+          </h1>
+          <h1 className="text-white  text-[1.5rem]">
+            Role: <span className="text-yellow-600">{userData.role}</span>
+          </h1>
+        </div>
         {/* <button
           className="text-red-600 text-[2rem]"
           onClick={() => hanndleLogout()}

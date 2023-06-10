@@ -17,13 +17,15 @@ h1 {
 }
 
 body {
+  /* background-image: url('./assets/background/background.jpg'); */
+
   background: rgb(4, 12, 14);
   background: linear-gradient(
     313deg,
-    #040c0e 0%,
-    #132226 63%,
-    rgba(54, 58, 55, 1) 89%,
-    rgba(111, 99, 84, 1) 100%
+    #37124b 0%,
+    #3c193d 63%,
+    rgb(102, 15, 90) 89%,
+    rgb(54, 22, 85) 100%
   );
 }
 .dropdownbg {

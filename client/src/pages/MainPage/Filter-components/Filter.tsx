@@ -13,7 +13,7 @@ const Filter = () => {
     String(1900 + index),
   )
 
-  const sortBy = ['imDb', 'year', 'rottenTomatoes']
+  const sortBy = ['Year', 'IMDb', 'RottenTomatoes']
   return (
     <section className={style.section}>
       <FilterComponent

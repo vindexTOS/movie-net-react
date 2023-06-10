@@ -2,11 +2,11 @@
 
 namespace SigmaMovies.Application.HelperModels
 {
-    [JsonConverter(typeof(JsonStringEnumConverter))]
+    [JsonConverter(typeof (JsonStringEnumConverter))]
     public enum SortBy
     {
         Year,
-        IMDbRating,
-        RTRating
+        IMDb,
+        RottenTomatoes
     }
 }
