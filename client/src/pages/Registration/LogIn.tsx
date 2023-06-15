@@ -37,7 +37,7 @@ const LogIn = () => {
     btn: `h-[3.3rem] w-[80%] bg-[#ec2b58] boxshaddow max_lg:rounded-[20px]  rounded-[30px] text-white  hover:bg-pink-700 text-[1.2rem] max_lg:bg-blue-300`,
     header: `text-white absolute  top-80 right-[17rem] max_Xll:right-[10rem] max_lg:hidden  max_Xll:text-[2rem] text-[3rem] flex  items-center flex-col max_Xll:w-[30rem] w-[37rem]`,
   }
-  if (!userData.unique_name) {
+  if (!userData?.user && !userData?.user?.username) {
     return (
       <section className={style.section}>
         <div className={style.form}>

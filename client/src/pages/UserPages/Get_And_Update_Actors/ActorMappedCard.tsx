@@ -21,7 +21,7 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
   const url = useSelector((state: any) => state.createMovie.photoUrl)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const [dropDown, setDropDown] = useState<boolean>(false)
-  const { role } = loggedInUser
+  const { role } = loggedInUser.user
   const { img, name, id } = data
   const [changedImg, setChangedImg] = useState<string>(img)
   const [changedName, setChangedName] = useState<string>(name)

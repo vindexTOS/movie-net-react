@@ -1,6 +1,6 @@
 import React, { useReducer, useState } from 'react'
 import { filmData } from '../../../assets/dummydata/data'
-import imbd from '../../../assets/icons/imdb.png'
+import imbd from '../../../assets/icons/IMDb.png'
 import tomato from '../../../assets/icons/tomato.png'
 import RatingComponent from './RatingComponent'
 

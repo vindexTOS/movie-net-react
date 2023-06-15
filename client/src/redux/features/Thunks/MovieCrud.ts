@@ -12,8 +12,8 @@ type MovieObjectType = {
   description: string
 
   rating: {
-    imDb: number
-    rottenTomatoes: number
+    IMDb: number
+    RottenTomatos: number
   }
   actors: string[]
   metadata: {
@@ -21,6 +21,7 @@ type MovieObjectType = {
     year: number
     genre: string
   }
+  userId: string
 }
 
 type GetMoviesType = {
@@ -30,10 +31,13 @@ type GetMoviesType = {
   genre: string
   sort: string
 }
+
+const baseUrl = `http://localhost:5119`
+
 const CreateMovie = createAsyncThunk(
   'movie/post',
   async (obj: MovieObjectType) => {
-    const apiKey = `http://localhost:5119/v1/Movies/AddMovie`
+    const apiKey = `${baseUrl}/v1/Movies/AddMovie`
     await axios
       .post(apiKey, obj)
       .then((res) => console.log(res))
@@ -44,11 +48,9 @@ const CreateMovie = createAsyncThunk(
 const GetAllMovies = createAsyncThunk(
   'movie/get',
   async (val: GetMoviesType) => {
-    const apiKey = `http://localhost:5119/v1/Movies/GetAllMovies?PageNumber=${String(
+    const apiKey = `${baseUrl}/v1/Movies/GetAllMovies?PageNumber=${String(
       val.pages,
-    )}&PageSize=8&sortBy=${val.sort}&genre=${val.genre}&year=${
-      val.year
-    }&isDeleted=false`
+    )}&PageSize=8&sortBy=${val.sort}&genre=${val.genre}&year=${val.year}`
     // /GetAllMovies?PageNumber=3&PageSize=5&sortBy=Year&genre=ujas&year=2008&isDeleted=false
     const data = await axios
       .get(apiKey)
@@ -60,7 +62,7 @@ const GetAllMovies = createAsyncThunk(
 )
 
 const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
-  const apiUrl = `http://localhost:5119/v1/Movies/DeleteMovie/?id=${String(id)}`
+  const apiUrl = `${baseUrl}/v1/Movies/DeleteMovie/?id=${String(id)}`
 
   await axios
     .delete(apiUrl)
@@ -71,7 +73,7 @@ const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
 const UpdateMovieThunk = createAsyncThunk(
   'movie/put',
   async ({ id, obj }: { id: string; obj: UpdatedValuesType }) => {
-    const apiUrl = `http://localhost:5119/v1/Movies/UpdateMovie`
+    const apiUrl = `${baseUrl}/v1/Movies/UpdateMovie`
 
     // obj.actors = [
     //   {

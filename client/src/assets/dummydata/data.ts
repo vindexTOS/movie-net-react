@@ -1,5 +1,6 @@
 export type movieDataType = {
-  id: number
+  _id: string
+
   title: string
   color: string
   color2: string
@@ -296,8 +297,8 @@ const jsnObj = {
   description:
     'When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.',
   rating: {
-    imDb: 9,
-    rottenTomatoes: 94,
+    IMDb: 9,
+    RottenTomatos: 94,
   },
   actors: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart'],
   metadata: {
@@ -318,8 +319,8 @@ const jsnObj = {
 //   "description":
 //     "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
 //   "rating": {
-//     "imDb": 9,
-//     "rottenTomatoes": 94
+//     "IMDb": 9,
+//     "RottenTomatos": 94
 //   },
 //   "actors": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
 //   "metadata": {

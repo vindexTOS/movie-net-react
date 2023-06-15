@@ -19,8 +19,8 @@ const MoviesGrid = () => {
     return (
       <section className={style.section}>
         <main onClick={() => console.log(movieData)} className={style.main}>
-          {movieData?.movies?.map((val: movieDataType) => (
-            <MovieCard key={val.id} {...val} />
+          {movieData?.data?.map((val: movieDataType) => (
+            <MovieCard key={val._id} {...val} />
           ))}
         </main>
         <div className="  gap-3   flex w-[100px] element-without-scrollbar   overflow-x-scroll ">

@@ -41,7 +41,7 @@ const UpdateMovie = () => {
     ) {
       const { color, color2, description, img, title, video } = singleMovie
       const { hr, year, genre } = singleMovie.metadata
-      // const { imDb, rottenTomatoes } = singleMovie.rating
+      // const { IMDb, RottenTomatos } = singleMovie.rating
       setTitleState(title)
       setYearState(year)
       setHrState(hr)
@@ -130,8 +130,8 @@ const UpdateMovie = () => {
           </div>
 
           {/* <InputComponent
-            type={updateValues.rating['rottenTomatoes']}
-            TITLE={'rottenTomatoes%'}
+            type={updateValues.rating['RottenTomatos']}
+            TITLE={'RottenTomatos%'}
             updateValues={updateValues}
             setUpdatedValues={setUpdatedValues}
           /> */}

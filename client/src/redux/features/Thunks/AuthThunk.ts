@@ -8,9 +8,10 @@ type LoginType = {
   username: string
   dispatch: ThunkDispatch<any, any, any>
 }
+const baseUrl = `http://localhost:5119`
 
 const Login = createAsyncThunk('login/post', async (val: LoginType) => {
-  const loginAPi = `http://localhost:5119/api/Authorization/LogIn`
+  const loginAPi = `${baseUrl}/api/Authorization/LogIn`
   const cookies = new Cookies()
   if (val.password && val.username) {
     const data = await axios
@@ -19,7 +20,8 @@ const Login = createAsyncThunk('login/post', async (val: LoginType) => {
         password: val.password,
       })
       .then((res) => {
-        const token = res.data
+        console.log(res.data)
+        const token = res.data.token
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         const decoded: any = jwt(token)
         cookies.set('jwt_authorization', token, {
@@ -40,7 +42,7 @@ const Login = createAsyncThunk('login/post', async (val: LoginType) => {
 const RegisterThunk = createAsyncThunk(
   'Register/post',
   async (val: LoginType) => {
-    const RegisterAPi = `http://localhost:5119/api/Authorization/Register`
+    const RegisterAPi = `${baseUrl}/api/Authorization/Register`
 
     const cookies = new Cookies()
     if (val.password && val.username) {
@@ -50,7 +52,7 @@ const RegisterThunk = createAsyncThunk(
           password: val.password,
         })
         .then((res) => {
-          const token = res.data
+          const token = res.data.token
           axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
           const decode: any = jwt(token)
           cookies.set(`jwt_authorization`, token, {
@@ -62,7 +64,7 @@ const RegisterThunk = createAsyncThunk(
 
         .catch((err) => {
           console.log(err)
-          val.dispatch(getError(err))
+          // val.dispatch(getError(err))
         })
       return data
     }

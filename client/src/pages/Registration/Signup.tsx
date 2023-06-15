@@ -31,6 +31,9 @@ const Signup = () => {
       navigate('/user-main')
     }
   }
+  React.useEffect(() => {
+    console.log(userData)
+  }, [])
   const style = {
     section: `signupbg flex items-end justify-between  max_lg:bg-gray-800  max_lg:items-center max_lg:justify-center    `,
     form: `w-[50%]  h-[100%] max_lg:bg-gray-800   max_lg:w-[100%] flex items-center justify-center   `,
@@ -40,7 +43,7 @@ const Signup = () => {
     btn: `h-[3.3rem] w-[80%] bg-[#ec2b58] boxshaddow max_lg:rounded-[20px]  rounded-[30px] text-white  hover:bg-pink-700 text-[1.2rem] max_lg:bg-blue-300`,
     header: `text-white absolute  top-80 right-[17rem] max_Xll:right-[10rem] max_lg:hidden  max_Xll:text-[1rem] text-[3rem] flex  items-center flex-col max_Xll:w-[34rem] w-[47rem]`,
   }
-  if (!userData.unique_name) {
+  if (!userData.user.username && !userData?.user) {
     return (
       <section className={style.section}>
         <div className={style.form}>

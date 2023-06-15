@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { movieDataType } from '../../assets/dummydata/data'
 import RatingComponent from './Screen-components/RatingComponent'
-import imbd from '../../assets/icons/imdb.png'
+import imbd from '../../assets/icons/IMDb.png'
 import { AiOutlineHeart } from 'react-icons/ai'
 import { motion as m } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
@@ -21,7 +21,7 @@ const MovieCard: FC<movieDataType> = (data) => {
   const navigate = useNavigate()
   return (
     <m.div
-      onClick={() => navigate(`/movie/${String(data.id)}`)}
+      onClick={() => navigate(`/movie/${String(data._id)}`)}
       className={style.mainDiv}
       style={{ backgroundColor: data.color2 }}
     >

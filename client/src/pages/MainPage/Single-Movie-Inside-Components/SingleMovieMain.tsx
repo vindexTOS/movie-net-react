@@ -10,8 +10,8 @@ import DeletePopUp from './DeletePopUp'
 const SingleMovieMain = () => {
   const movieData = useSelector((state: any) => state.data.movieData)
   const { id } = useParams()
-  const singleMovie = movieData?.movies?.find(
-    (val: any) => String(val.id) === id,
+  const singleMovie = movieData?.data?.find(
+    (val: any) => String(val._id) === id,
   )
   const dropDownRef = React.useRef<HTMLDivElement | null>(null)
   const deletePopUp = useSelector((state: any) => state.movieInner.deletePopUp)
@@ -29,7 +29,7 @@ const SingleMovieMain = () => {
   ) {
     const { color, color2, description, img, title, video, id } = singleMovie
     const { hr, year, genre } = singleMovie.metadata
-    const { imDb, rottenTomatoes } = singleMovie.rating
+    const { IMDb, RottenTomatos } = singleMovie.rating
 
     const style = {
       section: `w-[100%] h-[100%] py-20 flex justify-center  items-center`,
@@ -79,8 +79,8 @@ const SingleMovieMain = () => {
               <div className="flex flex-col justify-between h-[100%]  w-[50%]">
                 <Rating
                   color2={color2}
-                  rottenTomatoes={rottenTomatoes}
-                  imDb={imDb}
+                  RottenTomatos={RottenTomatos}
+                  IMDb={IMDb}
                 />
                 <MetaData year={year} hr={hr} genre={genre} />
               </div>

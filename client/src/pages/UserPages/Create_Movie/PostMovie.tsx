@@ -22,7 +22,8 @@ const PostMovie = () => {
   }
   const navigate = useNavigate()
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
-
+  const userData = useSelector((state: any) => state.auth.userDecoded)
+  const userId = userData.user._id
   const {
     title,
     description,
@@ -32,8 +33,8 @@ const PostMovie = () => {
     genere,
     actorName,
     video,
-    rottenTomatoes,
-    imDb,
+    RottenTomatos,
+    IMDb,
     actors,
   } = useSelector((state: any) => state.createMovie)
   React.useEffect(() => {
@@ -63,8 +64,8 @@ const PostMovie = () => {
         img: photoUrl,
         description,
         rating: {
-          imDb: Number(imDb),
-          rottenTomatoes: Number(rottenTomatoes),
+          IMDb: Number(IMDb),
+          RottenTomatos: Number(RottenTomatos),
         },
         actors: actors,
         metadata: {
@@ -72,6 +73,7 @@ const PostMovie = () => {
           year: Number(year),
           genre: genere,
         },
+        userId,
       }
       if (
         title &&
@@ -82,9 +84,10 @@ const PostMovie = () => {
         genere &&
         actorName &&
         video &&
-        rottenTomatoes &&
-        imDb &&
-        actors
+        RottenTomatos &&
+        IMDb &&
+        actors &&
+        userId
       ) {
         dispatch(CreateMovie(movieObj))
         console.log(movieObj)

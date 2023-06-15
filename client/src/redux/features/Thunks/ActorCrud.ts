@@ -7,13 +7,14 @@ type ObjType = {
   img: string
   id?: number
 }
+const baseUrl = `http://localhost:5119`
 type GetActors = {
   dispatch: ThunkDispatch<any, any, any>
 }
 export const CreateActor = createAsyncThunk(
   'actor/post',
   async (obj: ObjType) => {
-    const apiUrl = `http://localhost:5119/v1/Actors/AddActor`
+    const apiUrl = `${baseUrl}/v1/Actors/AddActor`
 
     await axios
       .post(apiUrl, obj)
@@ -25,7 +26,7 @@ export const CreateActor = createAsyncThunk(
 export const GetActors = createAsyncThunk(
   'actor/get',
   async (val: GetActors) => {
-    const apiUrl = `http://localhost:5119/v1/Actors/GetAllActors`
+    const apiUrl = `${baseUrl}/v1/Actors/GetAllActors`
 
     const data = await axios
       .get(apiUrl)
@@ -42,7 +43,7 @@ export const GetActors = createAsyncThunk(
 export const updateActor = createAsyncThunk(
   'actor/update',
   async (obj: ObjType) => {
-    const apiUrl = `http://localhost:5119/v1/Actors/UpdateActor`
+    const apiUrl = `${baseUrl}/v1/Actors/UpdateActor`
     await axios
       .put(apiUrl, obj)
       .then((res) => console.log(res))

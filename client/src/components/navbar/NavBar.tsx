@@ -21,7 +21,7 @@ const NavBar = () => {
   const dropDownRef = React.useRef<HTMLDivElement | null>(null)
   const [dropDown, setDropDown] = useState<boolean>(false)
   useEffect(() => {
-    if (userData.unique_name) {
+    if (userData?.user && userData?.user.username) {
       dispatch(getCookies())
     }
   }, [])
@@ -37,7 +37,11 @@ const NavBar = () => {
     }
   }, [dropDownRef])
   return (
-    <nav ref={dropDownRef} className={style.nav}>
+    <nav
+      onClick={() => console.log(userData.user)}
+      ref={dropDownRef}
+      className={style.nav}
+    >
       <div className="flex gap-20">
         <button className="text-white" onClick={() => navigate('/')}>
           HOME
@@ -47,7 +51,7 @@ const NavBar = () => {
         </button>
       </div>
       {/* <button onClick={() => console.log(userData)}>LOg</button> */}
-      {userData?.unique_name ? (
+      {userData?.user && userData.user.username ? (
         <p style={{ cursor: 'pointer' }} className="cursor-pointer ">
           <FaUserCircle
             onClick={() => setDropDown(!dropDown)}

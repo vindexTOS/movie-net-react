@@ -9,8 +9,8 @@ type initialStateType = {
   genere: string
   actorName: string
   img: string
-  imDb: number
-  rottenTomatoes: string
+  IMDb: number
+  RottenTomatos: string
   video: string
   actors: string[]
 }
@@ -24,8 +24,8 @@ const initialState: initialStateType = {
   genere: '',
   actorName: '',
   img: '',
-  imDb: 0,
-  rottenTomatoes: '',
+  IMDb: 0,
+  RottenTomatos: '',
   video: '',
   actors: [],
 }
@@ -61,11 +61,11 @@ const CreateMovieSlice = createSlice({
     getImg: (state, action) => {
       state.img = action.payload
     },
-    getImDb: (state, action) => {
-      state.imDb = action.payload
+    getIMDb: (state, action) => {
+      state.IMDb = action.payload
     },
     getTomatos: (state, action) => {
-      state.rottenTomatoes = action.payload
+      state.RottenTomatos = action.payload
     },
     getVideo: (state, action) => {
       state.video = action.payload
@@ -86,7 +86,7 @@ export const {
   getGenre,
   getActor,
   getImg,
-  getImDb,
+  getIMDb,
   getTomatos,
   getVideo,
   getActors,
