@@ -13,6 +13,7 @@ import { getCookies } from './redux/features/slices/AuthSlice'
 import { GetAllMovies } from './redux/features/Thunks/MovieCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { GetActors } from './redux/features/Thunks/ActorCrud'
+import { FireBasePhotoThunk } from './redux/features/Thunks/FirebaseThunk'
 export type actorType = {
   name: string
   img: string
@@ -79,23 +80,31 @@ export const ContextProvider = ({
     dispatch(GetAllMovies({ dispatch, pages: 1, sort, year, genre }))
   }, [year, genre, sort])
 
-  const [image, setImage] = useState<any>(null)
+  const [image, setImage] = useState<any>()
   const [htmlImg, setHtmlImg] = useState<String | null>('')
   const [imgUrl, setImgUrl] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string>('')
   const imgUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (!image) {
-      let newImg = image
-      let newHtmlImg = htmlImg
-      if (e.target.files) {
-        newImg = e.target.files[0]
-        newHtmlImg = URL.createObjectURL(e.target.files[0])
-        setImage(newImg)
-        setHtmlImg(newHtmlImg)
-      }
+    if (e.target.files) {
+      let newImg = e.target.files[0]
+      let newHtmlImg = URL.createObjectURL(e.target.files[0])
+      setImage(newImg)
+      setHtmlImg(newHtmlImg)
+      console.log(image)
     }
   }
+  useEffect(() => {
+    console.log(image)
+    if (image) {
+      const uploadImage = async () => {
+        await dispatch(FireBasePhotoThunk({ image, dispatch }))
+      }
+
+      uploadImage()
+    }
+  }, [image])
+
   const imgUploadDrag = (e: React.DragEvent<HTMLLabelElement>) => {
     e.preventDefault()
     let newImg = image

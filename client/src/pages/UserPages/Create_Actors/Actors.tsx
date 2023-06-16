@@ -67,7 +67,7 @@ const Actors = () => {
     console.log(Actor)
   }
   return (
-    <div className={style.mainDiv} onClick={() => console.log(actorsData)}>
+    <div className={style.mainDiv}>
       <div ref={dropDownRef} className="flex flex-col gap-5  items-center  ">
         <div className="flex flex-col gap-2">
           <m.input

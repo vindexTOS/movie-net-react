@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux/es/exports'
 import ActorMappedCard from './ActorMappedCard'
 export type ActorMapProp = {
-  id: number
+  _id: string
   name: string
   img: string
 }
@@ -14,8 +14,8 @@ const ActorsListView = () => {
   }
   return (
     <div className={style.mainDiv}>
-      {actorsData?.map((val: ActorMapProp) => (
-        <ActorMappedCard key={val.id} data={val} />
+      {actorsData?.actorsData?.map((val: ActorMapProp) => (
+        <ActorMappedCard key={val._id} data={val} />
       ))}
     </div>
   )

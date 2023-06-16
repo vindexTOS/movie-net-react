@@ -22,8 +22,9 @@ const PostActorMain = () => {
       name: actorName,
       img: url,
     }
-    console.log(obj)
+
     if (actorName && url) {
+      console.log(obj)
       dispatch(CreateActor(obj))
     }
   }

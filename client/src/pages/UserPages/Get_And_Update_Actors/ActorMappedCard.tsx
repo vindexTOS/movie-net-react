@@ -22,7 +22,7 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const [dropDown, setDropDown] = useState<boolean>(false)
   const { role } = loggedInUser.user
-  const { img, name, id } = data
+  const { img, name, _id } = data
   const [changedImg, setChangedImg] = useState<string>(img)
   const [changedName, setChangedName] = useState<string>(name)
   const [edit, setEdit] = useState<boolean>(false)
@@ -31,19 +31,11 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
     const obj = {
       name: changedName,
       img: image ? url : changedImg,
-      id,
+      _id,
     }
     dispatch(updateActor(obj))
   }
-  useEffect(() => {
-    if (image) {
-      const uploadImage = async () => {
-        await dispatch(FireBasePhotoThunk({ image, dispatch }))
-      }
 
-      uploadImage()
-    }
-  }, [image])
   return (
     <div className={style.mainDiv} onClick={() => console.log(data)}>
       {role === 'Admin' && (
