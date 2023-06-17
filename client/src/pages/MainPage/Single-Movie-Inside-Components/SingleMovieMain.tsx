@@ -27,7 +27,7 @@ const SingleMovieMain = () => {
     singleMovie.metadata &&
     singleMovie.rating
   ) {
-    const { color, color2, description, img, title, video, id } = singleMovie
+    const { color, color2, description, img, title, video, _id } = singleMovie
     const { hr, year, genre } = singleMovie.metadata
     const { IMDb, RottenTomatos } = singleMovie.rating
 
@@ -59,13 +59,13 @@ const SingleMovieMain = () => {
         className={style.section}
         onClick={() => console.log(singleMovie)}
       >
-        {deletePopUp && <DeletePopUp id={id} />}
+        {deletePopUp && <DeletePopUp _id={_id} />}
         <div ref={dropDownRef} className={style.mainDiv}>
           <BiDotsHorizontalRounded
             onClick={() => setDropDown(!dropDown)}
             className={style.dotIcon}
           />
-          <EditDeleteDropDown dropDown={dropDown} id={id} />
+          <EditDeleteDropDown dropDown={dropDown} _id={_id} />
           <div className={style.imgDiv}>
             <div className="flex w-[100%] h-[80%] items-start justify-around">
               <h1

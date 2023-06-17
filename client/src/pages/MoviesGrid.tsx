@@ -24,7 +24,7 @@ const MoviesGrid = () => {
           ))}
         </main>
         <div className="  gap-3   flex w-[100px] element-without-scrollbar   overflow-x-scroll ">
-          {new Array(movieData?.totalPages)
+          {new Array(movieData?.TotalPages)
             .fill('')
             .map((val: string, index: number) => (
               <p

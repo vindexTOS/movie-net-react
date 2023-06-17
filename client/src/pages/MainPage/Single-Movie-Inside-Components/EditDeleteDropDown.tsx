@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom'
 import { popUpDelete } from '../../../redux/features/slices/movieInner'
 const EditDeleteDropDown = ({
   dropDown,
-  id,
+  _id,
 }: {
   dropDown: boolean
-  id: number
+  _id: string
 }) => {
   const style = {
     mainDiv: ` flex flex-col justfy-center items-center  gap-2  absolute w-[200px] h-[125px] bg-gray-600/90  right-0 top-10 rounded-[20px]`,
@@ -31,7 +31,7 @@ const EditDeleteDropDown = ({
       className={style.mainDiv}
     >
       <button
-        onClick={() => navigate(`/movie-edit/${id}`)}
+        onClick={() => navigate(`/movie-edit/${_id}`)}
         className={style.btn}
       >
         Edit

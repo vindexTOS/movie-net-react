@@ -8,7 +8,7 @@ import {
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { useNavigate } from 'react-router-dom'
 
-const DeletePopUp = ({ id }: { id: number }) => {
+const DeletePopUp = ({ _id }: { _id: string }) => {
   const style = {
     mainDiv: `bg-gray-100 boxshaddow w-[400px] h-[220px] rounded-[20px] absolute z-50 top-[30rem] flex items-center  justify-around`,
     redBtn: `text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2`,
@@ -17,9 +17,9 @@ const DeletePopUp = ({ id }: { id: number }) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const navigate = useNavigate()
   const handdleDelete = async () => {
-    console.log(id)
-    if (id) {
-      await dispatch(DeleteMovie(id))
+    console.log(_id)
+    if (_id) {
+      await dispatch(DeleteMovie(_id))
       await dispatch(
         GetAllMovies({ dispatch, pages: 1, year: '', genre: '', sort: '' }),
       )

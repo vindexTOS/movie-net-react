@@ -6,7 +6,7 @@ import TextareaComponent from './TextareaComponent'
 import ImgUpload from './ImgComponent'
 import { useMainContext } from '../../../context'
 import { SketchPicker } from 'react-color'
-
+import { MovieClass } from '../../../blue-prints/movie-class'
 import { UpdateMovieThunk } from '../../../redux/features/Thunks/MovieCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 export type UpdatedValuesType = {
@@ -17,8 +17,8 @@ const UpdateMovie = () => {
   const { htmlImg } = useMainContext()
   const movieData = useSelector((state: any) => state.data.movieData)
   const { id } = useParams()
-  const singleMovie = movieData?.movies?.find(
-    (val: any) => String(val.id) === id,
+  const singleMovie = movieData?.data?.find(
+    (val: any) => String(val._id) === id,
   )
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const [titleState, setTitleState] = useState<string>('')
@@ -80,7 +80,18 @@ const UpdateMovie = () => {
       setUpdatedValues({ ...updateValues, color: color.hex })
     }
     const handleUpdate = () => {
-      dispatch(UpdateMovieThunk({ id: id || '', obj: updateValues }))
+      const obj = new MovieClass(
+        titleState,
+        Number(yearState),
+        hrState,
+        genreState,
+        descriptionState,
+        imageState,
+        updateValues.color,
+        updateValues.color2,
+      )
+
+      dispatch(UpdateMovieThunk({ _id: id || '', obj }))
       console.log(updateValues)
     }
     return (
@@ -145,7 +156,7 @@ const UpdateMovie = () => {
       </section>
     )
   } else {
-    return <div>Loading</div>
+    return <div onClick={() => console.log(singleMovie)}>Loading</div>
   }
 }
 

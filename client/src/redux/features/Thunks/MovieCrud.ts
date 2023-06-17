@@ -61,8 +61,8 @@ const GetAllMovies = createAsyncThunk(
   },
 )
 
-const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
-  const apiUrl = `${baseUrl}/v1/Movies/DeleteMovie/?id=${String(id)}`
+const DeleteMovie = createAsyncThunk('movie/delete', async (_id: string) => {
+  const apiUrl = `${baseUrl}/v1/Movies/DeleteMovie/?id=${String(_id)}`
 
   await axios
     .delete(apiUrl)
@@ -72,8 +72,9 @@ const DeleteMovie = createAsyncThunk('movie/delete', async (id: number) => {
 
 const UpdateMovieThunk = createAsyncThunk(
   'movie/put',
-  async ({ id, obj }: { id: string; obj: UpdatedValuesType }) => {
-    const apiUrl = `${baseUrl}/v1/Movies/UpdateMovie`
+  async ({ _id, obj }: { _id: string; obj: UpdatedValuesType }) => {
+    const id = _id
+    const apiUrl = `${baseUrl}/v1/Movies/UpdateMovie/${id}`
 
     // obj.actors = [
     //   {
@@ -83,7 +84,7 @@ const UpdateMovieThunk = createAsyncThunk(
     //   },
     // ]
     await axios
-      .put(apiUrl, obj)
+      .patch(apiUrl, obj)
       .then((res) => console.log(res))
       .then((err) => console.log(err))
   },
