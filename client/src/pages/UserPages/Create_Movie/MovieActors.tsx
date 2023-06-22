@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import useOutClick from '../../../Hooks/useOutClick'
-import {
-  getActor,
-  getImg,
-  getActors,
-} from '../../../redux/features/slices/CreateMovieSlice'
-import { useMainContext } from '../../../context'
+import { getActor } from '../../../redux/features/slices/CreateMovieSlice'
+import { ActorType, useMainContext } from '../../../context'
 import { motion as m } from 'framer-motion'
-import ImgUpload from '../Create_Movie/ImgUpload'
-import ActorUpdateImg from '../Get_And_Update_Actors/ActorUpdateImg'
+
 import { MdOutlineAddAPhoto } from 'react-icons/md'
 import { TbPhotoX } from 'react-icons/tb'
 import { useLocation } from 'react-router-dom'
 import ActorDefault from '../../../assets/actorDefault.jpg'
+
 const MovieActors = () => {
   const {
+    ActorsForDB,
+    setActorForDB,
     imgUploadDrag,
     removeImgFromHtml,
     imgUpload,
@@ -36,7 +34,6 @@ const MovieActors = () => {
 
   const [error, setError] = React.useState<string>('')
   const [dropDownActor, setDropDownActor] = useState<boolean>(false)
-  const [Actor, setActor] = useState<string[]>([])
   const dropDownRef = React.useRef<HTMLDivElement | null>(null)
 
   const handleDropDownCancle = () => {
@@ -44,11 +41,12 @@ const MovieActors = () => {
   }
 
   useOutClick(dropDownRef, handleDropDownCancle)
-  const AddActor = (name: string, img: string) => {
-    if (Actor.length < 3) {
-      if (Actor) {
-        setActor([...Actor, name])
-        dispatch(getActors(Actor))
+  const AddActor = (name: string, img: string, _id: string) => {
+    if (ActorsForDB.length < 3) {
+      if (ActorsForDB) {
+        if (!ActorsForDB.some((val: any) => val._id === _id)) {
+          setActorForDB([...ActorsForDB, { name, img, _id }])
+        }
       } else {
         setError('Fill Both Inputs')
         setTimeout(() => {
@@ -63,7 +61,12 @@ const MovieActors = () => {
     }
     // dispatch(getActor(''))
     console.log(error)
-    console.log(Actor)
+    console.log(ActorsForDB)
+  }
+
+  const RemoveActor = (_id: string) => {
+    const filterActor = ActorsForDB.filter((val: ActorType) => val._id !== _id)
+    setActorForDB(filterActor)
   }
   return (
     <div className={style.mainDiv} onClick={() => console.log(actorsData)}>
@@ -124,7 +127,7 @@ const MovieActors = () => {
           )}
           {dropDownActor && (
             <div className="bg-gray-200 boxshaddow rounded-[10px] w-[200px] max-h-[200px] absolute mt-10  items-center p-2">
-              {actorsData
+              {actorsData.actorsData
                 ?.filter((val: any) => {
                   if (
                     val.name.toLowerCase().includes(actorName.toLowerCase())
@@ -134,13 +137,14 @@ const MovieActors = () => {
                 })
                 .map((val: any, index: number) => (
                   <div
-                    key={String(val.id + index + val.name)}
+                    key={val._id}
                     onClick={() => {
-                      dispatch(getActor(val.name)), AddActor(val.name, val.img)
+                      dispatch(getActor(val.name)),
+                        AddActor(val.name, val.img, val._id)
                     }}
                     className="cursor-pointer hover:bg-gray-300 px-2 hover:text-gray-500 rounded-[2px]"
                   >
-                    {val.name}
+                    <h1> {val.name}</h1>
                   </div>
                 ))}
             </div>
@@ -151,16 +155,18 @@ const MovieActors = () => {
         </button> */}
       </div>
       <div className="flex gap-5 ">
-        {Actor.map((val: any, index: number) => {
+        {ActorsForDB.map((val: any, index: number) => {
           return (
             <div
-              key={String(val.img + val.name + index + Math.random() * 199)}
+              key={val._id}
               className="flex items-center justify-center flex-col"
             >
               <img
-                className="w-[100px] h-[100px] boxshaddow rounded-[10px]"
+                onClick={() => RemoveActor(val._id)}
+                className="w-[200px]  h-[130px]"
                 src={val.img}
               />
+
               <h1 className="text-[1.6rem] text-gray-800">{val.name}</h1>
             </div>
           )

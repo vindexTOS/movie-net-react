@@ -12,7 +12,10 @@ type initialStateType = {
   IMDb: number
   RottenTomatos: string
   video: string
-  actors: string[]
+  actors: {
+    name: string
+    img: string
+  }[]
 }
 
 const initialState: initialStateType = {
@@ -71,6 +74,8 @@ const CreateMovieSlice = createSlice({
       state.video = action.payload
     },
     getActors: (state, action) => {
+      console.log(action.payload)
+      console.log(state.actors)
       state.actors = action.payload
     },
   },

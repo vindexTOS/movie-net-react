@@ -14,7 +14,7 @@ import { CreateMovie } from '../../../redux/features/Thunks/MovieCrud'
 import { motion as m } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 const PostMovie = () => {
-  const { color1, color2, image, htmlImg } = useMainContext()
+  const { color1, color2, image, htmlImg, ActorsForDB } = useMainContext()
   const style = {
     mainDiv: `flex    items-center justify-around gap-5 w-[90%] h-[900px]  max_lg:h-[1800px]  max_lg:items-center  max_lg:justify-center    backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow`,
     TitleAndImg: `flex flex-col gap-2 items-center justify-start w-[50%]  max_lg:w-[90%]`,
@@ -35,7 +35,6 @@ const PostMovie = () => {
     video,
     RottenTomatos,
     IMDb,
-    actors,
   } = useSelector((state: any) => state.createMovie)
   React.useEffect(() => {
     console.log(image)
@@ -44,6 +43,7 @@ const PostMovie = () => {
   const [error, setError] = useState<string>('')
 
   const AddMovie = async () => {
+    console.log(ActorsForDB)
     if (image) {
       await dispatch(FireBasePhotoThunk({ dispatch, image }))
     } else {
@@ -67,7 +67,7 @@ const PostMovie = () => {
           IMDb: Number(IMDb),
           RottenTomatos: Number(RottenTomatos),
         },
-        actors: actors,
+        actors: ActorsForDB,
         metadata: {
           hr: length,
           year: Number(year),
@@ -75,6 +75,7 @@ const PostMovie = () => {
         },
         userId,
       }
+
       if (
         title &&
         description &&
@@ -86,7 +87,6 @@ const PostMovie = () => {
         video &&
         RottenTomatos &&
         IMDb &&
-        actors &&
         userId
       ) {
         dispatch(CreateMovie(movieObj))

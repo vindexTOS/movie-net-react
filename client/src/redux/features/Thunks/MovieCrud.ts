@@ -15,7 +15,11 @@ type MovieObjectType = {
     IMDb: number
     RottenTomatos: number
   }
-  actors: string[]
+  actors: {
+    name: string
+    img: string
+    _id: string
+  }[]
   metadata: {
     hr: string
     year: number

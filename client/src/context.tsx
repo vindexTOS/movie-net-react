@@ -18,6 +18,11 @@ export type actorType = {
   name: string
   img: string
 }
+export type ActorType = {
+  name: string
+  img: string
+  _id: string
+}
 type Cell = {
   image: any
   htmlImg: String | null
@@ -43,6 +48,9 @@ type Cell = {
   year: string
   genre: string
   sort: string
+
+  ActorsForDB: ActorType[]
+  setActorForDB: React.Dispatch<React.SetStateAction<ActorType[]>>
 }
 const context = createContext<Cell | null>(null)
 
@@ -161,6 +169,7 @@ export const ContextProvider = ({
   const [Actor, setActor] = React.useState<actorType[]>([])
 
   // actor update
+  const [ActorsForDB, setActorForDB] = useState<ActorType[]>([])
 
   return (
     <context.Provider
@@ -187,6 +196,8 @@ export const ContextProvider = ({
         year,
         genre,
         sort,
+        ActorsForDB,
+        setActorForDB,
       }}
     >
       {children}
