@@ -10,18 +10,18 @@ type RatingPropType = {
 
 const Rating: FC<RatingPropType> = ({ IMDb, color2, RottenTomatos }) => {
   const style = {
-    ratingDiv: `flex items-center justify-between px-10     `,
+    ratingDiv: `flex items-center justify-between px-10 bg-gray-300/60  rounded-t-[20px] boxshaddow `,
   }
   return (
     <div className={style.ratingDiv}>
       <div className="flex items-center gap-5 justify-center">
-        <img className="w-[100px]" src={IMDbIcon} />{' '}
+        <img className="w-[50px]" src={IMDbIcon} />{' '}
         <p style={{ color: color2 }} className="text-[2rem]">
           {IMDb}
         </p>
       </div>
       <div className="flex items-center gap-5 justify-center">
-        <img className="w-[90px] h-[70px]" src={Tomato} />
+        <img className="w-[50px] h-[50px]" src={Tomato} />
         <p style={{ color: color2 }} className="text-[2rem]">
           {RottenTomatos}%
         </p>

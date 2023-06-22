@@ -62,7 +62,7 @@ const GetAllMovies = createAsyncThunk(
 )
 
 const DeleteMovie = createAsyncThunk('movie/delete', async (_id: string) => {
-  const apiUrl = `${baseUrl}/v1/Movies/DeleteMovie/?id=${String(_id)}`
+  const apiUrl = `${baseUrl}/v1/Movies/DeleteMovie/${String(_id)}`
 
   await axios
     .delete(apiUrl)

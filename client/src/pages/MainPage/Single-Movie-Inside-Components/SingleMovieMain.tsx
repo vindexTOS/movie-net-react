@@ -32,16 +32,16 @@ const SingleMovieMain = () => {
     const { IMDb, RottenTomatos } = singleMovie.rating
 
     const style = {
-      section: `w-[100%] h-[100%] py-20 flex justify-center  items-center`,
-      mainDiv: ` h-[1900px] w-[60%]   flex flex-col backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow flex   justify-between`,
-      img: `w-[500px] h-[100%] rounded-[20px] boxshaddow `,
-      imgDiv: `mt-10 ml-5 h-[100%] w-[100%]   flex flex-col  `,
+      section: `w-[100%] h-[100%] py-20 gap-5 flex flex-col justify-center  items-center`,
+      mainDiv: `   w-[95%]  flex py-10   backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow flex   justify-between`,
+      img: `w-[500px] h-[100%]    boxshaddow `,
+      imgDiv: `mt-10 ml-5 h-[100%] w-[50%]   flex flex-col  `,
 
-      header: `text-[3rem] text-center flex items-center   w-[500px] h-[6rem] tracking-wider absolute  top-[37rem] left-[3rem] oxshaddow backdrop-blur-sm bg-white/10 px-10 rounded-[20px]	`,
-      dec: `flex flex-col items-center  justify-between gap-10 w-[100%] h-[100%]     p-5 `,
-      decDiv: `p-3 flex flex-col gap-1  rounded-[20px]  w-[100%]    boxshaddow `,
+      header: `text-[3rem] text-center flex items-center   w-[500px] h-[6rem] tracking-wider absolute  bottom-[4.5rem]   backdrop-blur-sm bg-white/10 px-10 rounded-[20px]	`,
+      dec: `flex flex-col items-center  justify-between gap-10 w-[100%] h-[100%]   mt-5    p-5 `,
+      decDiv: `p-3 flex flex-col gap-1  rounded-[20px]   w-[100%]    boxshaddow `,
       p: `w-[100%]  rounded-[20px] text-[1.5rem] `,
-      video: `w-[100%] h-[550px] rounded-[22px] boxshaddow   mb-10 `,
+      video: `w-[95%] h-[750px] rounded-[22px] boxshaddow   mb-10 `,
       dotIcon: `absolute right-3 text-[2rem] text-gray-400 mt-2 cursor-pointer`,
     }
 
@@ -68,20 +68,19 @@ const SingleMovieMain = () => {
           <EditDeleteDropDown dropDown={dropDown} _id={_id} />
           <div className={style.imgDiv}>
             <div className="flex w-[100%] h-[80%] items-start justify-around">
-              <h1
-                style={{ color: 'white', textShadow: `2px 2px 4px ${color}` }}
-                className={style.header}
-              >
-                {title}
-              </h1>
-              <img className={style.img} src={img} />
-
-              <div className="flex flex-col justify-between h-[100%]  w-[50%]">
+              <div className="flex flex-col justify-between h-[100%] relative ">
                 <Rating
                   color2={color2}
                   RottenTomatos={RottenTomatos}
                   IMDb={IMDb}
                 />
+                <img className={style.img} src={img} />
+                <h1
+                  style={{ color: 'white', textShadow: `2px 2px 4px ${color}` }}
+                  className={style.header}
+                >
+                  {title}
+                </h1>
                 <MetaData year={year} hr={hr} genre={genre} />
               </div>
             </div>
@@ -110,17 +109,17 @@ const SingleMovieMain = () => {
                 including versions of Lorem Ipsum.
               </p>
             </div>
-            <iframe
-              // style={{ boxShadow: `2px 0.25rem 0.9rem ${color}` }}
-              className={style.video}
-              width="560"
-              height="315"
-              src={video}
-              title="YouTube video player"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            ></iframe>
           </div>
         </div>
+        <iframe
+          // style={{ boxShadow: `2px 0.25rem 0.9rem ${color}` }}
+          className={style.video}
+          width="560"
+          height="315"
+          src={video}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        ></iframe>
       </section>
     )
   } else {
