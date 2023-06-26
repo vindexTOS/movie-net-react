@@ -10,7 +10,7 @@ type RatingPropType = {
 
 const Rating: FC<RatingPropType> = ({ IMDb, color2, RottenTomatos }) => {
   const style = {
-    ratingDiv: `flex items-center justify-between px-10 bg-gray-300/60  rounded-t-[20px] boxshaddow `,
+    ratingDiv: `flex items-center absolute w-[100%] justify-between px-10 bg-white/30  rounded-t-[20px] boxshaddow `,
   }
   return (
     <div className={style.ratingDiv}>

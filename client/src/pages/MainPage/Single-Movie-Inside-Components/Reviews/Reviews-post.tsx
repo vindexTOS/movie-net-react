@@ -1,0 +1,101 @@
+import React, { useState } from 'react'
+import {
+  PostReviews,
+  ReviewsPostType,
+} from '../../../../redux/features/Thunks/ReviewsCrud'
+import { useDispatch, useSelector } from 'react-redux'
+import { ThunkDispatch } from '@reduxjs/toolkit'
+import soap from '../../../../assets/icons/soap.png'
+import soapEmpty from '../../../../assets/icons/soap-empty.png'
+const ReviewsPost = ({ movieId }: { movieId: string }) => {
+  const [comment, setComment] = useState<string>('')
+  const [rate, setRating] = useState<number>(0)
+
+  const [ratingHover, setRatingHoer] = useState<boolean[]>(
+    new Array(5).fill(false),
+  )
+
+  const onRatingOver = (index: number): void => {
+    let newSoap: boolean[] = []
+    for (let i = 0; i < index + 1; i++) {
+      newSoap[i] = true
+    }
+    setRatingHoer(newSoap)
+  }
+  const onRatingLeave = (index: number): void => {
+    let newSoap = [...ratingHover]
+
+    newSoap[index] = !newSoap[index]
+    setRatingHoer(newSoap)
+  }
+
+  const RatingClickHanndler = (index: number) => {
+    console.log(index)
+    let newSoap: boolean[] = []
+    for (let i = 0; i < index + 1; i++) {
+      newSoap[i] = true
+    }
+    setRatingHoer(newSoap)
+  }
+  const data = useSelector((state: any) => state.auth.userDecoded)
+
+  const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
+  const handleReviewPost = (obj: ReviewsPostType) => {
+    dispatch(PostReviews(obj))
+  }
+  const style = {
+    mainDiv: `w-[95%] rounded-[12px]  max_smm:w-[100%] backdrop-blur-sm bg-white/10 boxshaddow flex items-center jusify-center gap-5 py-10 flex-col`,
+    p: `w-[90%] text-gray-400 flex  gap-2`,
+    textarea: `w-[90%]  max_smm:w-[100%] text-gray-300 h-[200px] max-h-[400px] min-h-[150px] rounded-[3px] bg-[#363434]/80 p-2 outline-none`,
+    btn: `  text-white bg-gradient-to-r from-[#cf1b4e] via-[#cf1b4e] to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm    text-center w-[9rem] h-[2rem] `,
+  }
+  if (data && data.user) {
+    return (
+      <div className={style.mainDiv}>
+        <div className="flex">
+          {new Array(5).fill('').map((val: string, index: number) => (
+            <img
+              onClick={() => RatingClickHanndler(index)}
+              onMouseEnter={() => onRatingOver(index)}
+              key={index}
+              src={ratingHover[index] ? soap : soapEmpty}
+              className="w-[100px] "
+            />
+          ))}
+        </div>
+        <p className={style.p}>
+          Make Review as
+          <span className="text-blue-300 hover:underline text-blue-400 cursor-pointer">
+            {data.user.username}
+          </span>
+        </p>
+        <textarea
+          value={comment}
+          placeholder="Whar are your thoughts?"
+          onChange={(e) => setComment(e.target.value)}
+          className={style.textarea}
+        ></textarea>
+        <div className="w-[90%] flex items-end justify-end">
+          <button
+            onClick={() =>
+              handleReviewPost({
+                comment,
+                userName: data.user.username,
+                userId: data.user._id,
+                rate,
+                movieId,
+              })
+            }
+            className={style.btn}
+          >
+            Comment
+          </button>
+        </div>
+      </div>
+    )
+  } else {
+    return <div>If you want to make a review please register</div>
+  }
+}
+
+export default ReviewsPost

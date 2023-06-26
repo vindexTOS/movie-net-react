@@ -14,8 +14,8 @@ const MovieCard: FC<movieDataType> = (data) => {
     icon: `text-[2rem] text-white hover:text-pink-600 cursor-pointer`,
     header: `text-white    text-[1.5rem] pl-3  `,
     p: `text-gray-400 p-4  text-start pl-3 absolute mb-20 w-[100%]  gradiantCardText   `,
-    bottomDiv: `relative flex top-[8rem] left-[1rem] gap-4`,
-    metadata: `text-white flex items-center gap-2`,
+    bottomDiv: `relative flex top-[8rem] left-[1rem] gap-10`,
+    metadata: `text-white text-[12px] flex items-center gap-2`,
     line: `w-[1px] h-[15px] bg-white`,
   }
   const navigate = useNavigate()

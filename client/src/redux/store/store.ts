@@ -6,6 +6,7 @@ import AuthReducer from '../features/slices/AuthSlice'
 import CreateMoveiReducer from '../features/slices/CreateMovieSlice'
 import MovieInnerReducer from '../features/slices/movieInner'
 import ActorsReducer from '../features/slices/actorSlice'
+import ReviewsReducer from '../features/slices/ReviewsSlice'
 const rootReducer = combineReducers({
   info: infoReducer,
   slide: slideReducer,
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   createMovie: CreateMoveiReducer,
   movieInner: MovieInnerReducer,
   actorsReducer: ActorsReducer,
+  reviews: ReviewsReducer,
 })
 
 const store = configureStore({
