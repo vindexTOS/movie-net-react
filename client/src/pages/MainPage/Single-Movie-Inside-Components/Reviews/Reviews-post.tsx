@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import soap from '../../../../assets/icons/soap.png'
 import soapEmpty from '../../../../assets/icons/soap-empty.png'
+
 const ReviewsPost = ({ movieId }: { movieId: string }) => {
   const [comment, setComment] = useState<string>('')
   const [rate, setRating] = useState<number>(0)
@@ -21,12 +22,7 @@ const ReviewsPost = ({ movieId }: { movieId: string }) => {
       newSoap[i] = true
     }
     setRatingHoer(newSoap)
-  }
-  const onRatingLeave = (index: number): void => {
-    let newSoap = [...ratingHover]
-
-    newSoap[index] = !newSoap[index]
-    setRatingHoer(newSoap)
+    setRating(index + 1)
   }
 
   const RatingClickHanndler = (index: number) => {
@@ -36,15 +32,16 @@ const ReviewsPost = ({ movieId }: { movieId: string }) => {
       newSoap[i] = true
     }
     setRatingHoer(newSoap)
+    setRating(index + 1)
   }
   const data = useSelector((state: any) => state.auth.userDecoded)
-
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const handleReviewPost = (obj: ReviewsPostType) => {
     dispatch(PostReviews(obj))
   }
   const style = {
-    mainDiv: `w-[95%] rounded-[12px]  max_smm:w-[100%] backdrop-blur-sm bg-white/10 boxshaddow flex items-center jusify-center gap-5 py-10 flex-col`,
+    mainDiv: `w-[95%] rounded-[12px] relative  max_smm:w-[100%] backdrop-blur-sm bg-white/10 boxshaddow flex items-center jusify-center gap-5 py-10 flex-col`,
+    reviewsDiv: `flex absolute top-1 right-20 items-center `,
     p: `w-[90%] text-gray-400 flex  gap-2`,
     textarea: `w-[90%]  max_smm:w-[100%] text-gray-300 h-[200px] max-h-[400px] min-h-[150px] rounded-[3px] bg-[#363434]/80 p-2 outline-none`,
     btn: `  text-white bg-gradient-to-r from-[#cf1b4e] via-[#cf1b4e] to-pink-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-pink-300 dark:focus:ring-pink-800 shadow-lg shadow-pink-500/50 dark:shadow-lg dark:shadow-pink-800/80 font-medium rounded-lg text-sm    text-center w-[9rem] h-[2rem] `,
@@ -52,14 +49,15 @@ const ReviewsPost = ({ movieId }: { movieId: string }) => {
   if (data && data.user) {
     return (
       <div className={style.mainDiv}>
-        <div className="flex">
+        <div className={style.reviewsDiv}>
+          <h1 className="font-medium text-white ">Soap Rating 5/{rate}</h1>
           {new Array(5).fill('').map((val: string, index: number) => (
             <img
               onClick={() => RatingClickHanndler(index)}
               onMouseEnter={() => onRatingOver(index)}
               key={index}
               src={ratingHover[index] ? soap : soapEmpty}
-              className="w-[100px] "
+              className="w-[70px] cursor-pointer"
             />
           ))}
         </div>

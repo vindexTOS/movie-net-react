@@ -13,6 +13,7 @@ export type ReviewsPostType = {
   userId: string
   rate: number
   movieId: string
+  _id?: string
 }
 const baseUrl = `http://localhost:5119`
 
@@ -31,7 +32,7 @@ export const PostReviews = createAsyncThunk(
   'reviews/post',
   async (obj: ReviewsPostType) => {
     await axios
-      .post(`${baseUrl}/v1/Movies/Reviews/${obj.movieId}`)
+      .patch(`${baseUrl}/v1/Movies/Reviews/${obj.movieId}`, obj)
       .then((res) => console.log(res))
       .catch((err) => console.log(err))
   },
