@@ -8,6 +8,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 import ActorUpdateImg from './ActorUpdateImg'
 import { FireBasePhotoThunk } from '../../../redux/features/Thunks/FirebaseThunk'
 import { useMainContext } from '../../../context'
+import { useNavigate } from 'react-router-dom'
 const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
   const { image } = useMainContext()
   const style = {
@@ -21,7 +22,8 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
   const url = useSelector((state: any) => state.createMovie.photoUrl)
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const [dropDown, setDropDown] = useState<boolean>(false)
-  const { role } = loggedInUser.user
+  const { role } = loggedInUser.user || 'critic'
+
   const { img, name, _id } = data
   const [changedImg, setChangedImg] = useState<string>(img)
   const [changedName, setChangedName] = useState<string>(name)
@@ -35,10 +37,10 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
     }
     dispatch(updateActor(obj))
   }
-
+  const navigate = useNavigate()
   return (
-    <div className={style.mainDiv} onClick={() => console.log(data)}>
-      {role === 'Admin' && (
+    <div className={style.mainDiv}>
+      {role === 'admin' && (
         <BiDotsHorizontalRounded
           onClick={() => setDropDown(!dropDown)}
           className={style.icon}
@@ -46,6 +48,7 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
       )}
       {dropDown && (
         <ActorCardDropDown
+          id={_id}
           setEdit={setEdit}
           edit={edit}
           setDropDown={setDropDown}
@@ -54,7 +57,11 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
       {edit ? (
         <ActorUpdateImg changedImg={changedImg} />
       ) : (
-        <img className={style.img} src={img} />
+        <img
+          onClick={() => navigate(`/actors-movies/${name}`)}
+          className={style.img}
+          src={img}
+        />
       )}
       {edit ? (
         <input

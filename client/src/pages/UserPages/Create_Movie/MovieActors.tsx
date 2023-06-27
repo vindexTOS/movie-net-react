@@ -60,8 +60,7 @@ const MovieActors = () => {
       }, 300)
     }
     // dispatch(getActor(''))
-    console.log(error)
-    console.log(ActorsForDB)
+    error(ActorsForDB)
   }
 
   const RemoveActor = (_id: string) => {
@@ -69,7 +68,7 @@ const MovieActors = () => {
     setActorForDB(filterActor)
   }
   return (
-    <div className={style.mainDiv} onClick={() => console.log(actorsData)}>
+    <div className={style.mainDiv} onClick={() => actorsData}>
       <div ref={dropDownRef} className="flex flex-col gap-5  items-center  ">
         <div className="flex flex-col gap-2">
           <m.input

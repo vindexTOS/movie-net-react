@@ -23,7 +23,7 @@ export const GetReviews = createAsyncThunk(
     const data = await axios
       .get(`${baseUrl}/v1/Movies/Reviews/${obj.movieId}`)
       .then((res) => res.data)
-      .catch((err) => console.log(err))
+      .catch((err) => err)
     obj.dispatch(getReviews(data))
   },
 )
@@ -33,7 +33,7 @@ export const PostReviews = createAsyncThunk(
   async (obj: ReviewsPostType) => {
     await axios
       .patch(`${baseUrl}/v1/Movies/Reviews/${obj.movieId}`, obj)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+      .then((res) => res)
+      .catch((err) => err)
   },
 )

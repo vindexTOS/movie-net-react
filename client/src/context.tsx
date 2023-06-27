@@ -81,7 +81,7 @@ export const ContextProvider = ({
     axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     axios.defaults.headers.common['Content-Type'] = 'application/json'
 
-    dispatch(GetActors({ dispatch }))
+    dispatch(GetActors())
   }, [])
 
   useEffect(() => {
@@ -99,11 +99,10 @@ export const ContextProvider = ({
       let newHtmlImg = URL.createObjectURL(e.target.files[0])
       setImage(newImg)
       setHtmlImg(newHtmlImg)
-      console.log(image)
     }
   }
   useEffect(() => {
-    console.log(image)
+    image
     if (image) {
       const uploadImage = async () => {
         await dispatch(FireBasePhotoThunk({ image, dispatch }))
@@ -137,12 +136,12 @@ export const ContextProvider = ({
   //       const downloadURL = await getDownloadURL(snapshot.ref)
   //       setImgUrl(downloadURL)
   //       setLoading(false)
-  //       console.log('succsess')
+  //       ('succsess')
 
   //       removeImgFromHtml()
   //     } catch (error) {
-  //       console.log(error)
-  //       console.log('ერრორ')
+  //       (error)
+  //       ('ერრორ')
   //     }
   //   } else {
   //     setError('Please Select The File!')

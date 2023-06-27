@@ -17,7 +17,7 @@ const DeletePopUp = ({ _id }: { _id: string }) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const navigate = useNavigate()
   const handdleDelete = async () => {
-    console.log(_id)
+    _id
     if (_id) {
       await dispatch(DeleteMovie(_id))
       await dispatch(

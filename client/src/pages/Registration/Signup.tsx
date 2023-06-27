@@ -32,7 +32,7 @@ const Signup = () => {
     }
   }
   React.useEffect(() => {
-    console.log(userData)
+    userData
   }, [])
   const style = {
     section: `signupbg flex items-end justify-between  max_lg:bg-gray-800  max_lg:items-center max_lg:justify-center    `,

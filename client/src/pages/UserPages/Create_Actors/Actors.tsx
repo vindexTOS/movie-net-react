@@ -63,11 +63,10 @@ const Actors = () => {
       }, 300)
     }
     // dispatch(getActor(''))
-    console.log(error)
-    console.log(Actor)
+    error(Actor)
   }
   return (
-    <div className={style.mainDiv}>
+    <div className={style.mainDiv} onClick={() => actorsData}>
       <div ref={dropDownRef} className="flex flex-col gap-5  items-center  ">
         <div className="flex flex-col gap-2">
           <m.input
@@ -125,7 +124,7 @@ const Actors = () => {
           )}
           {dropDownActor && (
             <div className="bg-gray-200 boxshaddow rounded-[10px] w-[200px] max-h-[200px] absolute mt-10  items-center p-2">
-              {actorsData
+              {actorsData.actorsData
                 ?.filter((val: any) => {
                   if (
                     val.name.toLowerCase().includes(actorName.toLowerCase())
@@ -133,7 +132,7 @@ const Actors = () => {
                     return val
                   }
                 })
-                .map((val: any, index: number) => (
+                ?.map((val: any, index: number) => (
                   <div
                     key={String(val.id + index + val.name)}
                     onClick={() => {

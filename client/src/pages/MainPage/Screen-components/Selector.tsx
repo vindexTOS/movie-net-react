@@ -41,7 +41,7 @@ const Selector: FC<SelectorProps> = ({ StopInterval, stopInreval }) => {
 
   useEffect(() => {
     if (!stopInreval) {
-      console.log('incremen')
+      ;('incremen')
       let interval = setTimeout(() => {
         dispatch(increment(filmData?.length))
       }, 3000)

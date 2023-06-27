@@ -48,14 +48,14 @@ const CreateMovieSlice = createSlice({
     },
     getLength: (state, action) => {
       state.length = action.payload
-      // console.log(action.payload)
+      // (action.payload)
     },
     getYear: (state, action) => {
-      console.log(action.payload)
+      action.payload
       state.year = action.payload
     },
     getGenre: (state, action) => {
-      // console.log(action.payload)
+      // (action.payload)
       state.genere = action.payload
     },
     getActor: (state, action) => {
@@ -74,8 +74,7 @@ const CreateMovieSlice = createSlice({
       state.video = action.payload
     },
     getActors: (state, action) => {
-      console.log(action.payload)
-      console.log(state.actors)
+      action.payload(state.actors)
       state.actors = action.payload
     },
   },

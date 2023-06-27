@@ -10,6 +10,7 @@ import SingleMovieMain from './pages/MainPage/Single-Movie-Inside-Components/Sin
 import UpdateMovie from './pages/UserPages/UpdateMovie/UpdateMovie'
 import PostActorMain from './pages/UserPages/Create_Actors/PostActorMain'
 import SingleActorInside from './pages/MainPage/Single-Actor-Inside-Components/SingleActorInside '
+import ActorsMoviesMain from './pages/MainPage/Actors-Movies-Components/ActorsMoviesMain'
 import ActorsMain from './pages/UserPages/Get_And_Update_Actors/ActorsMain'
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
         <Route path="/actors" element={<ActorsMain />} />
         <Route
           path="/actors-movies/:actorName"
-          element={<SingleActorInside />}
+          element={<ActorsMoviesMain />}
         />
       </Routes>
     </>

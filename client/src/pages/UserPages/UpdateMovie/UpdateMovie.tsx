@@ -91,8 +91,7 @@ const UpdateMovie = () => {
         updateValues.color2,
       )
 
-      dispatch(UpdateMovieThunk({ _id: id || '', obj }))
-      console.log(updateValues)
+      dispatch(UpdateMovieThunk({ _id: id || '', obj }))(updateValues)
     }
     return (
       <section className={style.section}>
@@ -156,7 +155,7 @@ const UpdateMovie = () => {
       </section>
     )
   } else {
-    return <div onClick={() => console.log(singleMovie)}>Loading</div>
+    return <div onClick={() => singleMovie}>Loading</div>
   }
 }
 

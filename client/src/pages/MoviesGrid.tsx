@@ -18,7 +18,7 @@ const MoviesGrid = () => {
   if (movieData) {
     return (
       <section className={style.section}>
-        <main onClick={() => console.log(movieData)} className={style.main}>
+        <main onClick={() => movieData} className={style.main}>
           {movieData?.data?.map((val: movieDataType) => (
             <MovieCard key={val._id} {...val} />
           ))}
@@ -54,7 +54,7 @@ const MoviesGrid = () => {
       </section>
     )
   } else {
-    return <div onClick={() => console.log(movieData)}>Loading</div>
+    return <div onClick={() => movieData}>Loading</div>
   }
 }
 

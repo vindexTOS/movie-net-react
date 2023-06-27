@@ -24,7 +24,7 @@ const PostActorMain = () => {
     }
 
     if (actorName && url) {
-      console.log(obj)
+      obj
       dispatch(CreateActor(obj))
     }
   }

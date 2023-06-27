@@ -1,6 +1,8 @@
-import React from 'react'
-import { useSelector } from 'react-redux/es/exports'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux/es/exports'
 import ActorMappedCard from './ActorMappedCard'
+import { GetActors } from '../../../redux/features/Thunks/ActorCrud'
+import { ThunkDispatch } from '@reduxjs/toolkit'
 export type ActorMapProp = {
   _id: string
   name: string
@@ -12,8 +14,9 @@ const ActorsListView = () => {
     section: `w-[100%] h-[100vh] flex  items-center justify-center`,
     mainDiv: `py-10 w-[60%]  gridSystem  gap-2 items-center justify-center backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow    `,
   }
+
   return (
-    <div className={style.mainDiv}>
+    <div onClick={() => console.log(actorsData)} className={style.mainDiv}>
       {actorsData?.actorsData?.map((val: ActorMapProp) => (
         <ActorMappedCard key={val._id} data={val} />
       ))}

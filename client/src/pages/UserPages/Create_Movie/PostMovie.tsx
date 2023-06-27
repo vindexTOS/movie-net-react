@@ -37,13 +37,13 @@ const PostMovie = () => {
     IMDb,
   } = useSelector((state: any) => state.createMovie)
   React.useEffect(() => {
-    console.log(image)
+    image
   }, [image])
 
   const [error, setError] = useState<string>('')
 
   const AddMovie = async () => {
-    console.log(ActorsForDB)
+    ActorsForDB
     if (image) {
       await dispatch(FireBasePhotoThunk({ dispatch, image }))
     } else {
@@ -89,8 +89,7 @@ const PostMovie = () => {
         IMDb &&
         userId
       ) {
-        dispatch(CreateMovie(movieObj))
-        console.log(movieObj)
+        dispatch(CreateMovie(movieObj))(movieObj)
         navigate('/')
       } else {
         setError('Please Fill Out Every Value')

@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { GetActors } from '../Thunks/ActorCrud'
 
 const initialState = {
   actorData: [],
@@ -7,14 +8,12 @@ const initialState = {
 const ActorSlice = createSlice({
   name: 'actor-data',
   initialState,
-  reducers: {
-    getAllActors: (state, action) => {
-      console.log(action.payload)
-      console.log('actor')
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(GetActors.fulfilled, (state, action) => {
       state.actorData = action.payload
-    },
+    })
   },
 })
 
 export default ActorSlice.reducer
-export const { getAllActors } = ActorSlice.actions

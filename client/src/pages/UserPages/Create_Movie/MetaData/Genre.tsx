@@ -30,7 +30,7 @@ const Genre = () => {
         setGenreArray((prevArray) => [...prevArray, genre])
       }
     }
-    // console.log(genreArray)
+    // (genreArray)
     dispatch(getGenre(genreArray.toString()))
   }
   const RemoveGenre = (genere: string) => {
@@ -38,7 +38,7 @@ const Genre = () => {
     setGenreArray(newArr)
   }
   // React.useEffect(() => {
-  //   console.log()
+  //   ()
   // }, [genreArray])
   return (
     <div ref={dropDownRef} className={style.movieGen}>

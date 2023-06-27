@@ -9,8 +9,8 @@ type MetaDataType = {
 
 const MetaData: FC<MetaDataType> = ({ year, hr, genre }) => {
   const style = {
-    metaData: `flex justify-around    absolute bottom-0   items-start  shaddow-md text-[1.1rem]   bg-white/40 w-[100%] text-white p-5   rounded-b-[20px]`,
-    p: `flex items-center justify-center text-gray-900 gap-1 font-bold text-[1.2rem]`,
+    metaData: `flex justify-around    absolute bottom-0   items-start  shaddow-md text-[17px]   bg-white/40 w-[100%] text-white p-5   rounded-b-[20px]`,
+    p: `flex items-center justify-center text-gray-700 gap-1 font-bold  `,
   }
   return (
     <div className={style.metaData}>

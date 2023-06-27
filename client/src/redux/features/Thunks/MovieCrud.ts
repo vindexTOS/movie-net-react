@@ -44,8 +44,8 @@ const CreateMovie = createAsyncThunk(
     const apiKey = `${baseUrl}/v1/Movies/AddMovie`
     await axios
       .post(apiKey, obj)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+      .then((res) => res)
+      .catch((err) => err)
   },
 )
 
@@ -59,9 +59,8 @@ const GetAllMovies = createAsyncThunk(
     const data = await axios
       .get(apiKey)
       .then((res) => res.data)
-      .catch((err) => console.log(err))
+      .catch((err) => err)
     val.dispatch(getMovieData(data))
-    console.log(data)
   },
 )
 
@@ -70,8 +69,8 @@ const DeleteMovie = createAsyncThunk('movie/delete', async (_id: string) => {
 
   await axios
     .delete(apiUrl)
-    .then((res) => console.log(res))
-    .catch((err) => console.log(err))
+    .then((res) => res)
+    .catch((err) => err)
 })
 
 const UpdateMovieThunk = createAsyncThunk(
@@ -89,8 +88,8 @@ const UpdateMovieThunk = createAsyncThunk(
     // ]
     await axios
       .patch(apiUrl, obj)
-      .then((res) => console.log(res))
-      .then((err) => console.log(err))
+      .then((res) => res)
+      .then((err) => err)
   },
 )
 export { CreateMovie, GetAllMovies, DeleteMovie, UpdateMovieThunk }

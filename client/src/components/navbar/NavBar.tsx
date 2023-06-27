@@ -37,11 +37,7 @@ const NavBar = () => {
     }
   }, [dropDownRef])
   return (
-    <nav
-      onClick={() => console.log(userData.user)}
-      ref={dropDownRef}
-      className={style.nav}
-    >
+    <nav onClick={() => userData.user} ref={dropDownRef} className={style.nav}>
       <div className="flex gap-20">
         <button className="text-white" onClick={() => navigate('/')}>
           HOME
@@ -50,7 +46,7 @@ const NavBar = () => {
           ACTORS
         </button>
       </div>
-      {/* <button onClick={() => console.log(userData)}>LOg</button> */}
+      {/* <button onClick={() => (userData)}>LOg</button> */}
       {userData?.user && userData.user.username ? (
         <p style={{ cursor: 'pointer' }} className="cursor-pointer ">
           <FaUserCircle

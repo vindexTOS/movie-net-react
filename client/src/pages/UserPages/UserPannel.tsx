@@ -21,11 +21,14 @@ const UserPanel = () => {
   // }, [])
   if (userData.user && userData.user.username) {
     return (
-      <div className="w-[100%]  max_lg:h-[100%]  h-[1200px] flex-col flex items-center  justify-start py-20">
+      <div
+        onClick={() => userData}
+        className="w-[100%]  max_lg:h-[100%]  h-[1200px] flex-col flex items-center  justify-start py-20"
+      >
         <div className="flex flex-col items-start">
           <h1
             className="text-white text-[1.5rem] max_lg:"
-            onClick={() => console.log(userData)}
+            onClick={() => userData}
           >
             {userData.user.username}
           </h1>
@@ -39,7 +42,7 @@ const UserPanel = () => {
         >
           LOG OUT
         </button> */}
-        <PostMovie />
+        {userData.user.role === 'admin' && <PostMovie />}
       </div>
     )
   } else {

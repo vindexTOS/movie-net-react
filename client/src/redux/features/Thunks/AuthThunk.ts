@@ -20,7 +20,7 @@ const Login = createAsyncThunk('login/post', async (val: LoginType) => {
         password: val.password,
       })
       .then((res) => {
-        console.log(res.data)
+        res.data
         const token = res.data.token
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         const decoded: any = jwt(token)
@@ -32,7 +32,7 @@ const Login = createAsyncThunk('login/post', async (val: LoginType) => {
       })
 
       .catch((err) => {
-        console.log(err)
+        err
         val.dispatch(getError(err))
       })
     return data
@@ -63,7 +63,7 @@ const RegisterThunk = createAsyncThunk(
         })
 
         .catch((err) => {
-          console.log(err)
+          err
           // val.dispatch(getError(err))
         })
       return data

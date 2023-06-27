@@ -1,11 +1,10 @@
 import { ThunkDispatch, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { getAllActors } from '../slices/actorSlice'
 
 type ObjType = {
   name: string
   img: string
-  id?: number
+  _id?: string
 }
 const baseUrl = `http://localhost:5119`
 type GetActors = {
@@ -18,35 +17,43 @@ export const CreateActor = createAsyncThunk(
 
     await axios
       .post(apiUrl, obj)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err))
+      .then((res) => res)
+      .catch((err) => err)
   },
 )
 
-export const GetActors = createAsyncThunk(
-  'actor/get',
-  async (val: GetActors) => {
-    const apiUrl = `${baseUrl}/v1/Actors/GetAllActors`
+export const GetActors = createAsyncThunk('actor/get', async () => {
+  const apiUrl = `${baseUrl}/v1/Actors/GetAllActors`
 
-    const data = await axios
-      .get(apiUrl)
-      .then((res) => {
-        console.log(res)
-        return res.data
-      })
-      .catch((err) => console.log(err))
-
-    val.dispatch(getAllActors(data))
-  },
-)
+  const data = await axios
+    .get(apiUrl)
+    .then((res) => {
+      console.log(res.data)
+      return res.data
+    })
+    .catch((err) => err)
+  return data
+})
 
 export const updateActor = createAsyncThunk(
   'actor/update',
   async (obj: ObjType) => {
-    const apiUrl = `${baseUrl}/v1/Actors/UpdateActor`
+    const apiUrl = `${baseUrl}/v1/Actors/CRUD/${obj._id}`
     await axios
-      .put(apiUrl, obj)
-      .then((res) => console.log(res))
-      .then((err) => console.log(err))
+      .patch(apiUrl, obj)
+      .then((res) => res)
+      .then((err) => err)
+  },
+)
+
+export const deleteActor = createAsyncThunk(
+  'actor/delete',
+  async (id: string) => {
+    const apiUlr = `${baseUrl}/v1/Actors/CRUD/${id}`
+
+    await axios
+      .delete(apiUlr)
+      .then((res) => res)
+      .catch((err) => err)
   },
 )

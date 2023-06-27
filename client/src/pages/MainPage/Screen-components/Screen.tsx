@@ -96,7 +96,7 @@ const Screen = () => {
       }}
     >
       <section className="flex justify-around  ">
-        {/* <button onClick={() => console.log(movieData)}>ON CLICK</button> */}
+        {/* <button onClick={() => (movieData)}>ON CLICK</button> */}
 
         <div className={style.ratingDiv}>
           <RatingComponent
