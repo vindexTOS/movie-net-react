@@ -24,7 +24,7 @@ export const GetReviews = createAsyncThunk(
       .get(`${baseUrl}/v1/Movies/Reviews/${obj.movieId}`)
       .then((res) => res.data)
       .catch((err) => err)
-    obj.dispatch(getReviews(data))
+    return data
   },
 )
 

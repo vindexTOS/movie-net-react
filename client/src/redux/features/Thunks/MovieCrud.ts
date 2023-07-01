@@ -29,7 +29,6 @@ type MovieObjectType = {
 }
 
 type GetMoviesType = {
-  dispatch: ThunkDispatch<any, any, any>
   pages: number
   year: string
   genre: string
@@ -60,7 +59,7 @@ const GetAllMovies = createAsyncThunk(
       .get(apiKey)
       .then((res) => res.data)
       .catch((err) => err)
-    val.dispatch(getMovieData(data))
+    return data
   },
 )
 

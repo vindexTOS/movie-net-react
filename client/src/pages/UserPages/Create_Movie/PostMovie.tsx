@@ -10,9 +10,13 @@ import VideoPost from './VideoPost'
 import { useSelector, useDispatch } from 'react-redux'
 import { FireBasePhotoThunk } from '../../../redux/features/Thunks/FirebaseThunk'
 import { ThunkDispatch } from '@reduxjs/toolkit'
-import { CreateMovie } from '../../../redux/features/Thunks/MovieCrud'
+import LoadingComponent from '../../../components/Loading'
+import {
+  CreateMovie,
+  GetAllMovies,
+} from '../../../redux/features/Thunks/MovieCrud'
 import { motion as m } from 'framer-motion'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 const PostMovie = () => {
   const { color1, color2, image, htmlImg, ActorsForDB } = useMainContext()
   const style = {
@@ -20,6 +24,7 @@ const PostMovie = () => {
     TitleAndImg: `flex flex-col gap-2 items-center justify-start w-[50%]  max_lg:w-[90%]`,
     btn: `text-white  w-[90%] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2`,
   }
+  const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const userData = useSelector((state: any) => state.auth.userDecoded)
@@ -41,10 +46,11 @@ const PostMovie = () => {
   }, [image])
 
   const [error, setError] = useState<string>('')
-
+  const [loading, setLoading] = useState<boolean>(false)
   const AddMovie = async () => {
     ActorsForDB
     if (image) {
+      setLoading(true)
       await dispatch(FireBasePhotoThunk({ dispatch, image }))
     } else {
       setError('Please Upload Image')
@@ -89,8 +95,9 @@ const PostMovie = () => {
         IMDb &&
         userId
       ) {
-        dispatch(CreateMovie(movieObj))(movieObj)
-        navigate('/')
+        setLoading(false)
+        dispatch(CreateMovie(movieObj))
+        navigate('/movies/1')
       } else {
         setError('Please Fill Out Every Value')
         let time = setTimeout(() => {
@@ -99,11 +106,13 @@ const PostMovie = () => {
       }
     }
   }, [photoUrl])
+
   return (
     <div
       style={{ backgroundColor: `${color1}`, color: `${color2}` }}
       className={style.mainDiv}
     >
+      <LoadingComponent loading={loading} />
       {/* <h1 className="text-[3rem]">Add A Movie</h1> */}
       <div className="flex  w-[100%] justify-around  max_lg:items-center  max_lg:justify-center gap-5  max_lg:flex-col">
         <div className={style.TitleAndImg}>

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-
+import { GetReviews } from '../Thunks/ReviewsCrud'
 const initialState = {
   reviews: [],
 }
@@ -11,6 +11,11 @@ const ReviewsSlice = createSlice({
     getReviews: (state, actions) => {
       state.reviews = actions.payload
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(GetReviews.fulfilled, (state, action) => {
+      state.reviews = action.payload
+    })
   },
 })
 

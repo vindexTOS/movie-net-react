@@ -33,7 +33,7 @@ const Login = createAsyncThunk('login/post', async (val: LoginType) => {
 
       .catch((err) => {
         err
-        val.dispatch(getError(err))
+        return err
       })
     return data
   }

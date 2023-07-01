@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import MovieCard from './MainPage/MovieCard'
 import { movieDataType } from '../assets/dummydata/data'
@@ -12,7 +12,16 @@ const MoviesGrid = () => {
     main: `gridSystem gap-20 w-[90%] items-center justify-center gap-2   backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow py-20 px-1   `,
   }
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
-
+  useEffect(() => {
+    dispatch(
+      GetAllMovies({
+        pages: 1,
+        sort: '',
+        year: '',
+        genre: '',
+      }),
+    )
+  }, [])
   const navigation = useNavigate()
   const { pages } = useParams()
   if (movieData) {
@@ -33,7 +42,6 @@ const MoviesGrid = () => {
                     navigation(`/movies/${index + 1}`),
                       dispatch(
                         GetAllMovies({
-                          dispatch,
                           pages: index + 1,
                           sort: '',
                           year: '',
