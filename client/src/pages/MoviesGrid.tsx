@@ -50,9 +50,10 @@ const MoviesGrid = () => {
                       )
                   }
                 }}
-                className={` text-[1.3rem]  cursor-pointer ${
-                  Number(pages) === index + 1 ? 'text-blue-400' : `text-white`
-                } `}
+                className={` text-[1.3rem]  cursor-pointer   `}
+                style={{
+                  color: Number(pages) === index + 1 ? 'blue' : `white`,
+                }}
                 key={index}
               >
                 {index + 1}

@@ -12,12 +12,12 @@ const Filter = () => {
   const yearArray = Array.from({ length: 2024 - 1900 }, (_, index) =>
     String(1900 + index),
   )
-
+  const newYearArry = ['All', ...yearArray]
   const sortBy = ['Year', 'IMDb', 'RottenTomatos']
   return (
     <section className={style.section}>
       <FilterComponent
-        filterData={yearArray}
+        filterData={newYearArry}
         filterState={year}
         defaultString="Filter By Year"
         setStateAction={setYear}

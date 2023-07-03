@@ -54,9 +54,10 @@ const FilterComponent: FC<FilterPropsType> = ({
               return val
             }
           })
-          .map((val: string | number) => {
+          .map((val: string | number, i: number) => {
             return (
               <div
+                key={i}
                 onClick={() => setStateAction(String(val))}
                 className={style.selectItem}
               >

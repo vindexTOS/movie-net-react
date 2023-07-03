@@ -234,6 +234,7 @@ export const filmData: movieDataType[] = [
 // },
 
 export const topMovieGenres = [
+  'All',
   'Action',
   'Adventure',
   'Animation',

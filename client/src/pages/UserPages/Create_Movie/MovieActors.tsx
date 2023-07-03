@@ -125,7 +125,7 @@ const MovieActors = () => {
             </div>
           )}
           {dropDownActor && (
-            <div className="bg-gray-200 boxshaddow rounded-[10px] w-[200px] max-h-[200px] absolute mt-10  items-center p-2">
+            <div className="bg-gray-200 boxshaddow rounded-[10px] w-[200px] max-h-[500px] overflow-y-scroll  absolute mt-10  items-center p-2">
               {actorsData.actorsData
                 ?.filter((val: any) => {
                   if (

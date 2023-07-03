@@ -63,7 +63,7 @@ const ReviewsPost = ({ movieId }: { movieId: string }) => {
       (val: any) => val.userId === data.user._id,
     )
     return (
-      <div className="flex flex-col w-[90%] items-center justify-center bg-[#3c443e] px-10 py-5 rounded-[20px] ">
+      <div className="flex flex-col w-[90%] max_md:w-[96%] max_md:item-start max_md:justify-start max_md:p-0 items-center justify-center bg-[#3c443e] px-10 py-5 rounded-[6px] ">
         <h1 className="text-[2rem] text-yellow-300">Your Review</h1>
         <ReviewCommentCard {...userReview} />
       </div>
@@ -80,7 +80,7 @@ const ReviewsPost = ({ movieId }: { movieId: string }) => {
               onMouseEnter={() => onRatingOver(index)}
               key={index}
               src={ratingHover[index] ? soap : soapEmpty}
-              className="w-[70px] cursor-pointer"
+              className="w-[70px] cursor-pointer max_md:w-[40px]"
             />
           ))}
         </div>

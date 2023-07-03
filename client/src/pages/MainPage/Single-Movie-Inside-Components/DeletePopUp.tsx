@@ -20,11 +20,12 @@ const DeletePopUp = ({ _id }: { _id: string }) => {
     _id
     if (_id) {
       await dispatch(DeleteMovie(_id))
-      await dispatch(
-        GetAllMovies({ dispatch, pages: 1, year: '', genre: '', sort: '' }),
-      )
+
       dispatch(popUpDelete())
-      // navigate('/')
+
+      navigate('/')
+
+      await dispatch(GetAllMovies({ pages: 1, year: '', genre: '', sort: '' }))
     }
   }
   return (

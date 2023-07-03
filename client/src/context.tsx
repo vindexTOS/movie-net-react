@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useReducer,
 } from 'react'
-import { useParams } from 'react-router-dom'
+import { generatePath, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Cookies from 'universal-cookie'
 import { useDispatch, useSelector } from 'react-redux'
@@ -89,7 +89,9 @@ export const ContextProvider = ({
   }, [])
 
   useEffect(() => {
-    dispatch(GetAllMovies({ pages: 1, sort, year, genre }))
+    let newYear = year === 'All' ? '' : year
+    let newGenere = genre === 'All' ? '' : genre
+    dispatch(GetAllMovies({ pages: 1, sort, year: newYear, genre: newGenere }))
   }, [year, genre, sort])
 
   const [image, setImage] = useState<any>()

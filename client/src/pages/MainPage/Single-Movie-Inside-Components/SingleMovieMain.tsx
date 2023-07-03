@@ -46,19 +46,19 @@ const SingleMovieMain = () => {
     const { IMDb, RottenTomatos } = singleMovie.rating
 
     const style = {
-      section: `w-[100%] h-[100%] py-20 gap-5 flex flex-col justify-center  items-center`,
-      mainDiv: `    w-[95%]     py-10   backdrop-blur-sm   rounded-[12px] boxshaddow flex flex-col  justify-between`,
+      section: `w-[100%] h-[100%] py-20 gap-5 flex flex-col  justify-center  items-center`,
+      mainDiv: `    w-[95%]      py-10   backdrop-blur-sm   rounded-[12px] boxshaddow flex flex-col  max_md:items-center max_md:justify-center  justify-between`,
       img: `w-[500px] h-[100%]  rounded-[20px]   boxshaddow `,
-      imgDiv: `mt-10  p-5 gap-5 h-[100%] w-[100%]  items-center justify-between  flex   `,
-      videoActorDiv: `flex flex-col w-[75%] items-center gap-10 mt-20`,
+      imgDiv: `  max_md:flex-col max_md:items-center max_md:justify-center    gap-5 px-5 items-start justify-between mt-10 flex   `,
+      videoActorDiv: `flex flex-col w-[75%] max_md:w-[100%] items-center gap-10  `,
       header: `text-[2rem] text-center flex items-center   w-[90] top-20 left-2 h-[3rem] tracking-wider absolute  bottom-[4.5rem]   backdrop-blur-sm bg-white/10 px-10 rounded-[20px]	`,
-      actorImg: `w-[200px] h-[200px] rounded-[8px] shadow-md`,
-      actorDiv: ``,
+      actorImg: `w-[200px] h-[200px] rounded-[8px] boxshaddow`,
+      actorDiv: `flex justify-around w-[100%]`,
       dec: `flex flex-col items-center  justify-between    w-[100%] h-[100%]   bottom-0    p-5 `,
-      decDiv: `p-3 flex flex-col gap-1  rounded-[20px]   w-[100%]   boxshaddow `,
+      decDiv: `p-3 flex flex-col gap-1     w-[100%]   boxshaddow `,
       p: `w-[100%]  rounded-[20px] text-[1.5rem] `,
-      video: `w-[100%] h-[550px] rounded-[22px] boxshaddow     `,
-      dotIcon: `absolute right-3 text-[2rem] text-gray-400 mt-2 cursor-pointer`,
+      video: `w-[100%]  h-[550px] rounded-[22px] boxshaddow     `,
+      dotIcon: `absolute right-3 max_md:top-5 text-[2rem] text-gray-400 mt-2 cursor-pointer`,
     }
     const userData = useSelector((state: any) => state.auth.userDecoded)
 
@@ -87,8 +87,8 @@ const SingleMovieMain = () => {
           )}
           <EditDeleteDropDown dropDown={dropDown} _id={_id} />
           <div className={style.imgDiv}>
-            <div className="flex  h-[80%] items-start justify-around">
-              <div className="flex flex-col   h-[100%] relative ">
+            <div className="flex  h-[80%]  items-center justify-around">
+              <div className="flex flex-col    relative ">
                 <Rating
                   color2={color2}
                   RottenTomatos={RottenTomatos}
@@ -141,17 +141,8 @@ const SingleMovieMain = () => {
               }}
             >
               <h1 className="text-start text-[1.5rem]">Description</h1>
-              <p className={style.p}>
-                {description}Lorem Ipsum is simply dummy text of the printing
-                and typesetting industry. Lorem Ipsum has been the industry's
-                standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type
-                specimen book. It has survived not only five centuries, but also
-                the leap into electronic typesetting, remaining essentially
-                unchanged. It was popularised in the 1960s with the release of
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with desktop publishing software like Aldus PageMaker
-                including versions of Lorem Ipsum.
+              <p className={style.p} style={{ color: color2 }}>
+                {description}
               </p>
             </div>
           </div>

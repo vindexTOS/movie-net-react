@@ -7,7 +7,7 @@ export class MovieClass {
   img: string
   color: string
   color2: string
-  //   video: string
+  video: string
   constructor(
     title: string,
     year: number,
@@ -17,7 +17,7 @@ export class MovieClass {
     img: string,
     color: string,
     color2: string,
-    // video: string,
+    video: string,
   ) {
     this.title = title
     this.year = year
@@ -27,6 +27,6 @@ export class MovieClass {
     this.img = img
     this.color = color
     this.color2 = color2
-    // this.video = video
+    this.video = video
   }
 }

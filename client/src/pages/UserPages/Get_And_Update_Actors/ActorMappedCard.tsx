@@ -3,12 +3,15 @@ import { ActorMapProp } from './ActorsListView'
 import { BiDotsHorizontalRounded } from 'react-icons/bi'
 import { useSelector, useDispatch } from 'react-redux'
 import ActorCardDropDown from './ActorCardDropDown'
-import { updateActor } from '../../../redux/features/Thunks/ActorCrud'
+import {
+  GetActors,
+  updateActor,
+} from '../../../redux/features/Thunks/ActorCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import ActorUpdateImg from './ActorUpdateImg'
-import { FireBasePhotoThunk } from '../../../redux/features/Thunks/FirebaseThunk'
 import { useMainContext } from '../../../context'
 import { useNavigate } from 'react-router-dom'
+import LoadingComponent from '../../../components/Loading'
 const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
   const { image } = useMainContext()
   const style = {
@@ -23,7 +26,7 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const [dropDown, setDropDown] = useState<boolean>(false)
   const { role } = loggedInUser.user || 'critic'
-
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const { img, name, _id } = data
   const [changedImg, setChangedImg] = useState<string>(img)
   const [changedName, setChangedName] = useState<string>(name)
@@ -35,7 +38,11 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
       img: image ? url : changedImg,
       _id,
     }
-    dispatch(updateActor(obj))
+    setIsLoading(true)
+    await dispatch(updateActor(obj))
+    await dispatch(GetActors())
+    setIsLoading(false)
+    setEdit(false)
   }
   const navigate = useNavigate()
   return (
@@ -64,11 +71,14 @@ const ActorMappedCard = ({ data }: { data: ActorMapProp }) => {
         />
       )}
       {edit ? (
-        <input
-          type="text"
-          onChange={(e) => setChangedName(e.target.value)}
-          value={changedName}
-        />
+        <div>
+          <LoadingComponent loading={isLoading} />
+          <input
+            type="text"
+            onChange={(e) => setChangedName(e.target.value)}
+            value={changedName}
+          />
+        </div>
       ) : (
         <h1 className="text-[1.1rem]">{name}</h1>
       )}
