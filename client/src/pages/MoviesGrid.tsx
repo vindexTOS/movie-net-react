@@ -27,7 +27,7 @@ const MoviesGrid = () => {
   if (movieData) {
     return (
       <section className={style.section}>
-        <main onClick={() => movieData} className={style.main}>
+        <main className={style.main}>
           {movieData?.data?.map((val: movieDataType) => (
             <MovieCard key={val._id} {...val} />
           ))}

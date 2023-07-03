@@ -204,6 +204,12 @@ how to remove the virtical space around the range input in IE*/
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
+.hartHover {
+  color: white;
+}
+.hartHover:hover {
+  color: #ff10f0;
+}
 
 .rotate {
   animation: spin 2s linear infinite;

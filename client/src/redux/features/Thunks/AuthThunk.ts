@@ -3,12 +3,13 @@ import axios from 'axios'
 import { getError } from '../slices/AuthSlice'
 import jwt from 'jwt-decode'
 import Cookies from 'universal-cookie'
+import { baseUrl } from '../../../global-vars'
+
 type LoginType = {
   password: string
   username: string
   dispatch: ThunkDispatch<any, any, any>
 }
-const baseUrl = `http://localhost:5119`
 
 const Login = createAsyncThunk('login/post', async (val: LoginType) => {
   const loginAPi = `${baseUrl}/api/Authorization/LogIn`

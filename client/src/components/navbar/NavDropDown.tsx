@@ -42,7 +42,11 @@ const NavDropDown: FC<NavDropDownProp> = ({ setDropDown }) => {
           Icon={AiFillStar}
         />
       )}
-      <Navbtn fun={LogOut} title="Favorite Movies" Icon={MdFavorite} />
+      <Navbtn
+        fun={() => navigate('/favorite')}
+        title="Favorite Movies"
+        Icon={MdFavorite}
+      />
       <button
         onClick={() => {
           dispatch(LogOut()), setDropDown(false)

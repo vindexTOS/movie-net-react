@@ -14,6 +14,8 @@ import { GetAllMovies } from './redux/features/Thunks/MovieCrud'
 import { ThunkDispatch } from '@reduxjs/toolkit'
 import { GetActors } from './redux/features/Thunks/ActorCrud'
 import { FireBasePhotoThunk } from './redux/features/Thunks/FirebaseThunk'
+import { MovieObjectType } from './redux/features/Thunks/MovieCrud'
+import { movieDataType } from './assets/dummydata/data'
 export type actorType = {
   name: string
   img: string
@@ -48,7 +50,9 @@ type Cell = {
   year: string
   genre: string
   sort: string
-
+  addToFav: (data: movieDataType) => void
+  favoriteMovies: movieDataType[]
+  deleteFromFav: (_id: string) => void
   ActorsForDB: ActorType[]
   setActorForDB: React.Dispatch<React.SetStateAction<ActorType[]>>
 }
@@ -85,7 +89,7 @@ export const ContextProvider = ({
   }, [])
 
   useEffect(() => {
-    dispatch(GetAllMovies({ dispatch, pages: 1, sort, year, genre }))
+    dispatch(GetAllMovies({ pages: 1, sort, year, genre }))
   }, [year, genre, sort])
 
   const [image, setImage] = useState<any>()
@@ -101,8 +105,11 @@ export const ContextProvider = ({
       setHtmlImg(newHtmlImg)
     }
   }
+  const removeImgFromHtml = () => {
+    setImage(null)
+    setHtmlImg(null)
+  }
   useEffect(() => {
-    image
     if (image) {
       const uploadImage = async () => {
         await dispatch(FireBasePhotoThunk({ image, dispatch }))
@@ -122,10 +129,27 @@ export const ContextProvider = ({
     setHtmlImg(newHtmlImg)
   }
 
-  const removeImgFromHtml = () => {
-    setImage(null)
-    setHtmlImg(null)
+  // local storage for favorite movies
+
+  const [favoriteMovies, setFavoritesMovies] = useState<movieDataType[]>([])
+
+  const addToFav = (data: movieDataType) => {
+    setFavoritesMovies([...favoriteMovies, data])
+    localStorage.setItem('fav-movies', JSON.stringify(favoriteMovies))
   }
+  const deleteFromFav = (_id: string) => {
+    const updatedFavorites = favoriteMovies.filter((val) => val._id !== _id)
+    setFavoritesMovies(updatedFavorites)
+    localStorage.setItem('fav-movies', JSON.stringify(updatedFavorites))
+  }
+  const storedMovies = localStorage.getItem('fav-movies')
+
+  useEffect(() => {
+    if (storedMovies) {
+      const parsedMovies = JSON.parse(storedMovies)
+      setFavoritesMovies(parsedMovies)
+    }
+  }, [])
   // const uploadFileToFirebaseStorage = async () => {
   //   if (image) {
   //     const storageRef = ref(storage, 'forum/' + image.name)
@@ -197,6 +221,9 @@ export const ContextProvider = ({
         sort,
         ActorsForDB,
         setActorForDB,
+        addToFav,
+        deleteFromFav,
+        favoriteMovies,
       }}
     >
       {children}

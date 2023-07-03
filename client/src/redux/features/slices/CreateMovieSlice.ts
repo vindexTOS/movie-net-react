@@ -46,6 +46,9 @@ const CreateMovieSlice = createSlice({
     getPhotoUrl: (state, action) => {
       state.photoUrl = action.payload
     },
+    removePhotoUrl: (state) => {
+      state.photoUrl = ''
+    },
     getLength: (state, action) => {
       state.length = action.payload
       // (action.payload)
@@ -85,6 +88,7 @@ export const {
   getTitle,
   getDescription,
   getPhotoUrl,
+  removePhotoUrl,
   getLength,
   getYear,
   getGenre,

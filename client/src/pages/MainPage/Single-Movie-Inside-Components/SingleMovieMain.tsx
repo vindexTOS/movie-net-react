@@ -60,6 +60,7 @@ const SingleMovieMain = () => {
       video: `w-[100%] h-[550px] rounded-[22px] boxshaddow     `,
       dotIcon: `absolute right-3 text-[2rem] text-gray-400 mt-2 cursor-pointer`,
     }
+    const userData = useSelector((state: any) => state.auth.userDecoded)
 
     const hexToRGBA = (hex: string, alpha: string) => {
       const hexValue = hex.replace('#', '')
@@ -78,10 +79,12 @@ const SingleMovieMain = () => {
           className={style.mainDiv}
           style={{ backgroundColor: color, color: color2 }}
         >
-          <BiDotsHorizontalRounded
-            onClick={() => setDropDown(!dropDown)}
-            className={style.dotIcon}
-          />
+          {userData?.user?.role && userData.user.role === 'admin' && (
+            <BiDotsHorizontalRounded
+              onClick={() => setDropDown(!dropDown)}
+              className={style.dotIcon}
+            />
+          )}
           <EditDeleteDropDown dropDown={dropDown} _id={_id} />
           <div className={style.imgDiv}>
             <div className="flex  h-[80%] items-start justify-around">

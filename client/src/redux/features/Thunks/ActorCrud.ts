@@ -1,15 +1,12 @@
 import { ThunkDispatch, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-
+import { baseUrl } from '../../../global-vars'
 type ObjType = {
   name: string
   img: string
   _id?: string
 }
-const baseUrl = `http://localhost:5119`
-type GetActors = {
-  dispatch: ThunkDispatch<any, any, any>
-}
+
 export const CreateActor = createAsyncThunk(
   'actor/post',
   async (obj: ObjType) => {

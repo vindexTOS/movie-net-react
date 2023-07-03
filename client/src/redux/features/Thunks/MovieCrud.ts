@@ -1,9 +1,10 @@
 import { ThunkDispatch, createAsyncThunk } from '@reduxjs/toolkit'
 import { getMovieData } from '../slices/dataSlice'
+import { baseUrl } from '../../../global-vars'
 
 import axios from 'axios'
 import { UpdatedValuesType } from '../../../pages/UserPages/UpdateMovie/UpdateMovie'
-type MovieObjectType = {
+export type MovieObjectType = {
   title: string
   color: string
   color2: string
@@ -34,8 +35,6 @@ type GetMoviesType = {
   genre: string
   sort: string
 }
-
-const baseUrl = `http://localhost:5119`
 
 const CreateMovie = createAsyncThunk(
   'movie/post',

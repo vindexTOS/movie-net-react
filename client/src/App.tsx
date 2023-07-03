@@ -12,6 +12,7 @@ import PostActorMain from './pages/UserPages/Create_Actors/PostActorMain'
 import SingleActorInside from './pages/MainPage/Single-Actor-Inside-Components/SingleActorInside '
 import ActorsMoviesMain from './pages/MainPage/Actors-Movies-Components/ActorsMoviesMain'
 import ActorsMain from './pages/UserPages/Get_And_Update_Actors/ActorsMain'
+import FavMoviesMain from './pages/UserPages/Fav_Movies/FavMoviesMain'
 function App() {
   return (
     <>
@@ -31,6 +32,7 @@ function App() {
           path="/actors-movies/:actorName"
           element={<ActorsMoviesMain />}
         />
+        <Route path="/favorite" element={<FavMoviesMain />} />
       </Routes>
     </>
   )
