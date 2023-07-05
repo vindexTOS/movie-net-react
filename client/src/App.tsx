@@ -13,6 +13,7 @@ import SingleActorInside from './pages/MainPage/Single-Actor-Inside-Components/S
 import ActorsMoviesMain from './pages/MainPage/Actors-Movies-Components/ActorsMoviesMain'
 import ActorsMain from './pages/UserPages/Get_And_Update_Actors/ActorsMain'
 import FavMoviesMain from './pages/UserPages/Fav_Movies/FavMoviesMain'
+import Footer from './components/Footer'
 function App() {
   return (
     <>
@@ -34,6 +35,7 @@ function App() {
         />
         <Route path="/favorite" element={<FavMoviesMain />} />
       </Routes>
+      <Footer />
     </>
   )
 }

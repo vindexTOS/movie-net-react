@@ -8,6 +8,7 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 import soap from '../../../../assets/icons/soap.png'
 import soapEmpty from '../../../../assets/icons/soap-empty.png'
 import ReviewCommentCard from './Review-comment-card'
+import { Link } from 'react-router-dom'
 const ReviewsPost = ({ movieId }: { movieId: string }) => {
   const [comment, setComment] = useState<string>('')
   const [rate, setRating] = useState<number>(0)
@@ -115,7 +116,24 @@ const ReviewsPost = ({ movieId }: { movieId: string }) => {
       </div>
     )
   } else {
-    return <div>If you want to make a review please register</div>
+    return (
+      <div className="text-[2rem] text-yellow-400 bg-gray-800 w-[90%] flex items-center justify-center p-5  rounded-[9px] gap-2">
+        If you want to make a review please{' '}
+        <Link
+          className="text-blue-400 underline hover:text-blue-500"
+          to="/login"
+        >
+          Sign in
+        </Link>{' '}
+        or{' '}
+        <Link
+          className="text-blue-300 underline hover:text-blue-400"
+          to="/signup"
+        >
+          Register
+        </Link>
+      </div>
+    )
   }
 }
 export default ReviewsPost
