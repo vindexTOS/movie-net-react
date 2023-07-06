@@ -119,6 +119,7 @@ const Screen = () => {
                 color: titleCheck
                   ? `${filmData[index]?.color}`
                   : `${filmData[index]?.color2}`,
+                opacity: titleCheck ? '0' : '1',
               }}
               className={`text-center w-[300px]  mt-5  text-[2.7rem] font-bold tracking-widest  h-[200px]  `}
             >
@@ -130,6 +131,7 @@ const Screen = () => {
                 color: titleCheck
                   ? `${filmData[index]?.color}`
                   : `${filmData[index]?.color2}`,
+                opacity: titleCheck ? '0' : '1',
               }}
             >
               „ {filmData[index]?.quote}"

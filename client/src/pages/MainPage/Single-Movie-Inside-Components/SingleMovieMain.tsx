@@ -46,8 +46,8 @@ const SingleMovieMain = () => {
     const { IMDb, RottenTomatos } = singleMovie.rating
 
     const style = {
-      section: `w-[100%] h-[100%] py-20 gap-5 flex flex-col  justify-center  items-center`,
-      mainDiv: `    w-[95%]      py-10   backdrop-blur-sm   rounded-[12px] boxshaddow flex flex-col  max_md:items-center max_md:justify-center  justify-between`,
+      section: `w-[100%] h-[100%]  py-20 gap-5 flex flex-col  justify-center  items-center`,
+      mainDiv: `    w-[95%]   ZindexMinus     py-10   backdrop-blur-sm   rounded-[12px] boxshaddow flex flex-col  max_md:items-center max_md:justify-center  justify-between`,
       img: `w-[500px] h-[100%]  rounded-[20px]   boxshaddow `,
       imgDiv: `  max_md:flex-col max_md:items-center max_md:justify-center    gap-5 px-5 items-start justify-between mt-10 flex   `,
       videoActorDiv: `flex flex-col w-[75%] max_md:w-[100%] items-center gap-10  `,

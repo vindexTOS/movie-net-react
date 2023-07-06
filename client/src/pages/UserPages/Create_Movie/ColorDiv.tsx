@@ -37,6 +37,10 @@ const ColorDiv = () => {
       {dropDownColor1 && (
         <div className="  absolute  mt-10">
           <SketchPicker color={color1} onChangeComplete={handleColor} />
+          <input
+            placeholder="color 1"
+            onChange={(e) => setColor1(e.target.value)}
+          />
         </div>
       )}
       <div
@@ -49,6 +53,10 @@ const ColorDiv = () => {
       {dropDownColor2 && (
         <div className="  absolute  ml-60 mt-10">
           <SketchPicker color={color2} onChangeComplete={handleColor2} />
+          <input
+            placeholder="color 2"
+            onChange={(e) => setColor2(e.target.value)}
+          />
         </div>
       )}
     </div>

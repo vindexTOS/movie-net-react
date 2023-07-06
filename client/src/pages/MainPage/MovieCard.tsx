@@ -9,7 +9,7 @@ import { useMainContext } from '../../context'
 const MovieCard: FC<movieDataType> = (data) => {
   const { addToFav, favoriteMovies } = useMainContext()
   const style = {
-    mainDiv: ` relatie w-[360px] h-[600px] relative   flex items-center justify-between flex-col rounded-[20px] rounded-b-[30px] `,
+    mainDiv: ` relatie w-[360px] h-[600px]  max_sm:w-[300px] relative   flex items-center justify-between flex-col rounded-[20px] rounded-b-[30px] `,
     img: `w-[100%] h-[72%] rounded-t-[20px] `,
     dec: ` cursor-pointer absolute bottom-0   w-[100%] h-[35%] rounded-b-[20px]    `,
     topDiv: ` rounded-t-[20px] text-white flex items-end justify-end p-2 px-5  absolute  bg-opacity-10 w-[100%] `,
@@ -17,7 +17,7 @@ const MovieCard: FC<movieDataType> = (data) => {
     header: `text-white    text-[1.5rem] pl-3  `,
     p: `text-gray-400 p-4  text-start pl-3 absolute mb-20 w-[100%]  gradiantCardText   `,
     bottomDiv: `relative flex top-[8rem] left-[1rem] gap-10`,
-    metadata: `text-white text-[12px] flex items-center gap-2`,
+    metadata: `text-white text-[12px] max_sm:text-[9px] flex items-center gap-2`,
     line: `w-[1px] h-[15px] bg-white`,
   }
 

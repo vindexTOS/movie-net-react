@@ -20,7 +20,7 @@ import { useLocation, useNavigate } from 'react-router-dom'
 const PostMovie = () => {
   const { color1, color2, image, htmlImg, ActorsForDB } = useMainContext()
   const style = {
-    mainDiv: `flex    items-center justify-around gap-5 w-[90%] h-[900px]  max_lg:h-[1800px]  max_lg:items-center  max_lg:justify-center    backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow`,
+    mainDiv: `flex   z-10 ZindexMinus items-center justify-around gap-5 w-[90%] h-[900px]  max_lg:h-[1800px]  max_lg:items-center  max_lg:justify-center    backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow`,
     TitleAndImg: `flex flex-col gap-2 items-center justify-start w-[50%]  max_lg:w-[90%]`,
     btn: `text-white  w-[90%] bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2`,
   }

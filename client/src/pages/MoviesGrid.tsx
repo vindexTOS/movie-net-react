@@ -32,7 +32,7 @@ const MoviesGrid = () => {
             <MovieCard key={val._id} {...val} />
           ))}
         </main>
-        <div className="  gap-3   flex w-[100px] element-without-scrollbar   overflow-x-scroll ">
+        <div className="  gap-3 flex w-[90%] items-center  justify-center mt-4 rounded-[20px] element-without-scrollbar bg-gray-900  overflow-x-scroll ">
           {new Array(movieData?.TotalPages)
             .fill('')
             .map((val: string, index: number) => (

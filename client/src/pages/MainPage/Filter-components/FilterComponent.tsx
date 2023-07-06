@@ -16,10 +16,10 @@ const FilterComponent: FC<FilterPropsType> = ({
   setStateAction,
 }) => {
   const style = {
-    mainDiv: `w-[15rem] h-[3rem] bg-gray-200   z-50 relative boxshaddow rounded-[20px] flex items-center  justify-around `,
+    mainDiv: `w-[15rem] h-[3rem] bg-gray-200     relative boxshaddow rounded-[20px] flex items-center  justify-around `,
     input: ` outline-none w-[8rem] bg-transparent text-center`,
     arrowDiv: `flex items-center justify-around w-[95%] cursor-pointer`,
-    mappedDiv: ` absolute top-10 bg-gray-200 w-[100%] z-50 overflow-y-scroll  element-without-scrollbar  max-h-[200px] items-center flex flex-col rounded-b-[9px]  rounded-t-[6px] boxshaddow `,
+    mappedDiv: `  absolute top-10 bg-gray-200 w-[100%] z-50 overflow-y-scroll  element-without-scrollbar  max-h-[200px] items-center flex flex-col rounded-b-[9px]  rounded-t-[6px] boxshaddow `,
     selectItem: `hover:bg-gray-400 hover:text-white w-[100%] rounded-[5px] cursor-pointer flex items-center justify-center`,
   }
   const [search, setSearch] = useState<string>('')

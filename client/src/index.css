@@ -17,7 +17,7 @@ h1 {
 }
 
 body {
-  /* background-image: url('./assets/background/background.jpg'); */
+  background-image: url('./assets/background/blade-runner.jpg');
 
   background-color: #0e1020;
 }
@@ -222,4 +222,12 @@ how to remove the virtical space around the range input in IE*/
   to {
     transform: rotate(360deg);
   }
+}
+
+.Zindex {
+  z-index: 100000;
+}
+
+.ZindexMinus {
+  z-index: 10;
 }

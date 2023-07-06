@@ -11,8 +11,8 @@ import { removePhotoUrl } from '../../../redux/features/slices/CreateMovieSlice'
 const PostActorMain = () => {
   const { removeImgFromHtml } = useMainContext()
   const style = {
-    section: `w-[100%] h-[100%] py-20 flex justify-center  items-center`,
-    mainDiv: ` h-[100%] gap-5 py-10 w-[100%] flex flex-col items-center    backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow flex   `,
+    section: `w-[100%] h-[100%] py-20 flex justify-center items-center`,
+    mainDiv: ` h-[100%] gap-5 py-10 w-[100%] flex flex-col items-center  z-10  ZindexMinus   backdrop-blur-sm bg-white/10 rounded-[12px] boxshaddow flex   `,
     btn:
       'text-white w-[55%] boxshaddow h-[3rem] text-[1.2rem] bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800 font-medium rounded-[20px]   px-5 py-2.5 text-center mr-2 mb-2',
     btn2: `text-white w-[55%] boxshaddow h-[3rem] text-[1.2rem] bg-gradient-to-br from-gray-400 to-gray-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-gray-200 dark:focus:ring-gray-800 font-medium rounded-[20px]   px-5 py-2.5 text-center mr-2 mb-2`,

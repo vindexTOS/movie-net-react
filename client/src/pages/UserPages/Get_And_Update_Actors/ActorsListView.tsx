@@ -11,8 +11,8 @@ export type ActorMapProp = {
 const ActorsListView = () => {
   const actorsData = useSelector((state: any) => state.actorsReducer.actorData)
   const style = {
-    section: `w-[100%] h-[100vh] flex  items-center justify-center`,
-    mainDiv: `py-10 w-[60%] max_md:bg-transparent    md:boxshaddow   gridSystem  gap-2 items-center justify-center md:backdrop-blur-sm md:bg-white/10 rounded-[12px]     `,
+    section: `w-[100%]   h-[100vh] flex  items-center justify-center`,
+    mainDiv: `py-10 w-[60%] ZindexMinus max_md:bg-transparent    md:boxshaddow   gridSystem  gap-2 items-center justify-center md:backdrop-blur-sm md:bg-white/10 rounded-[12px]     `,
   }
 
   return (
