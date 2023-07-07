@@ -4,6 +4,7 @@ import MovieCard from './MainPage/MovieCard'
 import { movieDataType } from '../assets/dummydata/data'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ThunkDispatch } from '@reduxjs/toolkit'
+import MovieCardSkeleton from '../components/loading-skeletons/MovieCardSkeleton'
 import { GetAllMovies } from '../redux/features/Thunks/MovieCrud'
 const MoviesGrid = () => {
   const movieData = useSelector((state: any) => state.data.movieData)
@@ -24,7 +25,14 @@ const MoviesGrid = () => {
   }, [])
   const navigation = useNavigate()
   const { pages } = useParams()
-  if (movieData) {
+  const [autoLoader, setAutoLoader] = React.useState<boolean>(false)
+  useEffect(() => {
+    setTimeout(() => {
+      setAutoLoader(true)
+    }, 2000)
+  }, [])
+
+  if (autoLoader && movieData) {
     return (
       <section className={style.section}>
         <main className={style.main}>
@@ -32,8 +40,8 @@ const MoviesGrid = () => {
             <MovieCard key={val._id} {...val} />
           ))}
         </main>
-        <div className="  gap-3 flex w-[90%] items-center  justify-center mt-4 rounded-[20px] element-without-scrollbar bg-gray-900  overflow-x-scroll ">
-          {new Array(movieData?.TotalPages)
+        <div className="  gap-3 flex w-[90%] items-center  justify-center mt-4 rounded-[20px] element-without-scrollbar bg-gray-900/80  overflow-x-scroll ">
+          {new Array(movieData.TotalPages)
             .fill('')
             .map((val: string, index: number) => (
               <p
@@ -50,10 +58,9 @@ const MoviesGrid = () => {
                       )
                   }
                 }}
-                className={` text-[1.3rem]  cursor-pointer   `}
-                style={{
-                  color: Number(pages) === index + 1 ? 'blue' : `white`,
-                }}
+                className={` text-[1.4rem] font-serif cursor-pointer  ${
+                  Number(pages) === index + 1 ? 'text-blue-400' : 'text-white'
+                }   `}
                 key={index}
               >
                 {index + 1}
@@ -63,7 +70,13 @@ const MoviesGrid = () => {
       </section>
     )
   } else {
-    return <div onClick={() => movieData}>Loading</div>
+    return (
+      <div className={style.main}>
+        {new Array(8).fill(MovieCardSkeleton).map((Val: any, i: number) => (
+          <Val key={i} />
+        ))}
+      </div>
+    )
   }
 }
 

@@ -10,8 +10,8 @@ import { ThunkDispatch } from '@reduxjs/toolkit'
 const ActorsMoviesMain = () => {
   const { actorName } = useParams()
   const style = {
-    mainDiv: `w-[100%]   ZindexMinuss pb-10 gap-20 flex  flex-col items-center justify-center  `,
-    actorInfo: `flex   max_smm1:flex-col w-[100%] bg-[#655c70]/50 p-10 boxshaddow items-center justify-around`,
+    mainDiv: `w-[100%]      ZindexMinuss pb-10 gap-20 flex  flex-col items-center justify-center  `,
+    actorInfo: `flex   max_smm1:flex-col w-[100%] backdrop-blur-sm  bg-[#655c70]/40 p-10 boxshaddow items-center justify-around`,
     img: `w-[300px] h-[300px] rounded-[10px] shadow-md`,
     header: `text-[4rem] text-yellow-400`,
     moviesWrapper: `gridSystem gap-20  max_smm1:  w-[90%] items-center justify-center gap-2    backdrop-blur-sm bg-blue-300/10 rounded-[12px] boxshaddow py-20     `,
@@ -41,7 +41,7 @@ const ActorsMoviesMain = () => {
   const { img, name } = currentActor || {}
   if (currentActor) {
     return (
-      <div className={style.mainDiv}>
+      <div onClick={() => console.log(ActorMovies)} className={style.mainDiv}>
         <section className={style.actorInfo}>
           <img onClick={() => ActorMovies} className={style.img} src={img} />
           <h1 className={style.header}>{name}</h1>

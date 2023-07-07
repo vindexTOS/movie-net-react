@@ -18,7 +18,7 @@ const NavDropDown: FC<NavDropDownProp> = ({ setDropDown }) => {
 
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()
   const style = {
-    mainDiv: `w-[300px] py-2 max-h-[370px] pb-10  bg-gray-900/80   Zindex  boxshaddow absolute right-3 top-[6rem] flex flex-col items-center pl-8 justify-start pt-10 gap-5     rounded-[20px]`,
+    mainDiv: `w-[300px]    py-2 max-h-[370px] pb-10  bg-gray-900/80   Zindex  boxshaddow absolute right-3 top-[6rem] flex flex-col items-center pl-8 justify-start pt-10 gap-5     rounded-[20px]`,
   }
   const navigate = useNavigate()
   return (

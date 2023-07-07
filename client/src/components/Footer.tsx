@@ -3,7 +3,7 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 const Footer = () => {
   const style = {
-    footer: `w-[100%] h-[130px] bg-gray-900 flex flex-col items-center justify-center`,
+    footer: `w-[100%] h-[130px] bg-gray-800/20 backdrop-blur-sm shaddow-md flex flex-col items-center justify-center`,
   }
   return (
     <footer className={style.footer}>

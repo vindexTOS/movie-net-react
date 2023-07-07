@@ -13,7 +13,7 @@ import Menu from './Menu'
 const NavBar = () => {
   const navigate = useNavigate()
   const style = {
-    nav: `w-[100%] relative z-20  h-[100px] max_smm1:px-5 backdrop-blur-sm bg-white/10  flex items-center justify-between px-20`,
+    nav: `w-[100%] relative   Zindex  h-[100px] max_smm1:px-5 backdrop-blur-sm bg-white/10  flex items-center justify-between px-20`,
     icno: `text-[3rem] text-white bg-pink-600 rounded-[50%] cursor-pointer`,
   }
   const dispatch = useDispatch<ThunkDispatch<any, any, any>>()

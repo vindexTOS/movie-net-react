@@ -171,7 +171,7 @@ export const filmData: movieDataType[] = [
     color: `rgba(2, 4, 44, 0.7)`,
     color2: `#cc0319`,
     img: `https://i0.wp.com/artofvfx.com/wp-content/uploads/2017/08/blade_runner_twenty_forty_nine_ver5_xlg.jpg`,
-    video: ` `,
+    video: `https://www.youtube.com/embed/O0BHvF45KOA`,
     description: `The story opens in 2049, thirty years after the events of the first film. An on-screen text states that the Tyrell Corporation has collapsed decades before, in the wake of violent revolts involving their Nexus-6 through -8 Replicants, forcing the company into bankruptcy. After the world's ecosystems collapsed in the mid 2020s, famine swept the Earth, killing millions. With his invention of synthetic farming, a wealthy businessman named Niander Wallace (Jared Leto) ended food shortages and acquired Tyrell's remaining assets to form his own corporation. The Wallace Company has reinvigorated the Replicant industry by mass producing the Nexus-9 Replicants, a new generation of artificial humans with modified behavior to make them more obedient than the older models. These Replicants have implanted memories and open-ended lifespans, and are still used for slave labor on the off-world colonies (the Moon, Mars, and the moons of Jupiter, Saturn, etc.), but some are also used as Blade Runner units, hunting down and "retiring" the few remaining older model Replicants that are still at large.`,
     actors: [
       {
