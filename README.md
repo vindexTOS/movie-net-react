@@ -35,8 +35,7 @@ Copy code
 4. Start the development server. For example:
 npm start
 
-csharp
-Copy code
+You need to install mssql and create database, install dotnet on server side and run it with dotnet run 
 
 ## Usage
 - Open the application in your web browser.
