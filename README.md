@@ -1,4 +1,4 @@
-Live Link: [https://64a7f24605790660b1adec41--movie-clubge.netlify.app/](https://64a7f24605790660b1adec41--movie-clubge.netlify.app/)
+Live Link: [Movie Club](https://64a7f24605790660b1adec41--movie-clubge.netlify.app/)
 
 
 
