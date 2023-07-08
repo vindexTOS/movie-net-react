@@ -1,4 +1,5 @@
-Live Link: [Movie Club](https://64a7f24605790660b1adec41--movie-clubge.netlify.app/)
+ 
+[![Live Link](https://img.shields.io/badge/Live%20Link-https%3A%2F%2Fpcmarket.netlify.app%2F-blue)](https://64a7f24605790660b1adec41--movie-clubge.netlify.app/)
 
 
 # Movie Club - Movie Rating App
